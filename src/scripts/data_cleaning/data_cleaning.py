@@ -15,6 +15,7 @@ def format_attribute_ratings(ratings):
     ratings['overall'] = ratings['overall'].astype(float)
     ratings['date'] = ratings['date'].astype(int)
     ratings['date'] = ratings['date'].apply(lambda data_seconds : datetime.fromtimestamp(data_seconds).date())
+    ratings['date']=pd.to_datetime(ratings['date'])
     
     return ratings
     
@@ -69,6 +70,7 @@ def format_attribute_tagged(tagged):
     tagged['user_id'] = tagged['user_id'].astype(str)
     tagged['date'] = tagged['date'].astype(int)
     tagged['date'] = tagged['date'].apply(lambda data_seconds : datetime.fromtimestamp(data_seconds).date())
+    tagged['date']=pd.to_datetime(tagged['date'])
 
     return tagged
 
@@ -77,6 +79,8 @@ def format_attribute_users(users):
     
 # Applica la trasformazione solo se il valore non è NaN
    users['joined'] = users['joined'].apply(lambda data_seconds: datetime.fromtimestamp(data_seconds).date() if pd.notna(data_seconds) else data_seconds)
+
+   users['joined'] =pd.to_datetime(users['joined'])
    users['user_id'] = users['user_id'].astype(object)
    
 
