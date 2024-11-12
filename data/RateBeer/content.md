@@ -1,6 +1,6 @@
 # Content
 
-This foulder should contain the following files before running `data_cleaning.ipynb`
+This folder should contain the following files before running `data_cleaning.ipynb`
 - `beers.csv`
 - `breweries.csv`
 - `ratings_RB.csv`
