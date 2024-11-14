@@ -1,7 +1,55 @@
-from .load_file import load_dataframes
 from datetime import datetime
 import pandas as pd
 import os
+
+def load_dataframes(datapath):
+    # names of files and respective folders
+    datapath_rate_beer = datapath+'/RateBeer'
+    datapath_beer_advocade = datapath+'/BeerAdvocate'
+    
+    beers_RB_file_name = "beers.csv"  
+    breweries_RB_file_name = "breweries.csv"
+    users_RB_file_name = "users.csv"
+    ratings_RB_file_name = "ratings_RB.csv"
+    tagged_RB_file_name = "reviews_tagged.csv"
+
+    beers_BA_file_name = "beers.csv"  
+    breweries_BA_file_name = "breweries.csv"
+    users_BA_file_name = "users.csv"
+    ratings_BA_file_name = "ratings_BA.csv"
+    ratings_BA_file_name = "ratings_BA.csv"
+    tagged_BA_file_name =  "reviews_tagged.csv"
+  
+
+    beers_RB_path = os.path.join(datapath_rate_beer, beers_RB_file_name)
+    breweries_RB_path = os.path.join(datapath_rate_beer, breweries_RB_file_name)
+    users_RB_path = os.path.join(datapath_rate_beer, users_RB_file_name)
+    rating_RB_path = os.path.join(datapath_rate_beer, ratings_RB_file_name)
+    tagged_RB_path = os.path.join(datapath_rate_beer, tagged_RB_file_name)
+
+    beers_BA_path = os.path.join(datapath_beer_advocade, beers_BA_file_name)
+    breweries_BA_path = os.path.join(datapath_beer_advocade, breweries_BA_file_name)
+    users_BA_path = os.path.join(datapath_beer_advocade, users_BA_file_name)
+    rating_BA_path = os.path.join(datapath_beer_advocade, ratings_BA_file_name)
+    tagged_BA_path = os.path.join(datapath_beer_advocade, tagged_BA_file_name)
+    
+    
+
+    # load csv in dataFrames
+    beer_RB = pd.read_csv(beers_RB_path)
+    breweries_RB = pd.read_csv(breweries_RB_path)
+    users_RB = pd.read_csv(users_RB_path)
+    ratings_RB=pd.read_csv(rating_RB_path)
+    tagged_RB=pd.read_csv(tagged_RB_path)
+
+    beer_BA = pd.read_csv(beers_BA_path)
+    breweries_BA = pd.read_csv(breweries_BA_path)
+    users_BA = pd.read_csv(users_BA_path)
+    ratings_BA =pd.read_csv(rating_BA_path)
+    tagged_BA= pd.read_csv(tagged_BA_path)
+   
+
+    return beer_RB, breweries_RB, users_RB, ratings_RB, tagged_RB, beer_BA, breweries_BA, users_BA, ratings_BA, tagged_BA
 
 def format_attribute_ratings(ratings):
    
@@ -149,16 +197,16 @@ def delete_users_with_no_reviews(df_ratings, df_users):
 def save_dataframes(ratings_BA, beer_BA_merged, breweries_BA, users_BA_cleaned, ratings_RB, beer_RB_merged, breweries_RB, users_RB_cleaned, folder_path):
 
     beerAdvocate_dir = folder_path + '/BeerAdvocate'
-    ratings_BA.to_csv(os.path.join(beerAdvocate_dir, 'ratings_BA_clean.csv'))
-    beer_BA_merged.to_csv(os.path.join(beerAdvocate_dir, 'beers_BA_clean.csv'))
-    breweries_BA.to_csv(os.path.join(beerAdvocate_dir, 'breweries_BA_clean.csv'))
-    users_BA_cleaned.to_csv(os.path.join(beerAdvocate_dir, 'users_BA_clean.csv'))
+    ratings_BA.to_csv(os.path.join(beerAdvocate_dir, 'ratings_BA_clean.csv'), index=False)
+    beer_BA_merged.to_csv(os.path.join(beerAdvocate_dir, 'beers_BA_clean.csv'), index=False)
+    breweries_BA.to_csv(os.path.join(beerAdvocate_dir, 'breweries_BA_clean.csv'), index=False)
+    users_BA_cleaned.to_csv(os.path.join(beerAdvocate_dir, 'users_BA_clean.csv'), index=False)
 
     rateBeer_dir = folder_path + '/RateBeer'
-    ratings_RB.to_csv(os.path.join(rateBeer_dir, 'ratings_RB_clean.csv'))
-    beer_RB_merged.to_csv(os.path.join(rateBeer_dir, 'beers_RB_clean.csv'))
-    breweries_RB.to_csv(os.path.join(rateBeer_dir, 'breweries_RB_clean.csv'))
-    users_RB_cleaned.to_csv(os.path.join(rateBeer_dir, 'users_RB_clean.csv'))
+    ratings_RB.to_csv(os.path.join(rateBeer_dir, 'ratings_RB_clean.csv'), index=False)
+    beer_RB_merged.to_csv(os.path.join(rateBeer_dir, 'beers_RB_clean.csv'), index=False)
+    breweries_RB.to_csv(os.path.join(rateBeer_dir, 'breweries_RB_clean.csv'), index=False)
+    users_RB_cleaned.to_csv(os.path.join(rateBeer_dir, 'users_RB_clean.csv'), index=False)
 
 #* Entry point
 def clean_data(folder_path):
