@@ -1,5 +1,8 @@
+from .load_file import load_dataframes
 from datetime import datetime
 import pandas as pd
+import os
+
 def format_attribute_ratings(ratings):
    
     '''
@@ -76,8 +79,7 @@ def format_attribute_tagged(tagged):
 
 def format_attribute_users(users):
 
-    
-# Applica la trasformazione solo se il valore non è NaN
+   # Executes the function only if the value is not NaN
    users['joined'] = users['joined'].apply(lambda data_seconds: datetime.fromtimestamp(data_seconds).date() if pd.notna(data_seconds) else data_seconds)
 
    users['joined'] =pd.to_datetime(users['joined'])
@@ -86,7 +88,105 @@ def format_attribute_users(users):
 
    return users
 
+# Load the dataframes and format them
+def load_formatted_dataframes(folder_path):
 
+    beer_RB, breweries_RB, users_RB, ratings_RB, tagged_RB, beer_BA, breweries_BA, users_BA, ratings_BA, tagged_BA= load_dataframes(folder_path)
 
+    ratings_RB = format_attribute_ratings(ratings_RB)
+    ratings_BA = format_attribute_ratings(ratings_BA)
 
-    
+    breweries_RB = format_attribute_breweries(breweries_RB)
+    breweries_BA = format_attribute_breweries(breweries_BA)
+
+    tagged_BA=format_attribute_tagged(tagged_BA)
+    tagged_RB=format_attribute_tagged(tagged_RB)    
+
+    beer_RB = format_attribute_beers(beer_RB)
+    beer_BA = format_attribute_beers_BA(beer_BA)
+
+    users_RB = format_attribute_users(users_RB)
+    users_BA = format_attribute_users(users_BA)
+
+    return beer_RB, breweries_RB, users_RB, ratings_RB, tagged_RB, beer_BA, breweries_BA, users_BA, ratings_BA, tagged_BA
+
+def drop_duplicates_in_dataframes(users_RB, tagged_RB, tagged_BA, ratings_RB):
+
+    users_RB = users_RB.drop_duplicates(subset='user_id', keep='first')
+    tagged_RB = tagged_RB.drop_duplicates(subset=['beer_id', 'date', 'user_id'], keep='first')
+    tagged_BA = tagged_BA.drop_duplicates(subset=['beer_id', 'date', 'user_id'], keep='first')
+    ratings_RB = ratings_RB.drop_duplicates(subset=['user_id', 'beer_id',  'date'], keep='first')
+
+    return users_RB, tagged_RB, tagged_BA, ratings_RB
+
+def delete_beers_with_no_reviews(df_ratings, df_beer):
+    df_extract = df_beer[['beer_id', 'beer_name','brewery_id','brewery_name','style']]
+    ratings_grouped_beer = df_ratings.groupby(['beer_id'])[['appearance', 'aroma', 'palate', 'taste', 'overall','rating','review']].agg(
+        nbr_ratings=('overall', 'size'),
+        nbr_reviews=('review', 'sum'),
+        aroma_mean=('aroma', 'mean'),
+        aroma_std=('aroma', 'std'),
+        palate_mean=('palate', 'mean'),
+        palate_std=('palate', 'std'),
+        taste_mean=('taste', 'mean'),
+        taste_std=('taste', 'std'),
+        overall_mean=('overall', 'mean'),
+        overall_std=('overall', 'std')
+    )
+    return pd.merge(df_extract, ratings_grouped_beer, left_on='beer_id', right_index=True, how="inner")
+
+def delete_users_with_no_reviews(df_ratings, df_users):
+
+    ratings_group_by_user=df_ratings.groupby('user_id')[['date']].agg(
+        nbr_ratings=('date', 'size'),
+        date_first_review=('date', 'min')
+    )
+
+    df_users_cleaned = df_users[['user_id', 'user_name', 'joined','location']]
+
+    return pd.merge(df_users_cleaned, ratings_group_by_user, left_on='user_id', right_index=True, how='inner')
+
+def save_dataframes(ratings_BA, beer_BA_merged, breweries_BA, users_BA_cleaned, ratings_RB, beer_RB_merged, breweries_RB, users_RB_cleaned, folder_path):
+
+    beerAdvocate_dir = folder_path + '/BeerAdvocate'
+    ratings_BA.to_csv(os.path.join(beerAdvocate_dir, 'ratings_BA_clean.csv'))
+    beer_BA_merged.to_csv(os.path.join(beerAdvocate_dir, 'beers_BA_clean.csv'))
+    breweries_BA.to_csv(os.path.join(beerAdvocate_dir, 'breweries_BA_clean.csv'))
+    users_BA_cleaned.to_csv(os.path.join(beerAdvocate_dir, 'users_BA_clean.csv'))
+
+    rateBeer_dir = folder_path + '/RateBeer'
+    ratings_RB.to_csv(os.path.join(rateBeer_dir, 'ratings_RB_clean.csv'))
+    beer_RB_merged.to_csv(os.path.join(rateBeer_dir, 'beers_RB_clean.csv'))
+    breweries_RB.to_csv(os.path.join(rateBeer_dir, 'breweries_RB_clean.csv'))
+    users_RB_cleaned.to_csv(os.path.join(rateBeer_dir, 'users_RB_clean.csv'))
+
+#* Entry point
+def clean_data(folder_path):
+    # Load dataframes
+    beer_RB, breweries_RB, users_RB, ratings_RB, tagged_RB, beer_BA, breweries_BA, users_BA, ratings_BA, tagged_BA= load_formatted_dataframes(folder_path)
+
+    # Drop duplicate
+    users_RB, tagged_RB, tagged_BA, ratings_RB = drop_duplicates_in_dataframes(users_RB, tagged_RB, tagged_BA, ratings_RB)
+
+    # Add a boolean column 'review'. True if there is a valid textual review, False otherwise
+    ratings_RB['review']=ratings_RB['text'].apply(lambda text: pd.notna(text) and str(text).strip() != '')
+    ratings_BA['review']=ratings_BA['text'].apply(lambda text: pd.notna(text) and str(text).strip() != '')
+
+    # If appearance	'aroma' 'palate' 'taste' 'overall' and 'review' are all False, delete the row
+    #? BUG???
+    ratings_BA = ratings_BA.dropna(subset=['appearance', 'aroma', 'palate', 'taste', 'overall', 'text'], how='all')
+
+    # Delete beers with no reviews
+    beer_RB_merged = delete_beers_with_no_reviews(ratings_RB ,beer_RB)
+    beer_BA_merged = delete_beers_with_no_reviews(ratings_BA ,beer_BA)
+
+    # Merge the cleaned dataframes with the tagged dataframes
+    ratings_RB = pd.merge(ratings_RB, tagged_RB, left_on=['beer_id', 'date', 'user_id'],right_on=['beer_id', 'date', 'user_id'], how='left')
+    ratings_BA = pd.merge(ratings_BA, tagged_BA, left_on=['beer_id', 'date', 'user_id'],right_on=['beer_id', 'date', 'user_id'], how='left')
+
+    # Delete users with no reviews
+    users_BA_cleaned = delete_users_with_no_reviews(ratings_BA, users_BA)
+    users_RB_cleaned = delete_users_with_no_reviews(ratings_RB, users_RB)
+
+    # Save cleaned dataframes
+    save_dataframes(ratings_BA, beer_BA_merged, breweries_BA, users_BA_cleaned, ratings_RB, beer_RB_merged, breweries_RB, users_RB_cleaned, folder_path)

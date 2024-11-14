@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 def load_dataframes(datapath):
-    # Nomi dei file CSV nelle rispettive cartelle
+    # names of files and respective folders
     datapath_rate_beer = datapath+'/RateBeer'
     datapath_beer_advocade = datapath+'/BeerAdvocate'
     
