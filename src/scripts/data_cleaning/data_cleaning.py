@@ -183,16 +183,29 @@ def delete_beers_with_no_reviews(df_ratings, df_beer):
     )
     return pd.merge(df_extract, ratings_grouped_beer, left_on='beer_id', right_index=True, how="inner")
 
-def delete_users_with_no_reviews(df_ratings, df_users):
+def delete_users_with_no_reviews_BA(df_ratings, df_users):
 
-    ratings_group_by_user=df_ratings.groupby('user_id')[['date']].agg(
-        nbr_ratings=('date', 'size'),
-        date_first_review=('date', 'min')
+    ratings_group_by_user = df_ratings.groupby('user_id')[['date']].agg(
+        nbr_ratings = ('date', 'size'),
+        date_first_review = ('date', 'min')
     )
 
     df_users_cleaned = df_users[['user_id', 'user_name', 'joined','location']]
 
     return pd.merge(df_users_cleaned, ratings_group_by_user, left_on='user_id', right_index=True, how='inner')
+
+def delete_users_with_no_reviews_RB(df_ratings, df_users):
+
+    ratings_group_by_user = df_ratings.groupby('user_name')[['date']].agg(
+        nbr_ratings = ('date', 'size'),
+        date_first_review = ('date', 'min')
+    )
+    ratings_group_by_user = ratings_group_by_user.reset_index()
+
+    df_users_cleaned = df_users[['user_id', 'user_name', 'joined','location']]
+
+    return pd.merge(df_users_cleaned, ratings_group_by_user, left_on='user_name', right_on="user_name")
+
 
 def save_dataframes(ratings_BA, beer_BA_merged, breweries_BA, users_BA_cleaned, ratings_RB, beer_RB_merged, breweries_RB, users_RB_cleaned, folder_path):
 
@@ -233,8 +246,8 @@ def clean_data(folder_path):
     ratings_BA = pd.merge(ratings_BA, tagged_BA, left_on=['beer_id', 'date', 'user_id'],right_on=['beer_id', 'date', 'user_id'], how='left')
 
     # Delete users with no reviews
-    users_BA_cleaned = delete_users_with_no_reviews(ratings_BA, users_BA)
-    users_RB_cleaned = delete_users_with_no_reviews(ratings_RB, users_RB)
+    users_BA_cleaned = delete_users_with_no_reviews_BA(ratings_BA, users_BA)
+    users_RB_cleaned = delete_users_with_no_reviews_RB(ratings_RB, users_RB)
 
     # Save cleaned dataframes
     save_dataframes(ratings_BA, beer_BA_merged, breweries_BA, users_BA_cleaned, ratings_RB, beer_RB_merged, breweries_RB, users_RB_cleaned, folder_path)
