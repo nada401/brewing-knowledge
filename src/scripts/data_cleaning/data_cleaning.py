@@ -234,7 +234,6 @@ def clean_data(folder_path):
     ratings_BA['review']=ratings_BA['text'].apply(lambda text: pd.notna(text) and str(text).strip() != '')
 
     # If appearance	'aroma' 'palate' 'taste' 'overall' and 'review' are all False, delete the row
-    #? BUG???
     ratings_BA = ratings_BA.dropna(subset=['appearance', 'aroma', 'palate', 'taste', 'overall', 'text'], how='all')
 
     # Delete beers with no reviews
