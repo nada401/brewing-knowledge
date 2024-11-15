@@ -54,24 +54,12 @@ def add_ex_score_BA (data_path):
     - It filters reviews marked as 'True' for 'review' status.
     - The function applies the `score_df` function to add experience-based scores to each review.
     - The processed DataFrame is saved as 'reviews_with_exp_scores.csv' in the 'BeerAdvocate' directory.
-    
-    Example:
-    -------
-    >>> add_ex_score_BA('/path/to/data')
     """
     advocate_dir = os.path.join(data_path, 'BeerAdvocate')
     reviews_ba = pd.read_csv(os.path.join(advocate_dir, 'ratings_BA_clean.csv'))
 
-    print("review_BA_clea.csv read!")
-
     rev_true = reviews_ba[reviews_ba['review']==True][['user_id', 'beer_id', 'date', 'text']]
-    
-    print("Starting to calculate the scores!")
 
     rev_true = score_df(rev_true)
 
-    print("Saving results to a csv!")
-
     rev_true.to_csv(os.path.join(advocate_dir, 'reviews_with_exp_scores.csv'))
-
-    print("DONE!")
