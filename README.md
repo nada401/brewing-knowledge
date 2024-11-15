@@ -17,21 +17,21 @@ We don’t plan to add any additional datasets. We plan however to use some accr
 ## Methods
 
 ### Data cleaning
-Format the attributes of dataframes
-Clean ratings dataframe
-Checking for duplicated reviews made by same user on same day for the same beer 
-Drops rows that have nan values in all metrics and text simultaneously
-Update column “review”  indicating whether a review is actually present
-Add tag column that indicates the language of the review (NaN if no review)
-N.B for ratebeer we consider user_name to match users between the rating dataset and the user dataset, for beeradvocate itìs fine using user_id
+- Format the attributes of dataframes
+- Clean ratings dataframe
+  - Checking for duplicated reviews made by same user on same day for the same beer 
+  - Drops rows that have nan values in all metrics and text simultaneously
+  - Update column “review”  indicating whether a review is actually present
+  - Add tag column that indicates the language of the review (NaN if no review)
+  - N.B for ratebeer we consider user_name to match users between the rating dataset and the user dataset, for beeradvocate itìs fine using user_id
+- Clean user dataframe
+  - Check for user with same user-id (should be unique), and delete duplicate users (only present in rateBeer)
+  -  Add column “date_first_review” indicating the date on which they made the first review 
+  - Update column nbr_ratings doing a merge with ratings dataframe (using user_name as key)
+- Clean beer dataframes
+  - Since the original dataframes where confusing and with a lot of NaN values, recompute the avg and std of all the metrics for all the beers,
+  - Update column nbr_ratings and nbr_reviews, computed with a merge on the ratings database cleaned 
 
-Clean user dataframe
-Check for user with same user-id (should be unique), and delete duplicate users (only present in rateBeer)
-      -     Add column “date_first_review” indicating the date on which they made the first review 
-      - Update column nbr_ratings doing a merge with ratings dataframe (using user_name as key)
-     -  Clean beer dataframes
-                - Since the original dataframes where confusing and with a lot of NaN values, recompute the avg and std of all the metrics for all the beers,
-              - Update column nbr_ratings and nbr_reviews, computed with a merge on the ratings database cleaned 
 
 ### Review analysis
 
