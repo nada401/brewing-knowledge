@@ -1,35 +1,40 @@
-from scipy.stats import pearsonr
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 import numpy as np
-import os
+from scipy.stats import pearsonr
 
-def get_expert_metric_dfs(data_path):
-    advocate_dir = os.path.join(data_path, 'BeerAdvocate')
 
-    rev_with_scores = pd.read_pickle(os.path.join(advocate_dir, 'rev_w_scores.pkl'))
-    rev_with_scores.columns = ['appearance_rt' if i == 9 else col for i, col in enumerate(rev_with_scores_rb.columns)]
-    beers = pd.read_csv(os.path.join(advocate_dir, 'beers_BA_clean.csv'))
-    users = pd.read_csv(os.path.join(advocate_dir, 'users_BA_clean.csv'))
 
-    rev_with_scores['date'] =  pd.to_datetime(rev_with_scores['date'])
-    users['date_first_review'] = pd.to_datetime(users['date_first_review'])
+def get_scores_for_beers(rev_with_scores, exp_categories):
+    col_to_keep = ['beer_id'] + exp_categories
+    scores_for_beer = rev_with_scores.groupby('beer_id').agg(
+        {col: ['mean', 'std'] for col in col_to_keep} | {'beer_id': 'count'}
+    )
 
-    # create a new column with the number of reviews each user gave
-    rev_with_scores_grouped=rev_with_scores.groupby('user_id')['beer_id'].agg(['size'])
-    rev_with_scores_grouped=rev_with_scores_grouped.reset_index()
-    rev_with_scores_grouped=rev_with_scores_grouped.rename(columns={'size': 'nbr_reviews'})
-    users= pd.merge(users, rev_with_scores_grouped, on="user_id")
+    scores_for_beer = scores_for_beer.rename(columns={'beer_id': 'review_count'})
+    scores_for_beer = scores_for_beer[scores_for_beer['review_count']['count']>1]
+    return scores_for_beer
 
-    return rev_with_scores, beers, users
 
-def parse_users(rev_with_scores):
-    col_to_keep = ['flavor', 'mouthfeel', 'brewing', 'technical', 'appearance','off_flavors', 'expertness_score']
-    user_ba = rev_with_scores.groupby('user_id').agg(
+def get_mean_scores_beer(rev_with_scores, exp_categories):
+    col_to_keep = ['beer_id'] + exp_categories
+    mean_scores_beer = rev_with_scores.groupby('beer_id').agg({col: 'mean' for col in col_to_keep} | {'beer_id': 'count'})
+    mean_scores_beer =mean_scores_beer.rename(columns={'beer_id': 'review_count'})
+    return mean_scores_beer
+
+def get_beer_gr(complete_beer, exp_categories):
+    col_to_keep = ['style'] + exp_categories
+    return complete_beer[col_to_keep].groupby('style').mean()
+
+def get_users_stats(rev_with_scores, exp_categories):
+    col_to_keep = ['user_id'] + exp_categories
+    users = rev_with_scores.groupby('user_id').agg(
         {col: 'mean' for col in col_to_keep} | {'user_id': 'count'}
     )
-    user_ba = user_ba.rename(columns={'user_id': 'nbr_rev'})
 
-    return user_ba
+    users = users.rename(columns={'user_id': 'nbr_rev'})
+    return users
 
 def first_reviews(df, max=200):
     """
@@ -60,6 +65,10 @@ def joined_date_zero(reviews):
     -------
         DataFrame where each user's review dates are adjusted relative to their first review date, 
         so that the first review date for each user is zero.
+
+    Example
+    -------
+    >>> joined_date_zero(reviews)
     """
     fir_rev = first_reviews(reviews, max=1).rename(columns={'date': 'first_date'})
     reviews = reviews.merge(fir_rev[['user_id', 'first_date']], on='user_id')
@@ -94,6 +103,10 @@ def standardize(x, y, cols):
 
     return x
 
+def review_of_experts(df, users, nbr_rev=100):
+    x = df.merge(users[['user_id','nbr_ratings']], on='user_id')
+    return x[x['nbr_ratings']>nbr_rev]
+
 def corr_and_count(group, att_1='expertness_score', replace_date=False):
     """
     Calculates the correlation between att_1 and 'date' within a given group, 
@@ -122,19 +135,27 @@ def corr_and_count(group, att_1='expertness_score', replace_date=False):
         correlation= float('nan') 
         p_value = float('nan')
     else:
-        correlation, p_value = pearsonr(group[att_1], group['date'])
+        correlation, p_value = pearsonr(group[att_1], group['date'].astype(int))
     
     return pd.Series({'correlation': correlation,'p_value': p_value,  'total_count': count})
 
-def review_of_experts(df, users, nbr_rev=100):
-    x = df.merge(users[['user_id','nbr_reviews']], on='user_id')
-    return x[x['nbr_reviews']>nbr_rev]
+def plot_corr_and_pvalue(result):
+    fig, axes = plt.subplots(1, 4, figsize=(12, 6), sharey = True) 
 
-def get_scores_for_beer(rev_with_scores, col_to_keep):
-    scores_for_beer = rev_with_scores.groupby('beer_id').agg(
-        {col: ['mean', 'std'] for col in col_to_keep} | {'beer_id': 'count'}
-    )
 
-    scores_for_beer = scores_for_beer.rename(columns={'beer_id': 'review_count'})
-    scores_for_beer = scores_for_beer[scores_for_beer['review_count']['count']>1]
-    return scores_for_beer
+    fig.suptitle("Correlation and p-values by Review Count", fontsize=16)
+    sns.boxplot(y=result['correlation'], ax=axes[0])
+    axes[0].set_title("Correlation (All Data)")
+    axes[0].set_ylabel("Correlation / p-value")
+
+    sns.boxplot(y=result[result['total_count'] > 200]['correlation'], ax=axes[1])
+    axes[1].set_title("Correlation (Reviews > 200)")
+
+    sns.boxplot(y=result['p_value'], ax=axes[2])
+    axes[2].set_title("P-value (All Data)")
+
+    sns.boxplot(y=result[result['total_count'] > 200]['p_value'], ax=axes[3])
+    axes[3].set_title("P-value (Reviews > 200)")
+
+    plt.tight_layout()  
+    plt.show()

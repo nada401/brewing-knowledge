@@ -12,10 +12,9 @@ def compute_occ(df):
                 occ[term]= 1
     return pd.Series(occ)
 
-def get_style_dfs(style, complete_beer, users):
+def get_style_dfs(style, complete_beer, users, exp_categories):
     rev = complete_beer[complete_beer['style_x']==style]
-    col_to_keep = ['user_id','stems','flavor', 'aroma', 'mouthfeel', 'brewing', 'technical', 'appearance', 'judgment','off_flavors', 'miscellaneous', 'expertness_score']
-
+    col_to_keep = ['user_id','stems'] + exp_categories
     rev = rev[col_to_keep]
     return rev, pd.merge(rev, users[['location', 'user_id']], on='user_id')
 
@@ -28,10 +27,10 @@ def plot_country_distrbution(complete_df, threshold=2000):
     plt.xticks(rotation=90)
     plt.show()
 
-def plot_country_exp_score(complete_df, sel_countries):
+def plot_country_exp_score(complete_df, sel_countries, style=''):
     loc_score = complete_df[complete_df['location'].isin(sel_countries)][['location', 'expertness_score']].groupby('location').mean()
     loc_score = loc_score.sort_values(by='expertness_score')
-    plt.title('Imperial Stout Expertness_score')
+    plt.title(style + " Expertness_score")
     plt.bar(loc_score.index, loc_score.expertness_score)
     plt.xticks(rotation=45)
     plt.show()
