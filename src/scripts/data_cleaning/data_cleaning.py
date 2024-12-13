@@ -185,22 +185,35 @@ def delete_beers_with_no_reviews(df_ratings, df_beer):
 
 def delete_users_with_no_reviews_BA(df_ratings, df_users):
 
+    ratings_group_by_user = df_ratings[df_ratings['review']==True].groupby('user_id')[['date']].agg(
+        nbr_reviews = ('date', 'size'),
+    )
+
+    df_users_cleaned = df_users[['user_id', 'user_name', 'joined','location']]
+
+    df_users_cleaned = pd.merge(df_users_cleaned, ratings_group_by_user, left_on='user_id', right_index=True, how='inner')
+
     ratings_group_by_user = df_ratings.groupby('user_id')[['date']].agg(
         nbr_ratings = ('date', 'size'),
         date_first_review = ('date', 'min')
     )
 
-    df_users_cleaned = df_users[['user_id', 'user_name', 'joined','location']]
-
     return pd.merge(df_users_cleaned, ratings_group_by_user, left_on='user_id', right_index=True, how='inner')
 
 def delete_users_with_no_reviews_RB(df_ratings, df_users):
+
+    ratings_group_by_user = df_ratings[df_ratings['review']==True].groupby('user_name')[['date']].agg(
+        nbr_reviews = ('date', 'size'),
+    )
+
+    df_users_cleaned = df_users[['user_id', 'user_name', 'joined','location']]
+
+    df_users_cleaned =  pd.merge(df_users_cleaned, ratings_group_by_user, left_on='user_name', right_on="user_name")
 
     ratings_group_by_user = df_ratings.groupby('user_name')[['date']].agg(
         nbr_ratings = ('date', 'size'),
         date_first_review = ('date', 'min')
     )
-    ratings_group_by_user = ratings_group_by_user.reset_index()
 
     df_users_cleaned = df_users[['user_id', 'user_name', 'joined','location']]
 

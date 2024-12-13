@@ -22,8 +22,8 @@ def plot_country_distrbution(complete_df, threshold=2000):
     loc_size = complete_df.groupby('location').size().sort_values()
     to_plot = loc_size[loc_size > threshold]
     fig  = plt.figure(figsize=(17,7))
-    plt.bar(to_plot.index, to_plot)
-
+    #plt.bar(to_plot.index, to_plot)
+    to_plot.plot(kind='bar', logy=True)
     plt.xticks(rotation=90)
     plt.show()
 

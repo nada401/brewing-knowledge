@@ -27,39 +27,39 @@ def get_beer_gr(complete_beer, exp_categories):
     col_to_keep = ['style'] + exp_categories
     return complete_beer[col_to_keep].groupby('style').mean()
 
-def get_users_stats(rev_with_scores, exp_categories):
-    col_to_keep = ['user_id'] + exp_categories
-    users = rev_with_scores.groupby('user_id').agg(
-        {col: 'mean' for col in col_to_keep} | {'user_id': 'count'}
+def get_users_stats(rev_with_scores, exp_categories, user_id='user_id'):
+    col_to_keep = [user_id] + exp_categories
+    users = rev_with_scores.groupby(user_id).agg(
+        {col: 'mean' for col in col_to_keep} | {user_id: 'count'}
     )
 
-    users = users.rename(columns={'user_id': 'nbr_rev'})
+    users = users.rename(columns={user_id: 'nbr_rev'})
     return users
 
-def first_reviews(df, max=200):
+def first_reviews(df,user_id='user_id', max=200):
     """
     Returns the earliest reviews for each user, up to a specified maximum.
 
     Parameters
     ----------
-    df : DataFrame containing user review data, with 'user_id' and 'date' columns.
+    df : DataFrame containing user review data, with user_id and 'date' columns.
     max : Maximum number of reviews to return per user (default is 200).
 
     Returns
     -------
-    DataFrame containing up to `max` earliest reviews per user, sorted by 'user_id' and 'date'.
+    DataFrame containing up to `max` earliest reviews per user, sorted by user_id and 'date'.
     """
 
-    df = df.sort_values(by=['user_id', 'date'])
-    return df.groupby('user_id').head(max)
+    df = df.sort_values(by=[user_id, 'date'])
+    return df.groupby(user_id).head(max)
 
-def joined_date_zero(reviews):
+def joined_date_zero(reviews, user_id='user_id'):
     """
     Normalizes review dates to the first review date for each user, setting their first review as day zero.
 
     Parameters
     ----------
-    reviews : DataFrame containing user review data, with columns 'user_id' and 'date' (assumed to be datetime).
+    reviews : DataFrame containing user review data, with columns user_id and 'date' (assumed to be datetime).
 
     Returns
     -------
@@ -71,7 +71,7 @@ def joined_date_zero(reviews):
     >>> joined_date_zero(reviews)
     """
     fir_rev = first_reviews(reviews, max=1).rename(columns={'date': 'first_date'})
-    reviews = reviews.merge(fir_rev[['user_id', 'first_date']], on='user_id')
+    reviews = reviews.merge(fir_rev[[user_id, 'first_date']], on=user_id)
     reviews['date'] = reviews['date'] - reviews['first_date'] 
     reviews = reviews.drop(columns=['first_date'])
     return reviews
@@ -103,9 +103,9 @@ def standardize(x, y, cols):
 
     return x
 
-def review_of_experts(df, users, nbr_rev=100):
-    x = df.merge(users[['user_id','nbr_ratings']], on='user_id')
-    return x[x['nbr_ratings']>nbr_rev]
+def review_of_experts(df, users, user_id='user_id', nbr_rev=100):
+    x = df.merge(users[[user_id,'nbr_reviews']], on=user_id)
+    return x[x['nbr_reviews']>nbr_rev]
 
 def corr_and_count(group, att_1='expertness_score', replace_date=False):
     """

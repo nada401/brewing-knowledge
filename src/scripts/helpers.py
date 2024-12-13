@@ -5,16 +5,21 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 
-def get_exp_stems_set(expert_terms):
-    exp_stem_set = []
+def get_exp_dict_stems(data_path, reverse=False):
+    expert_terms = get_exp_terms(data_path)
+    exp_stem_dict = {}
     for category, terms in expert_terms.items():
-        tokens = [word_tokenize(term.lower()) for term in terms]
+        for term in terms:
+            token = word_tokenize(term.lower())
+        
+            stemmer = SnowballStemmer('english')
+            stem_token = stemmer.stem(token[0])
+            if reverse:
+                exp_stem_dict[stem_token] = term
+            else:
+                exp_stem_dict[term] = stem_token
     
-        stemmer = SnowballStemmer('english')
-        stemmed_tokens = [stemmer.stem(word[0]) for word in tokens]
-        exp_stem_set = exp_stem_set + stemmed_tokens
-    
-    return set(exp_stem_set)
+    return exp_stem_dict
 
 def get_exp_terms(data_path):
     with open(os.path.join(data_path, 'expert_terms.json'), 'r') as f:
