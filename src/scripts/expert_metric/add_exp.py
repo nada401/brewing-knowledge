@@ -5,6 +5,7 @@ sys.path.append('../')
 from helpers import *
 
 def score_df(df, expert_categories, expert_terms_stemmed):
+    df.columns = ['appearance_rt' if i == 9 else col for i, col in enumerate(df.columns)]
     for criterion in expert_categories:
         df[criterion] = df['stems'].apply(lambda cell: len(list(set(cell) & set(expert_terms_stemmed[criterion]))))
     df['expertness_score'] = df[expert_categories].sum(axis=1)
@@ -35,10 +36,11 @@ def add_exp_scores(data_path):
     stems_rb = pd.read_pickle(os.path.join(rb_dir, 'reviews_with_exp_stems.pkl'))
     
     expert_terms_stemmed = get_exp_stems(data_path)
+    expert_categories = get_exp_categories(data_path)
 
 
-    df_ba = score_df(stems_ba, expert_terms_stemmed) 
+    df_ba = score_df(stems_ba, expert_categories, expert_terms_stemmed) 
     df_ba.to_pickle(os.path.join(advocate_dir, 'reviews_w_scores.pkl'))
 
-    df_rb = score_df(stems_rb, expert_terms_stemmed)
+    df_rb = score_df(stems_rb, expert_categories, expert_terms_stemmed)
     df_rb.to_pickle(os.path.join(rb_dir, 'reviews_w_scores.pkl'))

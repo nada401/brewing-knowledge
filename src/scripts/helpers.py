@@ -39,3 +39,11 @@ def get_exp_stems(data_path):
         stemmed_tokens = [stemmer.stem(word[0]) for word in tokens]
         expert_terms_stemmed[category] =  stemmed_tokens
     return expert_terms_stemmed
+
+def get_exp_stems_set(data_path):
+    expert_terms_stemmed = get_exp_stems(data_path)
+    exp_stem_set = []
+    for category, terms in expert_terms_stemmed.items():
+        exp_stem_set = exp_stem_set + terms
+        
+    return set(exp_stem_set)
