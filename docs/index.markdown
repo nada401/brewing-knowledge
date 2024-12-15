@@ -15,42 +15,50 @@ kramdown:
 * TOC
 {:toc}
 # Introduction
-[BeerAdvocate](https://www.beeradvocate.com/) and [RateBeer](https://www.ratebeer.com/) are vibrant online communities where beer enthusiasts gather to share their thoughts on a vast selection of beers. Over the years, these platforms have attracted hundreds of thousands of users, reflecting both the accessibility of these websites and the popularity of beer appreciation. Yet, beer critique can be far more than a casual pastime - it is a craft that may be pursued with remarkable depth and precision. This becomes evident when you consider the [Beer Judge Certification Program](https://www.bjcp.org/) (BJCP): achieving their recognition demands rigorous study and practical experience. Aspiring judges must master topics ranging from water alkalinity and malt types to hop varieties, yeast characteristics, and the nuances of fermentation by-products, as outlined in the [BJCP's comprehensive study guide](https://legacy.bjcp.org/docs/BJCP_Study_Guide.pdf).
+[BeerAdvocate](https://www.beeradvocate.com/) and [RateBeer](https://www.ratebeer.com/) are vibrant online communities where beer enthusiasts gather to share their thoughts on a vast selection of beers. Over the years, these platforms have attracted tens of thousands of users, reflecting both the accessibility of these websites and the popularity of beer appreciation. Yet, beer critique can be far more than a casual pastime - it is a craft that may be pursued with remarkable depth and precision. This becomes evident when you consider the [Beer Judge Certification Program](https://www.bjcp.org/) (BJCP): achieving their recognition demands rigorous study and practical experience. Aspiring judges must master topics ranging from water alkalinity and malt types to hop varieties, yeast characteristics, and the nuances of fermentation by-products, as outlined in the [BJCP's comprehensive study guide](https://legacy.bjcp.org/docs/BJCP_Study_Guide.pdf).
 
 But what about the wider community of more casual reviewers on BeerAdvocate and BeerReview? Can we, in a similar spirit but with less granularity, evaluate the expertise demonstrated in their reviews? This question opens the door to intriguing possibilities: Do users hone their beer critique skills as they write more reviews? Do linguistic factors, such as native language, influence their reviewing style?
 
 In this data story, we invite you to join us as we explore these questions, using data to uncover insights about beer critique and the diverse community of reviewers behind it.
 
 # Datasets
-## Pre-Processing
-Mostly language tagging, then trivial things such as dropping duplicates and removing beers with no reviews.
-Stemming
-7% 1%
-We considered english language reviews only, which makes up around 94% of the entire dataset.
+We have used two datasets, one for BeerAdvocate and one for RateBeer. Both datasets were generously provided by EPFL's Data Science Lab, which makes them available upon request. Originally, these datasets were used in the lab's 2018 paper, [their 2018 paper](https://dlab.epfl.ch/people/west/pub/Lederrey-West_WWW-18.pdf) *When Sheep Shop: Measuring Herding Effects in Product Ratings with Natural Experiments*.
+
+Each dataset contains a comprehensive crawling of all beer types, user information, and reviews posted to the respective platforms until 2017. For our study, we have made key additions:
+- **Language Tagging:** Each review was tagged with the language in which it was written. English-language reviews account for 99% of BeerAdvocate reviews and 93% of RateBeer reviews. This allows us to focus exclusively on English reviews without sacrificing data scale, retaining over 9 million reviews for analysis.
+- **Stemming**: We applied a stemming algorithm to the reviews, enabling us to focus on the specific terms used.
 
 # The Metric
-## Review Texts Compared
-
+short description of the metric
+**Review Texts Compared**
+two texts, one with low expertise, one high, and you have checkboxes to highlight different word categories
 ## Word Cloud
 Here is a pretty word cloud of the metric terms most commonly used in both websites
 word_occurrencies
 
 # Results
-## Beer Styles
+## Expertise Over Time
+show improvement over time for all users (even already expert), once for BA and once for RB
+not that good... what if we consider people who started out bad? it improves!
+in ba_analysis_exp_metric users that don't begin as experts correlation time - expertise score, with median because it's good (0.04 pvalue for the correlation when taking the first 50, then there is a plateu)
+the distributions are different, can we explain that? need to check if these people are a lot more international
+
+then division of expert nonexpert english nonenglish
+average scores (normalized) by location over time posted by vikhyat on whatsapp
+
+## Expertise Per Country
+English-Speaking countries performing better (not over time)
+10/12/2024 13:42
+use the normalized graph (score given by the category is divided by the number of words belonging to that category)
+
+expertise per country over time too but need to choose which ones we show
+
+## Beer Styles (not doing it - maybe)
 Most Frequent Words and Expertness Score, both by country, for:
 - BA American IPA, Imperial Stout, 
 - RB IPA, Imperial Stout, Pale Lager
 
-## Expertise Per Country
-English-Speaking countries performing better
-10/12/2024 13:42
-use the normalized graph (score given by the category is divided by the number of words belonging to that category)
-
-## Expertise Over Time
-average scores (normalized) by location over time posted by vikhyat on whatsapp
-in ba_analysis_exp_metric users that don't begin as experts correlation time - expertise score, with median because it's good (0.04 pvalue for the correlation when taking the first 50, then there is a plateu), then division of expert nonexpert english nonenglish
-
-## Scores Correlation Matrix
+## More about our metric - Scores Correlation Matrix
 10/12/2024 14:22 correlation that includes expertness score - review rating
 Expert score is relatively highly correlated with flavor score and appearance score (interpretation: they're the most important features...?)
 it's a very big square, we can have a menu that selects 1 of the three squares (upper left, lower left, lower right)
