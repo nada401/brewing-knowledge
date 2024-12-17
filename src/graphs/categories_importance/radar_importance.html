@@ -9,7 +9,7 @@
   <body>
     <div id="radar-chart" style="width: 80%; height: 600px;"></div>
     <script>
-        // Radar chart data
+        // Data
         var beerData = {
           'American Double / Imperial Pilsner': [0.807, 0.824, 0.963, 1.000, 0.712, 0.145],
           'Belgian IPA': [1.000, 0.818, 0.818, 0.884, 0.733, 0.207],
@@ -19,10 +19,10 @@
           'Gueuze': [0.828, 0.898, 0.255, 0.912, 0.684, 1.000],
         };
       
-        // Radar chart categories
+        // Metric categories
         var categories = ["Flavor", "Mouthfeel", "Brewing", "Technical", "Appearance", "Off flavors"];
 
-        // Color palette
+        // Color-blind aware palette
         var colorPalette = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7'];
       
         // Initialize ECharts instance
@@ -55,7 +55,6 @@
             series: [{
                 type: 'radar',
                 data: Object.keys(beerData).map(function (key, index) {
-                    // color palette
                     var color = colorPalette[index];
                     console.log(color, '\n', key);
                     return {
@@ -82,7 +81,6 @@
                 }
             };
       
-        // Set the radar chart options
         radarChart.setOption(option);
       </script>
   </body>
