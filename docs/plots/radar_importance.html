@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Include the ECharts file you just downloaded -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <!-- <script src="echarts.js"></script> -->
+  </head>
+  <body>
+    <div id="radar-chart" style="width: 80%; height: 600px;"></div>
+    <script>
+        // Data
+        var beerData = {
+          'American Double / Imperial Pilsner': [0.807, 0.824, 0.963, 1.000, 0.712, 0.145],
+          'Belgian IPA': [1.000, 0.818, 0.818, 0.884, 0.733, 0.207],
+          'Irish Dry Stout': [0.681, 1.000, 0.595, 0.615, 0.852, 0.116],
+          'American Pale Wheat Ale': [0.645, 0.710, 1.000, 0.691, 0.745, 0.155],
+          'Black & Tan': [0.609, 0.816, 0.703, 0.613, 1.000, 0.173],
+          'Gueuze': [0.828, 0.898, 0.255, 0.912, 0.684, 1.000],
+        };
+      
+        // Metric categories
+        var categories = ["Flavor", "Mouthfeel", "Brewing", "Technical", "Appearance", "Off flavors"];
+
+        // Color-blind aware palette
+        var colorPalette = ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7'];
+      
+        // Initialize ECharts instance
+        var radarChart = echarts.init(document.getElementById('radar-chart'));
+      
+        // Radar chart options
+        var option = {
+            title: {
+                text: 'Importance of each cateogory of the metric on the final expertness score',
+                left: 'center',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                top: '100',
+            },
+            radar: {
+                indicator: categories.map(function (category) {
+                    return { name: category, max: 1.0 }; // setting max as 1.0 for scaling
+                }),
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                }
+            },
+            series: [{
+                type: 'radar',
+                data: Object.keys(beerData).map(function (key, index) {
+                    var color = colorPalette[index];
+                    console.log(color, '\n', key);
+                    return {
+                        name: key,
+                        value: beerData[key],
+                        areaStyle: {
+                            normal: {
+                                color: color,
+                                opacity: 0.2
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: color
+                            }
+                        }
+                    };
+                    })
+                }],
+                emphasis: {
+                    areaStyle: {
+                        opacity: 0.5
+                    }
+                }
+            };
+      
+        radarChart.setOption(option);
+      </script>
+  </body>
+</html>

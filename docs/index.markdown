@@ -29,14 +29,36 @@ Each dataset contains a comprehensive crawling of all beer types, user informati
 - **Stemming**: We applied a stemming algorithm to the reviews, enabling us to focus on the specific terms used.
 
 # The Metric
-short description of the metric
-**Review Texts Compared**
-two texts, one with low expertise, one high, and you have checkboxes to highlight different word categories
+Developing a methodology to judge a beer critique unavoidably requires some level of domain knowledge from the developers' side. Here is what we learned, distilled to a pint. 
+
+Beers are judged on 4 fundamental factors: *Appearance*, *Aroma*, *Flavor*, and *Mouthfeel*. Both RateBeer and BeerAdvocate allow users to assign individual ratings for each of these factors as well as the overall score. However, our goal requires exploring how each of these categories are addressed in the textual portion of the review. The terminology for beer critique is largely standardized, and the 1979 paper *"Beer Flavour Terminology"* by Dr. Meilgaard et al. gives an in-depth presentation of it as well as this handy chart:  
+
+![Flavour Wheel](wheel.webp)
+
+Our goal is to assess how thoroughly the review discusses each category in their written reviews. To achieve this, we employ a simple yet surprisingly effective approach that we apply to each review:
+1. For every term in the above Flavor Wheel that appeared in the review, we add a point to the review's coverage score of that term's category’s.
+2. We sum every coverage score to obtain the final expertise score for the review.
+
+Here is a small demo of our metric: we illustrate our metric through two example reviews, one that achieved a low score and one that achieved a high score.
+**FILL THIS OUT**
+
 ## Word Cloud
 Here is a pretty word cloud of the metric terms most commonly used in both websites
 word_occurrencies
 
 # Results
+Now that we’ve outlined how we evaluate the expertise level demonstrated in a review, let's see if we can get some interesting insights with our metric.
+
+## Categorical Coverage by Beer Style
+[Beer styles](https://www.bjcp.org/style/2021/beer/) categorize beers based on shared attributes such as ingredients, brewing techniques, and flavor profiles. The interactive radar chart below visualizes the average contribution of each term category to the final expertise score across several popular beer styles. The values are normalized as fractions of the maximum average weight achieved by each category.
+<div class="l-page">
+  <iframe src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="110%" style="border: 1px dashed grey;"></iframe>
+</div>
+Reviews of beers in the *Black & Tan* style show the highest reliance on Appearance terms, which reflects the visually striking looks of these beers. The most striking anomaly however emerges with the *Gueuze* beer style, whose reviews are dominated by terms in the off-flavor category (which corresponds to the undesirable flavors in Meilgaard's wheel). Gueuze is indeed a peculiar beer style. Its fermentation process involves wild yeasts and bacteria, which produce complex flavors that [can include what are traditionally considered "off-flavors"](https://www.thetakeout.com/1711564/why-belgian-geueze-beer-taste-funky/) in other beer styles, such as funk and sourness. These flavors are not defects in the context of Gueuze but are instead key elements of its profile.
+
+| ![Black & Tan](pics/blacktan.jpg) | ![alt text](pics/gueuze.png) | 
+| *Black & Tan* | *Gueuze* |
+
 ## Expertise Over Time
 show improvement over time for all users (even already expert), once for BA and once for RB
 not that good... what if we consider people who started out bad? it improves!
