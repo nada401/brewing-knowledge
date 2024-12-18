@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Text Highlighting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .controls {
+            width: 25%;
+            padding: 5px;
+            align-content: top;
+        }
+        .text-display {
+            width: 70%;
+            line-height: 1.8;
+            padding: 10px;
+        }
+        .buttons {
+            width: 25%;
+            padding: 10px;
+        }
+        button {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            width: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left column for text display -->
+    <!--<div class="text-display" id="text-display"></div>-->
+    <div id="reviews", class="text-display">
+        <h3>Good Review:</h3>
+        <p id="good-review"></p>
+
+        <h3>Bad Review:</h3>
+        <p id="bad-review"></p>
+    </div>
+
+    <!-- Right column for controls -->
+    <div class="controls">
+        <h5>Choose Text</h5>
+        <select id="text-selector" onchange="changeText()">
+            <option value="Guinness">Guinness</option>
+            <option value="90 Minute IPA">90 Minute IPA</option>
+            <option value="Chimay Bleue (Blue) - Grande Réserve">Chimay Bleue (Blue) - Grande Réserve</option>
+        </select>
+
+        <h5>Highlight Categories</h5>
+        <button onclick="highlightWords('flavor', event)">Flavor</button>
+        <button onclick="highlightWords('mouthfeel', event)">Mouthfeel</button>
+        <button onclick="highlightWords('brewing', event)">Brewing</button>
+        <button onclick="highlightWords('technical', event)">Technical</button>
+        <button onclick="highlightWords('appearance', event)">Appearance</button>
+        <button onclick="highlightWords('off_flavors', event)">Off-flavors</button>
+        <button onclick="resetHighlights()">Reset</button>
+    </div>
+    <script>
+        // Copy the content directly from reviews.js
+        const texts = {
+            "Guinness": 
+            {
+                "good": `14.9 ounce can into imperial pint glass, canned on 5/26/2016. Pours crystal clear very dark brown color with a 1 finger dense and creamy light tan head that lasts the whole glass. Thick creamy lacing clings down the glass. Fantastic appearance. Aromas of dark chocolate, cocoa, coffee, and toasted dark bread; with light nuttiness, smoke, dark fruit, herbal, and yeast/roast/toasted earthiness. Nice and pleasant aromas with good balance of roast/bready malt and light earthy hop/fruity yeast notes; with solid strength. Taste of dark chocolate, cocoa, coffee, and toasted dark bread; with light nuttiness, smoke, dark fruit, herbal, and yeast/roast/toasted earthiness. Light herbal/roast bitterness on the finish; with lingering notes of dark chocolate, cocoa, coffee, toasted dark bread, light nuttiness/smoke/herbal, and yeast/roast/toasted earthiness on the finish for a good bit. Good robustness and balance of roast/bready malt and light earthy hop/fruity yeast flavors; with a nice roasted bitter/sweet balance, and zero astringent flavors after the finish. Moderate dryness from roast/bitterness, increasing through the glass. Light carbonation and body; with a very smooth, fairly grainy/chalky, and slightly sticky mouthfeel that is okay. Very thin with no creaminess at all. Zero warming alcohol as expected of 4.2%. Overall this was a decent Irish dry stout. All around good robustness and balance roast/bready malt and light earthy hop/fruity yeast flavors; very smooth and easy to drink. This was too thin and bit watery than I expected; but it was still quite enjoyable overall, and a good style example.`,
+                "bad" : "This beer is completely overrated.  First off, it is only drinkable by tap, the can and bottle versions aren't that great.  It's not that bad in the beginning because the flavor is decent, but the palate is too heavy, and by the end of the pint, the flavor is tiring."
+            },
+            "90 Minute IPA": 
+            {
+                "good": "The beer pours an oranging yellow with amber highlights, kind of like a sunrise...The beer forms a big, pillowy head of rocky white bubbles that are slightly off-white. The head lasts nicely, but does mellow down from its initial height to about a half-finger's width. As the head dissipates, it leaves a nice sticky patchwork of lacing on the glass. In body the beer is crystal clear and clean, but does present a slight haze from the malt. On the nose, the beer smells of citrus and spicy pine. Floral and herbal notes dance around the edges of the nose but big citrus tangerine and grapefruit are the primary players in the beer. The nose is not blowing me away, but is just a very solid example of a hoppy beer dank pine and a touch of sweet caramel can also be sensed in the smell. As a whole, the smell tends to remind a little of a fresh pineapple blended with pine. On the tongue, the beer tastes surprisingly balanced. The bitters are big and coat the mouth, but there is a strong bready sweetness to add balance. Light stone fruit notes can be picked out in the hop character, as well. The finish sees the strongest bitter kick, which is a bit over powering and should feed any one's bitter cravings. Acidity in the beer is light but bright on the sides of the cheeks. Again, this beer tastes like a classic DIPA. In flavor, the beer begins as sweet, candied citrus, expanding into fresh Florida oranges, with a touch of orange peel and rind. Grapefruit, pine needles, and pineapple dance in the back along with the malts superbly balanced sweet caramel bread, which helps to give the hops their candied quality. I wasn't that taken with this beer on the initial sip, but that was foolish of me. Pliny is a subtle beast, building simple complexity from its hops, and making each sip different. Soft boozy heat can be felt in the back of the throat, but that is just another part of the complexity of this beer. This flavor is one I could sip all night. In the mouth, Pliny feels surprisingly on the light side of medium in body, with a fluffy carbonation that pillows the tongue nicely. Mouthfeel is slick, and crisp, making the beer dangerously easy to drink. Slight astringency can be felt as the beer moves across the tongue leaving the mouth only softly tingling with bitters. Saliva does gently pool in the cheeks, but overall the mouth is left rather clean and ready for further sips. Overall, this beer is a whale worthy of whaling after. Beautiful complexity and subtly make this a beer I could drink several of, which is dangerous for its ABV bracket. Where many of the modern DIPA’s slam you in the face with juicy hop character, Pliny is subtle and perfectly balanced. This will please the hop heads and even those that are skeptical to hops. My mother, a diehard stout fan, but “pale and hoppy beer” hater, actually loved this when I brought one over last night. My only complaint is that the nose is mild compared to some DIPA's, but to be fair to Pliny, its recipe was developed before the designers of those other DIPA's even knew they liked hops. Pliny the Elder is a pleasure to drink. I can't wait to get my hands on more Russian River beers.",
+                "bad": "Nothing special coming from Boston and Northern VT... try some treehouse and trillium then edit your reviews lol. beer has great balance and super drinkable w/ that little west coast bitter hop finish, but leaves a lot to be desired imho. cheers"
+            },
+            "Chimay Bleue (Blue) - Grande Réserve":
+            {
+                "good": "750 ml bottle into signature chalice, bottled in 4/2013. Pours moderately hazy deep ruby red color with a 1-2 finger fairly dense light khaki head with good retention, that reduces to a thin cap that lingers. Light spotty soapy lacing clings on the glass, with a large amount of streaming carbonation retaining the cap. Aromas of big pear, apple, raisin, plum, pepper, clove, banana, caramel, candi sugar, toast, brown bread, floral, and yeast earthiness. Damn nice aromas with good balance and complexity of fruity/spicy yeast ester and malt notes; with good strength. Taste of big raisin, plum, pear, apple, light banana, caramel, candi sugar, toast, brown bread, clove, pepper, floral, and yeast earthiness. Lingering notes of light/dark fruits, light banana, clove, pepper, caramel, candi sugar, toast, brown bread, floral, and yeast earthiness on the finish for a while. Fantastic complexity of malt and fruity/spicy yeast flavors; with a great crisp malt/fruity/spicy flavor balance and zero cloying flavors after the finish. Medium-high carbonation and medium bodied; with a lightly slick, crisp, and moderately prickly mouthfeel that is nice. Alcohol is very well hidden with minimal warming present after the finish. Overall this is a highly excellent Belgian dark ale. All around great balance and complexity of fruity/spicy yeast and malt flavors; and very smooth to sip on for the ABV. A highly enjoyable offering.",
+                "bad": "When I first had this beer, it was one of the first strong Belgians for me.  It blew me away.  Over the years, Iâve felt that while it is a complex, tasty beverage, it has been eclipsed.  Whether it is me or the beer is debatable - and indeed the topic of the perceived decline of Chimay beers over the past decade is one of the most heated in the world of beer geeks.  Well, I finally decided to sit down and give this a proper re-rate.  Iâve got a small bottle of 2004 from my local liquor store. The colour is kind of unusual in that there is a big disparity between the colour - under the light itâs a golden brown but in the glass itâs dark chestnut. The head is very light mocha.  The aroma is plummy, slightly bubblegummy with notes of honey, pears, sweet dark malts and a little bit of yeast.  Nice.  It has a sweet palate with pear, orange, and sultana notes.  A strong alcohol presence cuts through dusty yeastiness.  Flavour notes are well-fused, save for the obtrusive alcohol."
+            },
+        };
+
+        // Relevant words dictionary
+        const highlightDict = {
+            "flavor": ["caramel", "carameled", "carameling", "caramelness", "caramels", "toffeing", "toffee", "toffeed", "bready", "breadiness", "breadies", "biscuities", "biscuity", "biscuitiness", "nutties", "nuttiness", "nutty", "roasteds", "roasted", "roastedness", "roasteded", "roasteding", "chocolated", "chocolating", "chocolate", "coffee", "coffeing", "coffeed", "mocha", "mochaing", "mochaed", "mochas", "mochaness", "molassesness", "molassess", "molassesing", "molassesed", "molasses", "syrupiness", "syrupies", "syrupy", "smokeiness", "smokeies", "smokey", "toasteding", "toasteds", "toasted", "toastedness", "toasteded", "vanillaness", "vanillaing", "vanillas", "vanillaed", "vanilla", "cocoaed", "cocoas", "cocoaness", "cocoaing", "cocoa", "sugarness", "sugaring", "sugar", "sugars", "sugared", "hoppy", "hoppies", "hoppiness", "citrusiness", "citrusies", "citrusy", "tropicaling", "tropicalness", "tropical", "tropicaled", "tropicals", "floraling", "florals", "floral", "floraled", "floralness", "pineiness", "piney", "pineies", "herbaling", "herbals", "herbaled", "herbalness", "herbal", "grassiness", "grassy", "grassies", "earthies", "earthy", "earthiness", "danking", "danked", "danks", "dankness", "dank", "spicy", "spiciness", "spicies", "pepperies", "pepperiness", "peppery", "juicies", "juicy", "juiciness", "zesty", "zestiness", "zesties", "tangies", "tangy", "tanginess", "bitterness", "bitternessness", "bitternessing", "bitternessed", "bitternesss", "vinegarness", "vinegared", "vinegaring", "vinegar", "vinegars", "lacticness", "lactics", "lacticing", "lacticed", "lactic", "esteriness", "estery", "esteries", "farmyard", "farmyards", "farmyarded", "farmyardness", "farmyarding", "almondness", "almond", "almonding", "almonded", "almonds", "fruity", "fruities", "fruitiness", "berry", "berries", "berriness", "cherries", "cherry", "cherriness", "apple", "appled", "appling", "banana", "banananess", "bananaed", "bananas", "bananaing", "peared", "pears", "pear", "pearness", "pearing", "stone fruitness", "stone fruits", "stone fruited", "stone fruiting", "stone fruit", "plums", "plum", "plumness", "plumed", "pluming", "figed", "fig", "figing", "figs", "figness", "raisin", "raisining", "raisined", "raisins", "raisinness", "peachs", "peached", "peach", "peachness", "peaching", "apricots", "apricoting", "apricotness", "apricoted", "apricot", "citrus zestness", "citrus zesting", "citrus zest", "citrus zested", "citrus zests", "lemonness", "lemoned", "lemons", "lemoning", "lemon", "peels", "peeling", "peel", "peeled", "peelness", "orange", "oranging", "oranged", "pineappled", "pineappling", "pineapple", "mangoing", "mangoness", "mangos", "mango", "mangoed", "lycheing", "lychee", "lycheed", "oakies", "oakiness", "oaky", "woody", "woodies", "woodiness", "bourbons", "bourbonness", "bourboning", "bourbon", "bourboned", "whiskeiness", "whiskey", "whiskeies", "ryed", "rying", "rye", "tequilaed", "tequilaness", "tequilaing", "tequila", "tequilas", "brandiness", "brandies", "brandy", "vinoused", "vinousing", "vinous", "vinousness", "vinouss", "tarted", "tart", "tarts", "tarting", "tartness", "lactos", "lactoed", "lacto", "lactoness", "lactoing", "honey", "honeiness", "honeies", "cloving", "clove", "cloved", "bubblegum", "bubblegumed", "bubbleguming", "bubblegums", "bubblegumness", "curranted", "currants", "curranting", "currant", "currantness", "graping", "grape", "graped", "tea", "teaed", "teaness", "teas", "teaing", "blueberries", "blueberry", "blueberriness", "blackberries", "blackberry", "blackberriness", "cassiss", "cassised", "cassisness", "cassising", "cassis", "gooseberriness", "gooseberries", "gooseberry", "loganberriness", "loganberries", "loganberry", "nectar", "nectaring", "nectared", "nectars", "nectarness", "nectarining", "nectarined", "nectarine", "pomegranate", "pomegranated", "pomegranating", "quinced", "quince", "quincing", "rasberriness", "rasberry", "rasberries", "strawberriness", "strawberries", "strawberry", "watermeloning", "watermelonness", "watermelons", "watermelon", "watermeloned", "grapefruit", "grapefruits", "grapefruited", "grapefruitness", "grapefruiting", "lemongrass", "lemongrassed", "lemongrassness", "lemongrasss", "lemongrassing", "lime", "limed", "liming", "mandarinness", "mandarin", "mandarins", "mandarining", "mandarined", "tangerined", "tangerining", "tangerine", "coconut", "coconutness", "coconuted", "coconuting", "coconuts", "creaming", "creams", "cream", "creamness", "creamed", "guavaing", "guavas", "guavaness", "guavaed", "guava", "meloned", "melon", "meloning", "melonness", "melons", "papayaness", "papaya", "papayaed", "papayas", "papayaing", "rosed", "rose", "rosing", "cedarness", "cedar", "cedared", "cedars", "cedaring", "cognacing", "cognacs", "cognacness", "cognac", "cognaced", "hay", "hainess", "haies", "tobaccoing", "tobacconess", "tobaccoed", "tobacco", "tobaccos", "minting", "minted", "mintness", "mint", "mints", "saged", "saging", "sage", "thyme", "thymed", "thyming", "aniseed", "aniseeding", "aniseedness", "aniseeds", "aniseeded", "cinnamoned", "cinnamons", "cinnamon", "cinnamonness", "cinnamoning", "gingering", "gingers", "gingered", "gingerness", "ginger", "pepper", "peppers", "pepperness", "peppering", "peppered", "licorice", "licoricing", "licoriced", "candies", "candy", "candiness", "cucumber", "cucumbering", "cucumbers", "cucumbered", "cucumberness", "garlicness", "garlic", "garliced", "garlics", "garlicing", "bouquet", "bouqueted", "bouquetness", "bouquets", "bouqueting", "aromaticness", "aromaticed", "aromatic", "aromatics", "aromaticing", "fragrant", "fragrants", "fragranting", "fragrantness", "fragranted", "perfumeded", "perfumeding", "perfumeds", "perfumedness", "perfumed", "fainting", "faintness", "fainted", "faints", "faint", "musky", "muskiness", "muskies", "subtling", "subtle", "subtled", "yeasties", "yeastiness", "yeasty", "malties", "maltiness", "malty", "pungent", "pungents", "pungentness", "pungenting", "pungented", "burntness", "burnted", "burnts", "burnting", "burnt", "blossoms", "blossoming", "blossomed", "blossomness", "blossom", "hedgerowing", "hedgerowness", "hedgerow", "hedgerowed", "hedgerows", "elderflowering", "elderflowered", "elderflowerness", "elderflowers", "elderflower", "orcharding", "orchard", "orchardness", "orcharded", "orchards"], 
+            "mouthfeel": ["softness", "soft", "softing", "softed", "softs", "delicating", "delicated", "delicate", "acrids", "acridness", "acriding", "acrid", "acrided", "flat", "flated", "flatness", "flating", "flats", "mineralness", "minerals", "mineraling", "mineraled", "mineral", "spirited", "spiritness", "spirits", "spirit", "spiriting", "astringented", "astringent", "astringents", "astringenting", "astringentness", "bodiness", "body", "bodies", "full-bodieds", "full-bodiedness", "full-bodieding", "full-bodieded", "full-bodied", "medium-bodied", "medium-bodieding", "medium-bodiedness", "medium-bodieded", "medium-bodieds", "light-bodiedness", "light-bodieds", "light-bodied", "light-bodieding", "light-bodieded", "unfoldings", "unfoldingness", "unfolding", "unfoldinging", "unfoldinged", "aftertasted", "aftertasting", "aftertaste", "thick", "thicking", "thickness", "thicked", "thicks", "thin", "thins", "thinness", "thined", "thining", "creaminess", "creamies", "creamy", "smooth", "smoothing", "smoothed", "smooths", "smoothness", "velveties", "velvety", "velvetiness", "oilies", "oiliness", "oily", "tannic", "tannicing", "tannicness", "tannics", "tanniced", "chalkies", "chalky", "chalkiness", "dryinged", "dryings", "dryingness", "drying", "dryinging", "slicked", "slickness", "slicking", "slick", "slicks", "watery", "wateriness", "wateries", "effervescented", "effervescents", "effervescenting", "effervescent", "effervescentness", "fizziness", "fizzy", "fizzies", "tingly", "tinglies", "tingliness", "prickly", "pricklies", "prickliness", "carbonateding", "carbonateds", "carbonateded", "carbonatedness", "carbonated", "viscosity", "viscositiness", "viscosities", "warmings", "warminging", "warmingness", "warming", "warminged", "coatinged", "coatings", "coatinging", "coating", "coatingness", "bitings", "bitinging", "bitinged", "biting", "bitingness", "sharped", "sharps", "sharp", "sharpness", "sharping", "rustiness", "rusties", "rusty"], 
+            "brewing": ["wheat", "wheating", "wheatness", "wheats", "wheated", "hoppinging", "hoppinged", "hoppings", "hoppingness", "hopping", "barrelness", "barrel", "barreling", "barrels", "barreled", "conditioneded", "conditioneding", "conditioned", "conditioneds", "conditionedness", "fermentation", "fermentationed", "fermentationness", "fermentationing", "fermentations", "worts", "wortness", "worting", "worted", "wort", "mashness", "mashed", "mash", "mashing", "mashs", "sparging", "sparginged", "sparginging", "spargings", "spargingness", "crashinging", "crashings", "crashinged", "crashing", "crashingness", "decoctions", "decoctioning", "decoctioned", "decoctionness", "decoction", "straining", "strain", "strains", "strained", "strainness", "adjunctsing", "adjunctsness", "adjunctss", "adjunctsed", "adjuncts", "grainsed", "grainsness", "grains", "grainsing", "grainss", "maltness", "malted", "malts", "malt", "malting"], 
+            "technical": ["balanced", "balance", "balancing", "palated", "palate", "palating", "complexities", "complexitiness", "complexity", "depthing", "depth", "depthness", "depthed", "depths", "nuanceded", "nuanceds", "nuanced", "nuanceding", "nuancedness", "refineding", "refinedness", "refineds", "refined", "refineded", "structured", "structureded", "structuredness", "structureding", "structureds", "profile", "profiling", "profiled", "rounding", "round", "rounded", "rounds", "roundness", "harmoniouss", "harmoniousness", "harmonioused", "harmoniousing", "harmonious", "cleaning", "cleans", "cleaned", "clean", "cleanness", "crispness", "crisp", "crisping", "crisps", "crisped", "finished", "finishness", "finishing", "finish", "finishs", "lingerings", "lingeringed", "lingering", "lingeringing", "lingeringness", "evolvings", "evolvinging", "evolvinged", "evolvingness", "evolving", "clarity", "clarities", "claritiness", "purities", "puritiness", "purity", "dense", "densing", "densed", "robust", "robusting", "robusts", "robusted", "robustness", "powerfulness", "powerfuling", "powerful", "powerfuls", "powerfuled", "restrained", "restraineding", "restraineded", "restraineds", "restrainedness", "vibrant", "vibrants", "vibranting", "vibranted", "vibrantness", "subdued", "subduedness", "subdueding", "subdueds", "subdueded", "heavies", "heavy", "heaviness", "integritiness", "integrities", "integrity", "layereding", "layereds", "layered", "layereded", "layeredness", "benchmarks", "benchmarked", "benchmarkness", "benchmark", "benchmarking", "classic", "classics", "classicing", "classicness", "classiced", "signaturing", "signatured", "signature", "finessed", "finessing", "finesse", "elegance", "eleganced", "elegancing", "exemplars", "exemplarness", "exemplaring", "exemplared", "exemplar", "well-integrateds", "well-integrateded", "well-integrated", "well-integratedness", "well-integrateding", "flawlesss", "flawlessed", "flawlessing", "flawlessness", "flawless", "exceptionaled", "exceptionalness", "exceptionaling", "exceptional", "exceptionals", "outstandinging", "outstandinged", "outstanding", "outstandings", "outstandingness", "world-classs", "world-classed", "world-classing", "world-class", "world-classness", "traditionals", "traditionaled", "traditionalness", "traditionaling", "traditional", "innovatived", "innovative", "innovativing", "unconventionals", "unconventionalness", "unconventional", "unconventionaled", "unconventionaling", "uniqued", "uniquing", "unique"], 
+            "appearance": ["hazies", "haziness", "hazy", "cloudiness", "cloudies", "cloudy", "opaqued", "opaquing", "opaque", "translucenting", "translucentness", "translucents", "translucent", "translucented", "cleared", "clearness", "clearing", "clear", "clears", "bright", "brighting", "brightness", "brighted", "brights", "unfiltered", "unfiltereds", "unfiltereding", "unfiltereded", "unfilteredness", "filtered", "filtereded", "filtereding", "filteredness", "filtereds", "lacinged", "lacinging", "lacings", "lacingness", "lacing", "foamness", "foamed", "foam", "foams", "foaming", "frothy", "frothiness", "frothies", "rocky headness", "rocky heads", "rocky head", "rocky heading", "rocky headed", "stable head", "stable heads", "stable headed", "stable headness", "stable heading", "golding", "gold", "golds", "goldness", "golded", "ambering", "amber", "ambered", "amberness", "ambers", "ruby", "rubiness", "rubies", "copper", "coppered", "coppering", "coppers", "copperness", "darked", "dark", "darkness", "darking", "darks", "blackness", "blacked", "blacking", "black", "blacks", "mahoganiness", "mahoganies", "mahogany", "lights", "lighting", "light", "lighted", "lightness", "strawed", "straw", "strawing", "straws", "strawness", "yellowed", "yellows", "yellowing", "yellowness", "yellow", "chestnut", "chestnuts", "chestnuting", "chestnuted", "chestnutness", "taned", "taning", "tans", "tan", "tanness", "off-whited", "off-white", "off-whiting", "blonded", "blonding", "blonde", "bronzed", "bronzing", "bronze", "coalness", "coals", "coal", "coaling", "coaled", "ebonies", "ebony", "eboniness", "inkiness", "inkies", "inky", "milky", "milkiness", "milkies", "muddiness", "muddies", "muddy", "obsidianed", "obsidianness", "obsidians", "obsidianing", "obsidian", "sepia", "sepiaed", "sepias", "sepianess", "sepiaing", "sunlightness", "sunlighting", "sunlighted", "sunlight", "sunlights", "transparented", "transparentness", "transparent", "transparenting", "transparents"], 
+            "off_flavors": ["funkiness", "funky", "funkies", "sherriness", "sherries", "sherry", "rottened", "rottens", "rotten", "rottening", "rottenness", "sulphur", "sulphurness", "sulphurs", "sulphured", "sulphuring", "egg", "egging", "eggs", "eggness", "egged", "goatness", "goats", "goat", "goating", "goated", "soured", "sourness", "sours", "souring", "sour", "tastelessing", "tasteless", "tastelessness", "tastelessed", "tastelesss", "inferior", "inferiored", "inferiorness", "inferiors", "inferioring", "acidicness", "acidiced", "acidic", "acidicing", "acidics", "oxidizeds", "oxidizedness", "oxidizeding", "oxidizeded", "oxidized", "pissed", "pisss", "pissness", "pissing", "piss", "metalliced", "metallic", "metallics", "metallicness", "metallicing", "cardboard", "cardboarding", "cardboardness", "cardboards", "cardboarded", "staling", "stale", "staled", "sulfurs", "sulfurness", "sulfur", "sulfured", "sulfuring", "skunky", "skunkiness", "skunkies", "diacetyls", "diacetylness", "diacetyling", "diacetyl", "diacetyled", "phenolics", "phenolic", "phenoliced", "phenolicing", "phenolicness", "acetaldehyded", "acetaldehyding", "acetaldehyde", "DMSs", "DMSness", "DMSed", "DMSing", "DMS", "cloying", "cloyingness", "cloyings", "cloyinging", "cloyinged", "cheesies", "cheesy", "cheesiness", "solventing", "solventness", "solvents", "solvent", "solvented", "overly bittered", "overly bitters", "overly bitter", "overly bittering", "overly bitterness", "harshed", "harshing", "harsh", "harshness", "harshs", "vegetals", "vegetaling", "vegetalness", "vegetaled", "vegetal", "cabbaging", "cabbaged", "cabbage", "rubbers", "rubber", "rubberness", "rubbered", "rubbering", "soy", "soiness", "soies", "buttery", "butteries", "butteriness", "musties", "musty", "mustiness", "moldy", "moldies", "moldiness", "medicinaling", "medicinals", "medicinal", "medicinalness", "medicinaled"]
+        }
+
+        // Color-blind aware palette (found online)
+        const colorPalette = {
+            "flavor": "#E69F00",       
+            "mouthfeel": "#56B4E9",    
+            "brewing": "#009E73",      
+            "technical": "#F0E442",    
+            "appearance": "#0072B2",   
+            "off_flavors": "#D55E00"   
+        };
+
+
+        function displayReviews(category) {
+            const goodReviewElement = document.getElementById("good-review");
+            const badReviewElement = document.getElementById("bad-review");
+
+            goodReviewElement.textContent = texts[category]?.good || "No good review available.";
+            badReviewElement.textContent = texts[category]?.bad || "No bad review available.";
+        }
+
+        function highlightWords(category, event) {
+            // Get the text display element
+            // const textDisplay = document.getElementById("text-display");
+            const textDisplay = document.getElementById("reviews");
+
+            // Select the color dinamically
+            let color = colorPalette[category];
+
+            // Get the relevant words for the category
+            const wordsToHighlight = highlightDict[category];
+
+            // Update the existing HTML, keeping previously highlighted words
+            let contentHTML = textDisplay.innerHTML;
+
+            // Replace words with highlighted versions
+            wordsToHighlight.forEach(word => {
+                // Create a regex to match the word if it's not already highlighted
+                const regex = new RegExp(`\\b(${word})\\b(?![^<]*</span>)`, 'gi');
+                contentHTML = contentHTML.replace(
+                    regex,
+                    `<span style="background-color: ${color};font-style: italic;">$1</span>`
+                );
+            });
+
+            if (event) {
+                event.target.style.backgroundColor = color;
+            }
+
+            // Update the text display with the new highlighted content
+            textDisplay.innerHTML = contentHTML;
+        }   
+
+        // Function to reset highlights
+        function resetHighlights() {
+            const selector = document.getElementById("text-selector").value;
+            displayReviews(selector);
+
+            // Reset button background color
+            const buttons = document.querySelectorAll(".controls button");
+            buttons.forEach(button => {
+                button.style.backgroundColor = "";
+            });
+        }
+
+        // Variable to track the current text
+        // let originalText = texts["review1"];
+
+        // // Display the initial text
+        // document.getElementById("text-display").innerHTML = originalText;
+
+        // Function to change the displayed text
+        function changeText() {
+            const selector = document.getElementById("text-selector");
+            const selectedValue = selector.value;
+
+            // Reset button background color
+            const buttons = document.querySelectorAll(".controls button");
+            buttons.forEach(button => {
+                button.style.backgroundColor = "";
+            });
+
+            // Update the originalText and text-display
+            displayReviews(selectedValue);
+            // originalText = texts[selectedValue];
+            // document.getElementById("text-display").innerHTML = originalText;
+        }
+
+        displayReviews('Guinness')
+    </script>
+</body>
+</html>

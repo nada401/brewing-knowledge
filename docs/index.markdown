@@ -39,8 +39,10 @@ Our goal is to assess how thoroughly the review discusses each category in their
 1. For every term in the above Flavor Wheel that appeared in the review, we add a point to the review's coverage score of that term's category’s.
 2. We sum every coverage score to obtain the final expertise score for the review.
 
-Here is a small demo of our metric: we illustrate our metric through two example reviews, one that achieved a low score and one that achieved a high score.
-**FILL THIS OUT**
+Here is a small demo of our metric: we illustrate our metric through pairs of example reviews. Each pair corresponds to a type of beer and includes a review that achieves a low expertise score and one that achieves a high expertise score. You may use the buttons to highlight words belonging to each category obtained from the flavor wheel.
+<div class="l-page">
+  <iframe src="{{ '/plots/text_highlight.html' | relative_url }}" frameborder='0' scrolling='no' height="720px" width="150%" style="border: 1px dashed grey;"></iframe>
+</div>
 
 ## Word Cloud
 Here is a pretty word cloud of the metric terms most commonly used in both websites
