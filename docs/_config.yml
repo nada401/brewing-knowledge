@@ -35,6 +35,8 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
 
+include: [assets/css/custom.css] # test
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
