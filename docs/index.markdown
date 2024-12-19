@@ -2,8 +2,7 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-# title: Brewing Knowledge
-title: Changes happended!
+title: Brewing Knowledge
 subtitle: Expertise Growth in Beer Reviewers
 layout: post
 ext-js: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
@@ -11,8 +10,6 @@ cover-img: "background.jpg"
 date: 2024-12-05
 kramdown:
   toc_levels: 1..6
-
-include: [assets/css/custom.css]
 ---
 
 * TOC
@@ -20,6 +17,8 @@ include: [assets/css/custom.css]
 <div class="l-page">
   <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="100px" width="110%" style="border: 0px dashed grey;"></iframe>
 </div>
+
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
 # Introduction
 [BeerAdvocate](https://www.beeradvocate.com/) and [RateBeer](https://www.ratebeer.com/) are vibrant online communities where beer enthusiasts gather to share their thoughts on a vast selection of beers. Over the years, these platforms have attracted tens of thousands of users, reflecting both the accessibility of these websites and the popularity of beer appreciation. Yet, beer critique can be far more than a casual pastime - it is a craft that may be pursued with remarkable depth and precision. This becomes evident when you consider the [Beer Judge Certification Program](https://www.bjcp.org/) (BJCP): achieving their recognition demands rigorous study and practical experience. Aspiring judges must master topics ranging from water alkalinity and malt types to hop varieties, yeast characteristics, and the nuances of fermentation by-products, as outlined in the [BJCP's comprehensive study guide](https://legacy.bjcp.org/docs/BJCP_Study_Guide.pdf).

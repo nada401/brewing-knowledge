@@ -1,4 +1,6 @@
 .container-md {
     max-width: 900px;
     width: 100%;
+
+    text-emphasis: bold;
 }
