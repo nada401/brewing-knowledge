@@ -2,7 +2,7 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-title: <div class="l-page"> <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}></iframe></div>
+title: Brewing Knowledge
 subtitle: Expertise Growth in Beer Reviewers
 layout: post
 ext-js: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
