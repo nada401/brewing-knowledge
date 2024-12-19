@@ -10,8 +10,6 @@ cover-img: "background.jpg"
 date: 2024-12-05
 kramdown:
   toc_levels: 1..6
-
-full-width: true
 ---
 
 * TOC
@@ -47,7 +45,7 @@ Our goal is to assess how thoroughly the review discusses each category in their
 
 Here is a small demo of our metric: we illustrate our metric through pairs of example reviews. Each pair corresponds to a type of beer and includes a review that achieves a low expertise score and one that achieves a high expertise score. You may use the buttons to highlight words belonging to each category obtained from the flavor wheel.
 <div class="l-page">
-  <iframe src="{{ '/plots/text_highlight.html' | relative_url }}" frameborder='0' scrolling='yes' height="720px" width="150%" style="border: 1px dashed grey;"></iframe>
+  <iframe src="{{ '/plots/text_highlight.html' | relative_url }}" frameborder='0' scrolling='yes' height="720px" width="100%" style="border: 1px dashed grey;"></iframe>
 </div>
 
 ## Word Cloud
