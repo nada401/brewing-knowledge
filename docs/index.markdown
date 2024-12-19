@@ -99,6 +99,9 @@ One of the hypothesis we have is that we expect the average expertness score of 
 
 ![BeerAdvocate Expert Score by Country](pics/expertness_country_BA.png)
 
+We further investigate the country-wise distribution of expertness scores by looking at the time evolution of the yearly average for some countries. To make sure we have enough samples for each year, we set a filter of 5000 reviews per country and plot the evolution over time. 
+
+
 
 ## Expertise Per Country
 English-Speaking countries performing better (not over time)
