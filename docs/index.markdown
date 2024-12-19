@@ -14,6 +14,10 @@ kramdown:
 
 * TOC
 {:toc}
+<div class="l-page">
+  <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="720px" width="150%" style="border: 1px dashed grey;"></iframe>
+</div>
+
 # Introduction
 [BeerAdvocate](https://www.beeradvocate.com/) and [RateBeer](https://www.ratebeer.com/) are vibrant online communities where beer enthusiasts gather to share their thoughts on a vast selection of beers. Over the years, these platforms have attracted tens of thousands of users, reflecting both the accessibility of these websites and the popularity of beer appreciation. Yet, beer critique can be far more than a casual pastime - it is a craft that may be pursued with remarkable depth and precision. This becomes evident when you consider the [Beer Judge Certification Program](https://www.bjcp.org/) (BJCP): achieving their recognition demands rigorous study and practical experience. Aspiring judges must master topics ranging from water alkalinity and malt types to hop varieties, yeast characteristics, and the nuances of fermentation by-products, as outlined in the [BJCP's comprehensive study guide](https://legacy.bjcp.org/docs/BJCP_Study_Guide.pdf).
 
