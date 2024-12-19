@@ -97,7 +97,7 @@ average scores (normalized) by location over time posted by vikhyat on whatsapp
 
 One of the hypothesis we have is that we expect the average expertness score of English speaking countries to be higher than non-English speaking countries. To test this out, we compute the average score grouped by the location of the users. This includes all the reviews made by users from a particular country. We also filter out countries which have less than 2000 reviews, to have some confidence in our computed average. Since the location for the United States is state-wise for BeerAdvocate, we combine all users into a single "United States" location. We observe that our hypothesis holds to some extent, with the general trend being that the English Speaking countries outscore the non-English speaking countries.  
 
-
+![BeerAdvocate Expert Score by Country](pics/expertness_country_BA.png)
 
 
 ## Expertise Per Country
