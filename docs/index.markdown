@@ -60,6 +60,17 @@ Now that we’ve outlined how we evaluate the expertise level demonstrated in a 
 <div class="l-page">
   <iframe src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="130%" style="border: 1px dashed grey;"></iframe>
 </div>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <iframe src="{{ '/plots/radar_importance.html' | relative_url }}" 
+          frameborder="0" 
+          scrolling="no" 
+          height="600px" 
+          width="80%" 
+          style="border: 1px dashed grey;">
+  </iframe>
+</div>
+
 Reviews of beers in the *Black & Tan* style show the highest reliance on Appearance terms, which reflects the visually striking looks of these beers. The most striking anomaly however emerges with the *Gueuze* beer style, whose reviews are dominated by terms in the off-flavor category (which corresponds to the undesirable flavors in Meilgaard's wheel). Gueuze is indeed a peculiar beer style. Its fermentation process involves wild yeasts and bacteria, which produce complex flavors that [can include what are traditionally considered "off-flavors"](https://www.thetakeout.com/1711564/why-belgian-geueze-beer-taste-funky/) in other beer styles, such as funk and sourness. These flavors are not defects in the context of Gueuze but are instead key elements of its profile.
 
 | ![Black & Tan](pics/blacktan.jpg) | ![alt text](pics/gueuze.png) | 
