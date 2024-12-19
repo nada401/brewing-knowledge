@@ -2,7 +2,8 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-title: Brewing Knowledge
+# title: Brewing Knowledge
+title: Changes happended!
 subtitle: Expertise Growth in Beer Reviewers
 layout: post
 ext-js: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
@@ -10,6 +11,8 @@ cover-img: "background.jpg"
 date: 2024-12-05
 kramdown:
   toc_levels: 1..6
+
+include: [assets/css/custom.css]
 ---
 
 * TOC
