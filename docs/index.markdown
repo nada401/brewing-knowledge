@@ -66,7 +66,7 @@ Now that we’ve outlined how we evaluate the expertise level demonstrated in a 
           frameborder="0" 
           scrolling="no" 
           height="600px" 
-          width="130%" 
+          width="200%" 
           style="border: 1px dashed grey;">
   </iframe>
 </div>
