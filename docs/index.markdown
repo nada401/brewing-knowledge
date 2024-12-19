@@ -72,16 +72,17 @@ These results are not as clear as expected would've hoped. While working further
 
 ![RateBeer Improvement Over Time](pics/improve_aggr_rb.png)
 
-<div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
-  <figure style="margin: 1px;">
+<div style="display: flex; align-items: center; justify-content: center;">
+  <figure style="margin: 10px;">
     <img src="pics/improve_aggr_ba.png" alt="BeerAdvocate Improvement Over Time" width="400"/>
-    <figcaption style="text-align: center;">BeerAdvocate Improvement Over Time</figcaption>
+    <figcaption>BeerAdvocate Improvement Over Time</figcaption>
   </figure>
-  <figure style="margin: 1px;">
+  <figure style="margin: 10px;">
     <img src="pics/improve_aggr_rb.png" alt="RateBeer Improvement Over Time" width="400"/>
-    <figcaption style="text-align: center;">RateBeer Improvement Over Time</figcaption>
+    <figcaption>RateBeer Improvement Over Time</figcaption>
   </figure>
 </div>
+
 
 
 
