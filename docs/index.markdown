@@ -10,6 +10,8 @@ cover-img: "background.jpg"
 date: 2024-12-05
 kramdown:
   toc_levels: 1..6
+
+full-width: true
 ---
 
 * TOC

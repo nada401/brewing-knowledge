@@ -29,7 +29,7 @@ baseurl: "/ada-2024-project-nada401" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
-full-width: true
+full-width: true # Added but might not be needed
 
 # Build settings
 remote_theme: daattali/beautiful-jekyll@6.0.1
