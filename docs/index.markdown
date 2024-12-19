@@ -136,7 +136,7 @@ Throughout the year, many events celebrate beer, drawing attention to its cultur
 For Oktoberfest, we analyzed all the reviews for the 6 breweries present at the event, and compared the average expertness score of those beers during the event with the whole year. On St. Patrick's Day we focused on the reviews of Guinness beers, comparing the 17th of March with the mean over the year. Finally, for the 4th of July we took all reviewers from the U.S.A. and compared the expertness score of that day compared to the average over the year.
 
 <div class="l-page">
-  <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="130%" style="border: 1px dashed grey;"></iframe>
+  <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="130%"></iframe>
 </div>
 
 
