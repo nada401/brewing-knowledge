@@ -72,16 +72,17 @@ These results are not as clear as expected would've hoped. While working further
 
 ![RateBeer Improvement Over Time](pics/improve_aggr_rb.png)
 
-<div style="display: flex; align-items: center; justify-content: center;">
-  <figure style="margin: 10px;">
-    <img src="pics/improve_aggr_ba.png" alt="BeerAdvocate Improvement Over Time" width="300"/>
-    <figcaption>BeerAdvocate Improvement Over Time</figcaption>
+<div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+  <figure style="margin: 0;">
+    <img src="pics/improve_aggr_ba.png" alt="BeerAdvocate Improvement Over Time" width="400"/>
+    <figcaption style="text-align: center;">BeerAdvocate Improvement Over Time</figcaption>
   </figure>
-  <figure style="margin: 10px;">
-    <img src="pics/improve_aggr_rb.png" alt="RateBeer Improvement Over Time" width="300"/>
-    <figcaption>RateBeer Improvement Over Time</figcaption>
+  <figure style="margin: 0;">
+    <img src="pics/improve_aggr_rb.png" alt="RateBeer Improvement Over Time" width="400"/>
+    <figcaption style="text-align: center;">RateBeer Improvement Over Time</figcaption>
   </figure>
 </div>
+
 
 
 Indeed, in both websites we see that the bottom 20% achieves a very sharp improvement in their expertise scores, slowly reaching a plateau between the 300 and 400 review mark. For these users in the bottom 20% of beginners, the Pearson correlation between posting time and overall expertise is in median 0.32 and 0.25, with median p-values of 0.02 and 0.06, for BeerAdvocate and RateBeer respectively.
