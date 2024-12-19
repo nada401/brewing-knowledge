@@ -15,7 +15,7 @@ kramdown:
 * TOC
 {:toc}
 <div class="l-page">
-  <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="300px" width="100%" style="border: 1px dashed grey;"></iframe>
+  <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="100px" width="110%" style="border: 1px dashed grey;"></iframe>
 </div>
 
 # Introduction
