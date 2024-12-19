@@ -99,7 +99,9 @@ One of the hypothesis we have is that we expect the average expertness score of 
 
 ![BeerAdvocate Expert Score by Country](pics/expertness_country_BA.png)
 
-We further investigate the country-wise distribution of expertness scores by looking at the time evolution of the yearly average for some countries. To make sure we have enough samples for each year, we set a filter of 5000 reviews per country and plot the evolution over time. 
+We further investigate the country-wise distribution of expertness scores by looking at the time evolution of the yearly average for some countries. To make sure we have enough samples for each year, we set a filter of 5000 reviews per country and plot the evolution over time. We notice that the United States maintains a higher score from the beginning, while we observe evolution in all the other countries. There is quite a sharp evolution initially between 2000-2005, and then the scores plateau. This evolution graph is similar to the Expert/Non-Expert analysis we did, but here we have plotted the evolution with time, as compared to the evolution with the number of reviews earlier. 
+
+![BeerAdvocate Expert Score by Country with time](pics/country_expertness_evol_BA.png)
 
 
 
