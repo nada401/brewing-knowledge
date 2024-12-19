@@ -129,6 +129,16 @@ Most Frequent Words and Expertness Score, both by country, for:
 Expert score is relatively highly correlated with flavor score and appearance score (interpretation: they're the most important features...?)
 it's a very big square, we can have a menu that selects 1 of the three squares (upper left, lower left, lower right)
 
+## Impact of popular beer events on reviews quality
+
+Throughout the year, many events celebrate beer, drawing attention to its cultural significance and encouraging social gatherings centered around this beloved beverage. These events often lead to a noticeable increase in the number of beer reviews, providing a unique opportunity to analyze how the quality of these reviews—measured through an expertise score—varies during such occasions. Among the most notable beer-related events are **Oktoberfest**, celebrated in Germany and worldwide as a homage to traditional brewing; **St. Patrick’s Day**, which highlights Irish stouts and ales alongside festive revelry; and the **4th of July** in the United States, where craft beers and refreshing lagers often complement Independence Day celebrations. By examining these events, we aim to uncover whether the surge in reviews during these periods correlates with a change in their expertise level.
+
+For Oktoberfest, we analyzed all the reviews for the 6 breweries present at the event, and compared the average expertness score of those beers during the event with the whole year. On St. Patrick's Day we focused on the reviews of Guinness beers, comparing the 17th of March with the mean over the year. Finally, for the 4th of July we took all reviewers from the U.S.A. and compared the expertness score of that day compared to the average over the year.
+
+<div class="l-page">
+  <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="130%" style="border: 1px dashed grey;"></iframe>
+</div>
+
 
 ## A plot
 <div class="l-page">
