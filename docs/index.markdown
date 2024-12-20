@@ -230,6 +230,8 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
     var plotIframes = document.querySelectorAll('.plotIframe');
     plotIframes.forEach(function(iframe) {
       iframe.style.display = 'none'; // Hide all iframes
+      console.log("iframe.src ", iframe.src);
+      console.log("selctor.value ", selector.value, "\n");
       if (iframe.src === selector.value) {
         iframe.style.display = 'flex'; // Show the selected iframe
       }
