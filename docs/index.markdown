@@ -135,15 +135,6 @@ We further investigate the country-wise distribution of expertness scores by loo
   <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe>
 </div>
 
-
-
-## Expertise Per Country
-English-Speaking countries performing better (not over time)
-10/12/2024 13:42
-use the normalized graph (score given by the category is divided by the number of words belonging to that category)
-
-expertise per country over time too but need to choose which ones we show
-
 ## Beer Styles (not doing it - maybe)
 Most Frequent Words and Expertness Score, both by country, for:
 - BA American IPA, Imperial Stout, 
