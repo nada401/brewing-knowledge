@@ -41,8 +41,10 @@ Beers are judged on 4 fundamental factors: *Appearance*, *Aroma*, *Flavor*, and 
 ![Flavour Wheel](pics/wheel.jpg)
 
 Our goal is to assess how thoroughly the review discusses each category in their written reviews. To achieve this, we employ a simple yet surprisingly effective approach that we apply to each review:
-1. For every term in the above Flavor Wheel that appeared in the review, we add a point to the review's coverage score of that term's category’s.
+1. For every term in the above Flavor Wheel that appeared in the review, we add a point to the review's coverage score of that term's category’s. Note that we do not count multiple occurrences of the same term towards the category's score.
 2. We sum every coverage score to obtain the final expertise score for the review.
+
+Note that we have integrated additional terms found on BJCP's learning resources and on other online beer analytics resources\[[6](#ref-beeranalysis)\]. Moreover, we will use the terms "expertise score" and "expertness score" interchangeably.
 
 Here is a small demo of our metric: we illustrate our metric through pairs of example reviews. Each pair corresponds to a type of beer and includes a review that achieves a low expertise score and one that achieves a high expertise score. You may use the buttons to highlight words belonging to each category obtained from the flavor wheel.
 <div class="l-page">
@@ -93,7 +95,7 @@ Reviews of beers in the *Black & Tan* style show the highest reliance on Appeara
 ## Expertise Over Time
 It would be reasonable to hypothesize that the reviewers in both websites would improve at critiquing beers as they gain more experience. Under this assumption, if our metric is any good, we should be able to see for the average user a positive upwards trend in the overall expertise score achieved by the reviews they publish over time. Let's put this to the test by doing just that.
 
-The naive evolution of all the users combined was not as clear as we would've hoped. While working further on the topic, we realized that many of the users might have been very proficient before joining the website already. Such users would be experiencing diminishing returns over the reviews they post. So, what if we try grouping users based on their starting expertise? We could do this by quartiles on the average overall expertise score achieved in, say, the first 5 reviews they post on the website. Here is what we get when running this analysis on users with at least a thousand reviews in the BeerAdvocate and RateBeer datasets respectively:
+The naive evolution of all the users combined was not as clear as we would've hoped. While working further on the topic, we realized that many of the users might have been very proficient before joining the website already. Such users would be experiencing diminishing returns over the reviews they post. So, what if we try grouping users based on their starting expertise? We could do this by quartiles on the average overall expertise score achieved in, say, the first 5 reviews they post on the website. Here is what we get when running this analysis on users with at least a thousand reviews in the BeerAdvocate and RateBeer datasets respectively (the expertness score is after log normalization):
 
 ![Users Improvement Over Time](pics/exp_nonexp_evol.png)
 
@@ -282,8 +284,8 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
 2. Lederrey, G. and West, R., 2018, April. When sheep shop: Measuring herding effects in product ratings with natural experiments. In *Proceedings of the 2018 world wide web conference* (pp. 793-802). <a name="ref-sheep"></a>
 3. Edward Wolfe, Scott Bickham, David Houseman, Ginger Wotring, Dave Sapsis, Peter Garofalo, Chuck Hanning, Steve Piatz, Gordon Strong, 2017.*BCJP Beer Exam Study Guide*.<a name="ref-studyguide"></a>
 4. EF English Proficiency Index, 2013. [https://www.ef.com/assetscdn/WIBIwq6RdJvcD9bc8RMd/cefcom-epi-site/reports/2013/ef-epi-2013-english.pdf](https://www.ef.com/assetscdn/WIBIwq6RdJvcD9bc8RMd/cefcom-epi-site/reports/2013/ef-epi-2013-english.pdf) <a name="ref-english"></a>
-4. Beer Judge Certification Programme. [BJCP](https://www.bjcp.org/). <a name="ref-bjcp"></a>
-5. Beer Analytics. [Beer Analytics](https://www.beer-analytics.com/). <a name="ref-beeranalytics"></a>
+5. Beer Judge Certification Programme. [BJCP](https://www.bjcp.org/). <a name="ref-bjcp"></a>
+6. Beer Analytics. [Beer Analytics](https://www.beer-analytics.com/). <a name="ref-beeranalytics"></a>
 
 <script>
   function switchIframe(event, iframe_name) {
