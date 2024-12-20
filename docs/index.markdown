@@ -73,8 +73,8 @@ Now that we’ve outlined how we evaluate the expertise level demonstrated in a 
 
 Reviews of beers in the *Black & Tan* style show the highest reliance on Appearance terms, which reflects the visually striking looks of these beers. The most striking anomaly however emerges with the *Gueuze* beer style, whose reviews are dominated by terms in the off-flavor category (which corresponds to the undesirable flavors in Meilgaard's wheel). Gueuze is indeed a peculiar beer style. Its fermentation process involves wild yeasts and bacteria, which produce complex flavors that [can include what are traditionally considered "off-flavors"](https://www.thetakeout.com/1711564/why-belgian-geueze-beer-taste-funky/) in other beer styles, such as funk and sourness. These flavors are not defects in the context of Gueuze but are instead key elements of its profile.
 
-| ![Black & Tan](pics/blacktan.jpg) | ![alt text](pics/gueuze.png) | 
-| *Black & Tan* | *Gueuze* |
+| ![Black & Tan](pics/blacktan.jpg) | *Black & Tan*| 
+|  *Gueuze* | ![alt text](pics/gueuze.png) |
 
 ## Expertise Over Time
 It would be reasonable to hypothesize that the reviewers in both websites would improve at critiquing beers as they gain more experience. Under this assumption, if our metric is any good, we should be able to see for the average user a positive upwards trend in the overall expertise score achieved by the reviews they publish over time. Let's put this to the test by doing just that.
