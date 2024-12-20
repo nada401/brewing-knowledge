@@ -117,25 +117,25 @@ One of the hypothesis we have is that we expect the average expertness score of 
 
 
 <div class="l-page">
-  <select class="iframeSelector" onchange="switchIframe(event)">
+  <select class="iframeSelector" onchange="switchIframe(event, '.plotIframe1')">
     <option value="{{ '/plots/mean_countries_BA.html' | relative_url }}">BeerAdvocate dataset</option>
     <option value="{{ '/plots/mean_countries_RB.html' | relative_url }}">RateBeer dataset</option>
   </select>
-  <iframe class="plotIframe" src="{{ '/plots/mean_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%" style="display: flex;"></iframe>
-  <iframe class="plotIframe" src="{{ '/plots/mean_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%" style="display: none;"></iframe>
+  <iframe class="plotIframe1" src="{{ '/plots/mean_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%" style="display: flex;"></iframe>
+  <iframe class="plotIframe1" src="{{ '/plots/mean_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%" style="display: none;"></iframe>
 </div>
 
 We further investigate the country-wise distribution of expertness scores by looking at the time evolution of the yearly average for some countries. To make sure we have enough samples for each year, we set a filter of 5000 reviews per country and plot the evolution over time. We notice that the United States maintains a higher score from the beginning, while we observe evolution in all the other countries. There is quite a sharp evolution initially between 2000-2005, and then the scores plateau. This evolution graph is similar to the Expert/Non-Expert analysis we did, but here we have plotted the evolution with time, as compared to the evolution with the number of reviews earlier. 
 
 <div class="l-page">
-  <select class="iframeSelector" onchange="switchIframe(event)">
+  <select class="iframeSelector" onchange="switchIframe(event, '.plotIframe2')">
     <option value="{{ '/plots/evolution_countries_BA.html' | relative_url }}">BeerAdvocate dataset</option>
     <option value="{{ '/plots/evolution_countries_RB.html' | relative_url }}">RateBeer dataset</option>
   </select>
 
   <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
-  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: flex;"></iframe>
-  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: none;"></iframe>
+  <iframe class="plotIframe2" src="{{ '/plots/evolution_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: flex;"></iframe>
+  <iframe class="plotIframe2" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: none;"></iframe>
 </div>
 
 ## Beer Styles
@@ -232,13 +232,14 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
 5. Beer Analytics. [Beer Analytics](https://www.beer-analytics.com/). <a name="ref-beeranalytics"></a>
 
 <script>
-  function switchIframe(event) {
+  function switchIframe(event, iframe_name) {
     var selector = event.target;
-    var plotIframes = document.querySelectorAll('.plotIframe');
+    var plotIframes = document.querySelectorAll(iframe_name);
+    console.log("We are changing ", iframe_name);
     plotIframes.forEach(function(iframe) {
       iframe.style.display = 'none'; // Hide all iframes
       if (iframe.src.includes(selector.value)) {
-        console.log("We are displaying now = ", iframe.value)
+        console.log("We are displaying now = ", iframe.src, "\nSelector.value = ", selector.value);
         iframe.style.display = 'flex'; // Show the selected iframe
       }
     });
