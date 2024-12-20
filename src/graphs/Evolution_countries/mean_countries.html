@@ -28,11 +28,22 @@
       useDirtyRect: false
     });
 
+    const dataSweeden = 5.409;
+    const dataCanada = 5.318;
+    const dataUK = 5.054;
+    const dataUS =  5.027;
+    const dataNetherlands = 4.906;
+    const dataAustralia = 4.857;
+    const dataGermany = 4.753;
+    const dataMexico = 4.253;
+    const dataJapan = 3.595;
+    const dataBelgium = 3.544;
+
     // Chart configuration (option)
     var option = {
       title: {
-        text: 'Difference in the expertness score during big beer events over the average of the year',
-        subtext: "taking only relevant subsets of data",
+        text: 'Average expertness score of various countries',
+        // subtext: "...",
         left: 'center',
       },
       tooltip: {
@@ -49,13 +60,13 @@
       yAxis: {
         type: 'value',
         position: 'top',
-        name: 'Variation in expertness score over the mean of the year (%)', 
+        name: 'Mean expertness score', 
         nameLocation: 'middle',
         nameTextStyle: {
           padding: [0, 0, 30, 0]
         },
-        min: -5,
-        max: 28,
+        min: 2.5,
+        max: 5.75,
         splitLine: {
           lineStyle: {
             type: 'dashed'
@@ -64,20 +75,28 @@
       },
       xAxis: {
         type: 'category',
-        name: 'Event', 
+        name: 'Countries', 
         nameLocation: 'middle',
+        axisLabel: { show: false },
         nameTextStyle: {
             padding: [20, 0, 0, 0]
         },
         data: [
-          'Oktoberfest',
-          '4th of July',
-          "St.Patrick's day",
+          'Sweeden',
+          'Canada',
+          "United Kingdom",
+          "USA",
+          "Netherlands",
+          "Australia",
+          "Germany",
+          "Mexico",
+          "Japan",
+          "Belgium"
         ]
       },
       series: [
         {
-          name: 'Variation during the event over the whole year (%)',
+          name: 'Mean expertness score',
           type: 'bar',
           stack: 'Total',
           label: {
@@ -85,10 +104,17 @@
             formatter: '{b}'
           },
           data: [
-            {value: 1.887, itemStyle: {color: '#fff4c4'}},
-            {value: -3.784, itemStyle: {color: '#f6c0c0'}},
-            {value: 25.488, itemStyle: {color: '#d6f5d6'}}, 
-          ]
+            {value: dataSweeden, itemStyle: {color: '#6baed6'}},
+            {value: dataCanada, itemStyle: {color: '#74c476'}},
+            {value: dataUK, itemStyle: {color: '#fee08b'}},
+            {value: dataUS, itemStyle: {color: '#a1d76a'}},
+            {value: dataNetherlands, itemStyle: {color: '#d73027'}},
+            {value: dataAustralia, itemStyle: {color: '#4575b4'}},
+            {value: dataGermany, itemStyle: {color: '#d9d9d9'}}, 
+            {value: dataMexico, itemStyle: {color: '#91bfdb'}},
+            {value: dataJapan, itemStyle: {color: '#fdae61'}},
+            {value: dataBelgium, itemStyle: {color: '#ffeda0'}},
+          ],
         }
       ]
     };

@@ -36,10 +36,16 @@
         // Chart Options
         const option = {
         title: {
-            text: 'Stacked Line Chart Example', // TODO
+            text: 'Evolution of average standardized expertness score per country',
+            left: 'center',
         },
         tooltip: {
             trigger: 'axis',
+        },
+        yAxis: {
+            type: 'value',
+            position: 'top',
+            name: 'Average of the standardized expertness score', 
         },
         legend: {
             data: ['USA', 'Canada', 'United Kingdom', 'Japan', 'Australia', 'Sweeden', 'Netherlands', 'Mexico', 'Germany', 'Belgium'],
@@ -55,6 +61,8 @@
                 'Japan': true, 
                 'Belgium': false,
             },
+            bottom: 0,
+            padding: [10, 0, 0, 40],
         },
         grid: {
             left: '3%',
