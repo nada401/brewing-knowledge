@@ -152,20 +152,19 @@ This correlation matrix highlights some interesting insights:
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
 
 ## Impact of popular beer events on reviews quality
-**DE-CHATGPTIFY THIS**
-Throughout the year, many events celebrate beer, drawing attention to its cultural significance and encouraging social gatherings centered around this beloved beverage. These events often lead to a noticeable increase in the number of beer reviews, providing a unique opportunity to analyze how the quality of these reviews—measured through an expertise score—varies during such occasions. Among the most notable beer-related events are **Oktoberfest**, celebrated in Germany and worldwide as a homage to traditional brewing; **St. Patrick’s Day**, which highlights Irish stouts and ales alongside festive revelry; and the **4th of July** in the United States, where craft beers and refreshing lagers often complement Independence Day celebrations. By examining these events, we aim to uncover whether the surge in reviews during these periods correlates with a change in their expertise level.
+Throughout the year there are many events around the world dedicated at least in part to celebrating beer. These events may lead to a noticeable increase in the number of beer reviews posted around the time period. Notable examples are **St. Patrick’s Day** (Ireland), **Oktoberfest** (Germany) and **4th of July** (USA).
 
-For Oktoberfest, we analyzed all the reviews for the 6 breweries present at the event, and compared the average expertness score of those beers during the event with the whole year. On St. Patrick's Day we focused on the reviews of Guinness beers, comparing the 17th of March with the mean over the year. Finally, for the 4th of July we took all reviewers from the U.S.A. and compared the expertness score of that day compared to the average over the year.
+**PUT A PLOT HERE SHOWCASING THE CHANGE IN QUANTITY OF REVIEWS**
+
+It would be interesting to analyze how these events and the resulting influx of reviews affect the expertise scores of the involved beers and locations. Given the unique nature of each event, we conducted an ad-hoc analysis for each:
+- For Oktoberfest we analyzed reviews for beers brewed by the six breweries that participate annually in the event. Specifically, we compared the average expertise score of reviews posted during the Oktoberfest period (across all years) with the overall average expertise score of Guinness beer reviews.
+- For St. Patrick's Day we focused on reviews of Guinness beers, comparing the average expertise score of reviews posted on March 17th (across all years) with the overall average expertise score of Guinness beer reviews.
+- For the 4th of July we examined all reviews from U.S.-based reviewers, comparing the average expertise score of reviews posted on Independence Day with the annual average expertise score of U.S. reviewers.
 
 <div class="l-page">
   <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe>
 </div>
 
-
-<!-- ## A plot
-<div class="l-page">
-  <iframe src="{{ '/plots/test_plot.html' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="border: 1px dashed grey;"></iframe>
-</div> -->
 
 # Our Recommendations
 
