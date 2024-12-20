@@ -97,12 +97,12 @@ These results are not as clear as expected would've hoped. While working further
 
 ![Users Improvement Over Time](pics/exp_nonexp_evol.png)
 
-Indeed, in both websites we see that the bottom 20% achieves a very sharp improvement in their expertise scores, slowly reaching a plateau between the 300 and 400 review mark. For these users in the bottom 20% of beginners, the Pearson correlation between posting time and overall expertise is in median 0.32 and 0.25, with median p-values of 0.02 and 0.06, for BeerAdvocate and RateBeer respectively.
+Indeed, in both websites we see that the bottom 20% achieves a very sharp improvement in their expertise scores, slowly reaching a plateau between the 300 and 400 review mark. For these users in the bottom 20% of beginners, the Pearson correlation between posting time and overall expertise is in median 0.34 and 0.26, with median p-values of 0.02 and 0.06, for BeerAdvocate and RateBeer respectively.
 
 | Platform      | Median Pearson Correlation | Median p-value |
 |---------------|----------------------------|----------------|
-| BeerAdvocate  | 0.32                       | 0.02           |
-| RateBeer      | 0.25                       | 0.06           |
+| BeerAdvocate  | 0.34                       | 0.02           |
+| RateBeer      | 0.26                       | 0.06           |
 
 
 We also see impressive improvements for the middle 20-80% group of beginners, while the top 20% of beginners has the least amount of improvement and the earliest plateau. 
