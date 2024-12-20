@@ -1,5 +1,6 @@
 import pickle as pkl
 import pandas as pd
+import os
 
 expert_terms =  {"flavor": ["caramel", "toffee", "bready", "biscuity", "nutty", "roasted", "chocolate", "coffee", "mocha", "molasses", "syrupy",
                           "smokey", "toasted", "vanilla", "cocoa", "sugar", "hoppy", "citrusy", "tropical", "floral", "piney",
@@ -36,8 +37,8 @@ def get_exp_scores(data_path):
         temp_df = pkl.load(f)
 
     temp_df = pd.DataFrame(temp_df)
-    for criterion in temp_df.keys():
-        temp_df[criterion + '_score'] = temp_df['stems'].apply(lambda cell: len(list(set(cell) & set(temp_df[criterion]))))
+    for criterion in expert_terms.keys():
+        temp_df[criterion + '_score'] = temp_df['stems'].apply(lambda cell: len(list(set(cell) & set(expert_terms[criterion]))))
     
     temp_df['expert_score'] = 0
     for criterion in expert_terms.keys():
