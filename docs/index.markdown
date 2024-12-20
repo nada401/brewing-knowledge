@@ -238,6 +238,7 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
     plotIframes.forEach(function(iframe) {
       iframe.style.display = 'none'; // Hide all iframes
       if (iframe.src.includes(selector.value)) {
+        console.log("We are displaying now = ", iframe.value)
         iframe.style.display = 'flex'; // Show the selected iframe
       }
     });
