@@ -139,6 +139,28 @@ We further investigate the country-wise distribution of expertness scores by loo
 </div>
 
 ## Beer Styles
+
+<div class="l-page" width="100%">
+  <select class="iframeSelector" onchange="switchIframe(event, '.plotIframe3')">
+    <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
+    <option value="{{ '/pics/flavour_score_stylewise.png' | relative_url }}">Flavor</option>
+    <option value="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}">Mouthfeel</option>
+    <option value="{{ '/pics/brewing_score_stylewise.png' | relative_url }}">Brewing</option>
+    <option value="{{ '/pics/technical_score_stylewise.png' | relative_url }}">Technical</option>
+    <option value="{{ '/pics/appearance_score_stylewise.png' | relative_url }}">Appearance</option>
+    <option value="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}">Off flavor</option>
+  </select>
+
+  <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
+  <iframe class="plotIframe3" src="{{ '/pics/expertness_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: visible; position: relative;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/flavour_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/brewing_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/technical_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/appearance_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+</div>
+
 ![Flavour](pics/flavour_score_stylewise.png)
 ![Mouthfeel](pics/mouthfeel_score_stylewise.png)
 ![Brewing](pics/brewing_score_stylewise.png)
