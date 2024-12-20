@@ -149,6 +149,7 @@ Most Frequent Words and Expertness Score, both by country, for:
 10/12/2024 14:22 correlation that includes expertness score - review rating
 Expert score is relatively highly correlated with flavor score and appearance score (interpretation: they're the most important features...?)
 it's a very big square, we can have a menu that selects 1 of the three squares (upper left, lower left, lower right)
+![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
 
 ## Impact of popular beer events on reviews quality
 
