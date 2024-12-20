@@ -146,9 +146,14 @@ Most Frequent Words and Expertness Score, both by country, for:
 - RB IPA, Imperial Stout, Pale Lager
 
 ## More about our metric - Scores Correlation Matrix
-10/12/2024 14:22 correlation that includes expertness score - review rating
-Expert score is relatively highly correlated with flavor score and appearance score (interpretation: they're the most important features...?)
-it's a very big square, we can have a menu that selects 1 of the three squares (upper left, lower left, lower right)
+This correlation matrix highlights some interesting insights:
+
+1) Strong correlations among numerical ratings: Features like taste, palate, and rating exhibit very high correlations (e.g., taste and rating = 0.96).
+2) Expert and flavor scores: expert_score shows its strongest correlation with flavor_score (0.74), indicating that flavor may heavily influence expert evaluations.
+3) Low correlations for brewing metrics: Scores like brewing_score and technical_score show weak correlations with most other metrics, suggesting they measure distinct aspects.
+4) Appearance and aroma: While appearance correlates moderately with aroma (0.57), it has lower connections with expert scores.
+
+
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
 
 ## Impact of popular beer events on reviews quality
