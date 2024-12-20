@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECharts Baseline Example</title>
+  <!-- Import ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    /* Styling for the container */
+    #container {
+      width: 100%;
+      height: 600px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  
+  <script>
+    // Initialize the ECharts instance
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    const dataSweeden = 5.409;
+    const dataCanada = 5.318;
+    const dataUK = 5.054;
+    const dataUS =  5.027;
+    const dataNetherlands = 4.906;
+    const dataAustralia = 4.857;
+    const dataGermany = 4.753;
+    const dataMexico = 4.253;
+    const dataJapan = 3.595;
+    const dataBelgium = 3.544;
+
+    // Chart configuration (option)
+    var option = {
+      title: {
+        text: 'Average expertness score of various countries',
+        subtext: 'BeerAdvocate dataset',
+        left: 'center',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      grid: {
+        top: 50,
+        bottom: 50,
+        left: 80,
+      },
+      yAxis: {
+        type: 'value',
+        position: 'top',
+        name: 'Mean expertness score', 
+        nameLocation: 'middle',
+        nameTextStyle: {
+          padding: [0, 0, 30, 0]
+        },
+        min: 2.5,
+        max: 5.75,
+        splitLine: {
+          lineStyle: {
+            type: 'dashed'
+          }
+        }
+      },
+      xAxis: {
+        type: 'category',
+        name: 'Countries', 
+        nameLocation: 'middle',
+        axisLabel: { show: false },
+        nameTextStyle: {
+            padding: [20, 0, 0, 0]
+        },
+        data: [
+          'Sweden',
+          'Canada',
+          "UK",
+          "USA",
+          "Netherlands",
+          "Australia",
+          "Germany",
+          "Mexico",
+          "Japan",
+          "Belgium"
+        ]
+      },
+      series: [
+        {
+          name: 'Mean expertness score',
+          type: 'bar',
+          stack: 'Total',
+          label: {
+            show: true,
+            formatter: '{b}'
+          },
+          data: [
+            // Tol_muted palette
+            {value: dataSweeden, itemStyle: {color: '#88CCEE'}}, 
+            {value: dataCanada, itemStyle: {color: '#44AA99'}}, 
+            {value: dataUK, itemStyle: {color: '#117733'}}, 
+            {value: dataUS, itemStyle: {color: '#332288'}}, 
+            {value: dataNetherlands, itemStyle: {color: '#DDCC77'}}, 
+            {value: dataAustralia, itemStyle: {color: '#999933'}}, 
+            {value: dataGermany, itemStyle: {color: '#CC6677'}}, 
+            {value: dataMexico, itemStyle: {color: '#882255'}}, 
+            {value: dataJapan, itemStyle: {color: '#AA4499'}}, 
+            {value: dataBelgium, itemStyle: {color: '#000000'}},
+          ],
+        }
+      ]
+    };
+
+    // Apply the option to the chart
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    // Make the chart responsive
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

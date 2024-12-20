@@ -28,22 +28,27 @@
       useDirtyRect: false
     });
 
-    const dataSweeden = 5.409;
-    const dataCanada = 5.318;
-    const dataUK = 5.054;
-    const dataUS =  5.027;
-    const dataNetherlands = 4.906;
-    const dataAustralia = 4.857;
-    const dataGermany = 4.753;
-    const dataMexico = 4.253;
-    const dataJapan = 3.595;
-    const dataBelgium = 3.544;
+    const dataCanada = 3.7582897693723547;
+    const dataUSA = 3.743856815501438;
+    const dataUK = 3.681994258352114; 
+    const dataItaly = 3.608679755767614;
+    const dataAustralia = 3.5955344952212673;
+    // const dataNorway = 3.5128424838675554;
+    // const dataDenmark = 3.357787999865695;  
+    const dataNetherlands = 3.2838407152749096;
+    const dataPoland = 3.2752692736244495;
+    const dataGermany = 3.232123470358804; 
+    const dataBelgium = 3.216074879684717;
+    const dataSweden = 3.1779014677401283;  
+    // const dataFinland = 3.029315613484009;
+    const dataSpain = 2.543648806543148;
+    // const dataNewZealand = 2.386542117880466;
 
     // Chart configuration (option)
     var option = {
       title: {
         text: 'Average expertness score of various countries',
-        // subtext: "...",
+        subtext: 'RateBeer dataset',
         left: 'center',
       },
       tooltip: {
@@ -65,8 +70,8 @@
         nameTextStyle: {
           padding: [0, 0, 30, 0]
         },
-        min: 2.5,
-        max: 5.75,
+        // min: 2.5,
+        // max: 5.75,
         splitLine: {
           lineStyle: {
             type: 'dashed'
@@ -81,18 +86,7 @@
         nameTextStyle: {
             padding: [20, 0, 0, 0]
         },
-        data: [
-          'Sweden',
-          'Canada',
-          "UK",
-          "USA",
-          "Netherlands",
-          "Australia",
-          "Germany",
-          "Mexico",
-          "Japan",
-          "Belgium"
-        ]
+        data: ['Canada', 'USA', 'UK', 'Italy', 'Australia', 'Netherlands', 'Poland', 'Germany', 'Sweden', 'Spain'],
       },
       series: [
         {
@@ -105,16 +99,16 @@
           },
           data: [
             // Tol_muted palette
-            {value: dataSweeden, itemStyle: {color: '#88CCEE'}}, 
             {value: dataCanada, itemStyle: {color: '#44AA99'}}, 
+            {value: dataUSA, itemStyle: {color: '#332288'}}, 
             {value: dataUK, itemStyle: {color: '#117733'}}, 
-            {value: dataUS, itemStyle: {color: '#332288'}}, 
-            {value: dataNetherlands, itemStyle: {color: '#DDCC77'}}, 
-            {value: dataAustralia, itemStyle: {color: '#999933'}}, 
+            {value: dataItaly, itemStyle: {color: '#AA4499'}},
+            {value: dataAustralia, itemStyle: {color: '#999933'}},
+            {value: dataNetherlands, itemStyle: {color: '#DDCC77'}},  
+            {value: dataPoland, itemStyle: {color: '#882255'}}, 
             {value: dataGermany, itemStyle: {color: '#CC6677'}}, 
-            {value: dataMexico, itemStyle: {color: '#882255'}}, 
-            {value: dataJapan, itemStyle: {color: '#AA4499'}}, 
-            {value: dataBelgium, itemStyle: {color: '#000000'}},
+            {value: dataSweden, itemStyle: {color: '#88CCEE'}}, 
+            {value: dataSpain, itemStyle: {color: '#000000'}},
           ],
         }
       ]
