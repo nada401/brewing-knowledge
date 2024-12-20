@@ -151,8 +151,7 @@ We further investigate the country-wise distribution of expertness scores by loo
     <option value="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}">Off flavor</option>
   </select>
 
-  <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
-  <iframe class="plotIframe3" src="{{ '/pics/expertness_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: visible; position: relative;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/expertness_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' width="100%" style="visibility: visible; position: relative;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/flavour_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/brewing_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
@@ -160,14 +159,6 @@ We further investigate the country-wise distribution of expertness scores by loo
   <iframe class="plotIframe3" src="{{ '/pics/appearance_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
 </div>
-
-![Flavour](pics/flavour_score_stylewise.png)
-![Mouthfeel](pics/mouthfeel_score_stylewise.png)
-![Brewing](pics/brewing_score_stylewise.png)
-![Technical](pics/technical_score_stylewise.png)
-![Appearance](pics/appearance_score_stylewise.png)
-![Off Flavours](pics/off_flavours_score_stylewise.png)
-![Expert Score](pics/expertness_score_stylewise.png)
 
 ## More about our metric - Scores Correlation Matrix
 This correlation matrix highlights some interesting insights:
