@@ -76,6 +76,20 @@ Reviews of beers in the *Black & Tan* style show the highest reliance on Appeara
 | ![Black & Tan](pics/blacktan.jpg) | *Black & Tan*: A black and tan is prepared by filling a glass halfway with pale ale, then adding stout to fill the glass completely. An upside-down tablespoon may be placed over the glass to avoid splashing and mixing the layers. A specially designed black-and-tan spoon is bent in the middle so that it can balance on the edge of the pint-glass for easier pouring. The "layering" of Guinness on top of the pale ale or lager is possible because of the lower relative density of the Guinness.| 
 |  *Gueuze* | ![alt text](pics/gueuze.png) |
 
+<table>
+  <tr>
+    <td style="width: 50%; text-align: center;">
+      <img src="pics/blacktan.jpg" alt="Black & Tan" style="max-width: 100%; height: auto;"><br>
+      <em>Black & Tan</em>: A black and tan is prepared by filling a glass halfway with pale ale, then adding stout to fill the glass completely. An upside-down tablespoon may be placed over the glass to avoid splashing and mixing the layers. A specially designed black-and-tan spoon is bent in the middle so that it can balance on the edge of the pint-glass for easier pouring. The "layering" of Guinness on top of the pale ale or lager is possible because of the lower relative density of the Guinness.
+    </td>
+    <td style="width: 50%; text-align: center;">
+      <em>Gueuze</em><br>
+      <img src="pics/gueuze.png" alt="Gueuze" style="max-width: 100%; height: auto;">
+    </td>
+  </tr>
+</table>
+
+
 ## Expertise Over Time
 It would be reasonable to hypothesize that the reviewers in both websites would improve at critiquing beers as they gain more experience. Under this assumption, if our metric is any good, we should be able to see for the average user a positive upwards trend in the overall expertise score achieved by the reviews they publish over time. Let's put this to the test by doing just that.
 
