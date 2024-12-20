@@ -187,6 +187,23 @@ So, which expert should you follow to get the best reviews? To answer this, we h
 | mdagnew           | Northern Ireland         | 1143              | 11.52        |
 
 
+Here’s the updated markdown table with hyperlinks in the Username column:
+
+| Username          | Location                  | Number of reviews | Expert Score |
+|-------------------|---------------------------|-------------------|--------------|
+| [StephenRich](https://www.beeradvocate.com/user/beers/?ba=StephenRich)       | Canada                   | 176               | 17.23        |
+| [TheBrewo](https://www.beeradvocate.com/user/beers/?ba=TheBrewo)          | United States, New York  | 1236              | 15.17        |
+| [911CROFT](https://www.beeradvocate.com/user/beers/?ba=911CROFT)          | England                  | 144               | 13.60        |
+| [superspak](https://www.beeradvocate.com/user/beers/?ba=superspak)         | United States, Michigan  | 5603              | 13.19        |
+| [CHickman](https://www.beeradvocate.com/user/beers/?ba=CHickman)          | United States, New York  | 1795              | 12.55        |
+| [flayedandskinned](https://www.beeradvocate.com/user/beers/?ba=flayedandskinned)  | United States, California| 135               | 12.35        |
+| [Jadjunk](https://www.beeradvocate.com/user/beers/?ba=Jadjunk)           | United States, Georgia   | 1175              | 12.20        |
+| [Bmoyer0301](https://www.beeradvocate.com/user/beers/?ba=Bmoyer0301)        | United States, Pennsylvania| 114            | 12.10        |
+| [fmccormi](https://www.beeradvocate.com/user/beers/?ba=fmccormi)          | United States, California| 532               | 12.07        |
+| [BarryMFBurton](https://www.beeradvocate.com/user/beers/?ba=BarryMFBurton)     | United States, Indiana   | 628               | 11.89        |
+| [hustlesworth](https://www.beeradvocate.com/user/beers/?ba=hustlesworth)      | United States, Ohio      | 689               | 11.85        |
+| [mdagnew](https://www.beeradvocate.com/user/beers/?ba=mdagnew)           | Northern Ireland         | 1143              | 11.52        |
+
 ##  The Team
 This Data Story is brought to you by the Nada-401 team as part of a project for the 2024 Applied Data Analysis course at EPFL. The team members are, in alphabetical order:
 - ![vikhyatavatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/82029380?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d) Vikhyat Agrawal
