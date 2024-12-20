@@ -141,7 +141,7 @@ We further investigate the country-wise distribution of expertness scores by loo
 ## Beer Styles
 
 <div class="image-switcher" style="text-align: center;">
-  <select id="imageSelector1" onchange="switchImage("imageSelector1", "displayedImage1")">
+  <select id="imageSelector1" onchange="switchImage('imageSelector1', 'displayedImage1')">
     <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
     <option value="{{ '/pics/flavour_score_stylewise.png' | relative_url }}">Flavor</option>
     <option value="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}">Mouthfeel</option>
@@ -165,7 +165,7 @@ How do our expertise scores correlate with the reviewer's rating of the review? 
 - The overall expertise score is most heavily influenced by the expertise score for flavor, which means that reviewers tend to write more in-depth about that aspect of the beer. This adds evidence to flavor being the aspect to which reviewers tend to give the most weight.
 
 <div class="image-switcher" style="text-align: center;">
-  <select id="imageSelector2" onchange="switchImage("imageSelector2", "displayedImage2")">
+  <select id="imageSelector2" onchange="switchImage('imageSelector2', 'displayedImage2')">
     <option value="{{ '/pics/corr_matrix_all_BA.png' | relative_url }}">BeerAdvocate</option>
     <option value="{{ '/pics/corr_matrix_all_RB.png' | relative_url }}">RateBeer</option>
   </select>
