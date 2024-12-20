@@ -173,7 +173,7 @@ So, which expert should you follow to get the best reviews? To answer this, we h
 
 | Username          | Location                  | Number of reviews | Expert Score |
 |-------------------|---------------------------|-------------------|--------------|
-| StephenRich       | Canada                   | 176               | 17.23        |
+| [StephenRich](https://www.beeradvocate.com/user/beers/?ba=StephenRich)       | Canada                   | 176               | 17.23        |
 | TheBrewo          | United States, New York  | 1236              | 15.17        |
 | 911CROFT          | England                  | 144               | 13.60        |
 | superspak         | United States, Michigan  | 5603              | 13.19        |
