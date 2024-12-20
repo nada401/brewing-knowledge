@@ -54,7 +54,7 @@ Here is a small demo of our metric: we illustrate our metric through pairs of ex
 Here is a pretty word cloud of the metric terms most commonly used in both websites
 word_occurrencies
 
-![Word Cloud](pics/word_cloud_BA+RB.png)
+![Word Cloud](pics/'word_cloud_BA+RB.png')
 
 # Results
 Now that we’ve outlined how we evaluate the expertise level demonstrated in a review, let's see if we can get some interesting insights with our metric.
