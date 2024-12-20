@@ -268,6 +268,15 @@ For RateBeer:
 
 Interestingly, the highest average expertise scores for BeerAdvocate are higher than those for RateBeer. Props to user "superspak", who appears among the top experts in both the datasets!
 
+
+# Conclusions
+In conclusion, 
+we provided a simple method to quantify the technical depth of beer reviews by computing the coverage of a set of technical terms obtained from beer critique literature. 
+Using this method we have obtained the following interesting results:
+- Certain beer styles being on average more profoundly scrutinized by the reviewers on their most salient aspects.
+- The presence of a strong initial improvement on the expert scores obtained by the reviewers as they gain more experience, and the dependence of the slope of the improvement and its plateau on the initial expertise of the reviewers.
+- The expertise score matching per-country data from the EF English Proficiency Index.
+
 <div class="l-page">
   <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="100px" width="100%" style="border: 0px dashed grey;"></iframe>
 </div>
