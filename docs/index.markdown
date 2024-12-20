@@ -274,6 +274,8 @@ we provided a simple method to quantify the technical depth of beer reviews by c
 Using this method we have obtained the following interesting results:
 - Certain beer styles being on average more profoundly scrutinized by the reviewers on their most salient aspects.
 - The presence of a strong initial improvement on the expert scores obtained by the reviewers as they gain more experience, and the dependence of the slope of the improvement and its plateau on the initial expertise of the reviewers.
+- The sentiment of the review not having a strong influence on the expertise score it recieves.
+- Flavor being discussed on average more in-depth than the other aspects.
 - The expertise score matching per-country data from the EF English Proficiency Index.
 
 <div class="l-page">
