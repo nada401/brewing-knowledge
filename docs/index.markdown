@@ -118,6 +118,7 @@ Although the trends on improvements closely match each other, we can see that us
   </div>
 </div>
 
+We now bifurcate our evolution diagrams by English/Non-English countries. One of the first things we notice is that the evolution plots for non-English countries in BeerAdvocate is significantly noisier than the English countries plots. This is due to the fact that BeerAdvocate has majority of its users from the USA, which is an English speaking country. For BeerAdvocate, the evolution trend appears to be the same for both English and non-English users. However, when we switch to RateBeer, we observe something interesting. The non-Experts (rookies) evolve more for English speaking countries than they do for non-English countries. This is possibly due to the fact that learning new beer-specific English words is easier for native English speakers than for non-native speakers. Another interesting thing to see is that the gap between the rookies and the average users is significantly lesser for English users than for non-English users. The experts on the other hand do not let the language barrier separate them from their passion for beer, thus showcasing negligible evolution with their review count.  
 
 ## Expertise Per Country
 
