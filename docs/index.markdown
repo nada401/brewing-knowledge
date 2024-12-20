@@ -141,7 +141,7 @@ We further investigate the country-wise distribution of expertness scores by loo
 ## Beer Styles
 
 <div class="image-switcher" style="text-align: center;">
-  <select id="imageSelector" onchange="switchImage()">
+  <select id="imageSelector1" onchange="switchImage("imageSelector1", "displayedImage1")">
     <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
     <option value="{{ '/pics/flavour_score_stylewise.png' | relative_url }}">Flavor</option>
     <option value="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}">Mouthfeel</option>
@@ -152,7 +152,7 @@ We further investigate the country-wise distribution of expertness scores by loo
   </select>
 
   <div style="margin-top: 20px;">
-    <img id="displayedImage" src="{{ '/pics/expertness_score_stylewise.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
+    <img id="displayedImage1" src="{{ '/pics/expertness_score_stylewise.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
   </div>
 </div>
 
@@ -165,18 +165,18 @@ How do our expertise scores correlate with the reviewer's rating of the review? 
 - The overall expertise score is most heavily influenced by the expertise score for flavor, which means that reviewers tend to write more in-depth about that aspect of the beer. This adds evidence to flavor being the aspect to which reviewers tend to give the most weight.
 
 <div class="image-switcher" style="text-align: center;">
-  <select id="imageSelector" onchange="switchImage()">
+  <select id="imageSelector2" onchange="switchImage("imageSelector2", "displayedImage2")">
     <option value="{{ '/pics/corr_matrix_all_BA.png' | relative_url }}">BeerAdvocate</option>
     <option value="{{ '/pics/corr_matrix_all_RB.png' | relative_url }}">RateBeer</option>
   </select>
 
   <div style="margin-top: 20px;">
-    <img id="displayedImage" src="{{ '/pics/corr_matrix_all_BA.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
+    <img id="displayedImage2" src="{{ '/pics/corr_matrix_all_BA.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
   </div>
 </div>
 
-![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
-![Correlation matrix for all scores for BA](pics/corr_matrix_all_RB.png)
+<!-- ![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
+![Correlation matrix for all scores for BA](pics/corr_matrix_all_RB.png) -->
 
 ## Impact of popular beer events on reviews quality
 Throughout the year there are many events around the world dedicated at least in part to celebrating beer. These events may lead to a noticeable increase in the number of beer reviews posted around the time period. Notable examples are **St. Patrick’s Day** (Ireland), **Oktoberfest** (Germany) and **4th of July** (USA).
@@ -268,10 +268,10 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
     });
   }
 
-  function switchImage() {
-    const selector = document.getElementById('imageSelector');
+  function switchImage(img_selector_id, displayed_img_id) {
+    const selector = document.getElementById(img_selector_id);
     const selectedValue = selector.value;
-    const image = document.getElementById('displayedImage');
+    const image = document.getElementById(displayed_img_id);
     image.src = selectedValue;
   } 
 </script>
