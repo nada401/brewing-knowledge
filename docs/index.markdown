@@ -169,6 +169,23 @@ For Oktoberfest, we analyzed all the reviews for the 6 breweries present at the 
 
 # Conclusions
 
+So, which expert should you follow to get the best reviews? To answer this, we have curated a list with the top experts on BeerAdvocate you can check out to get to know about the beers you want to try out. 
+
+| Username          | Location                  | Number of reviews | Expert Score |
+|-------------------|---------------------------|-------------------|--------------|
+| StephenRich       | Canada                   | 176               | 17.23        |
+| TheBrewo          | United States, New York  | 1236              | 15.17        |
+| 911CROFT          | England                  | 144               | 13.60        |
+| superspak         | United States, Michigan  | 5603              | 13.19        |
+| CHickman          | United States, New York  | 1795              | 12.55        |
+| flayedandskinned  | United States, California| 135               | 12.35        |
+| Jadjunk           | United States, Georgia   | 1175              | 12.20        |
+| Bmoyer0301        | United States, Pennsylvania| 114            | 12.10        |
+| fmccormi          | United States, California| 532               | 12.07        |
+| BarryMFBurton     | United States, Indiana   | 628               | 11.89        |
+| hustlesworth      | United States, Ohio      | 689               | 11.85        |
+| mdagnew           | Northern Ireland         | 1143              | 11.52        |
+
 
 ##  The Team
 This Data Story is brought to you by the Nada-401 team as part of a project for the 2024 Applied Data Analysis course at EPFL. The team members are, in alphabetical order:
