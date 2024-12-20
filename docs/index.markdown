@@ -107,7 +107,7 @@ Indeed, in both websites we see that the bottom 20% achieves a very sharp improv
 We also see impressive improvements for the middle 20-80% group of beginners, while the top 20% of beginners has the least amount of improvement and the earliest plateau. 
 Although the trends on improvements closely match each other, we can see that users on RateBeer perform worse than those on BeerAdvocate. A possible explanation that we would like to explore is that RateBeer has a more international community (**put actual numbers**), which might translate into a poorer vocabulary on average. This brings us to performing an analysis of the metric per country.
 
-<div class="image-switcher" style="text-align: right;">
+<div class="image-switcher" style="text-align: left;">
   <select id="imageSelector3" onchange="switchImage('imageSelector3', 'displayedImage3')">
     <option value="{{ '/pics/BA_exp_nonexp_eng_nongl_evol.png' | relative_url }}">BeerAdvocate</option>
     <option value="{{ '/pics/RB_exp_nonexp_eng_nongl_evol.png' | relative_url }}">RateBeer</option>
@@ -156,7 +156,7 @@ Let's further analyze the relation between expertise scores and beer styles. We 
 - **Flavor** is heavily discussed in the widely popular **Stouts** and **Indian Pale Ale** beers.
 - **Overall expertise** is highest in the most popular beers such as American Black Ale and Black IPA.
 
-<div class="image-switcher" style="text-align: right;">
+<div class="image-switcher" style="text-align: left;">
   <select id="imageSelector1" onchange="switchImage('imageSelector1', 'displayedImage1')">
     <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
     <option value="{{ '/pics/flavour_score_stylewise.png' | relative_url }}">Flavor</option>
@@ -180,7 +180,7 @@ How do our expertise scores correlate with the reviewer's rating of the review? 
 - The expertise score for off-flavor is unique in having a negative correlation with all of the numeric ratings, which matches with the generally negative connotation carried by terms in that category.
 - The overall expertise score is most heavily influenced by the expertise score for flavor, which means that reviewers tend to write more in-depth about that aspect of the beer. This adds evidence to flavor being the aspect to which reviewers tend to give the most weight.
 
-<div class="image-switcher" style="text-align: right;">
+<div class="image-switcher" style="text-align: left;">
   <select id="imageSelector2" onchange="switchImage('imageSelector2', 'displayedImage2')">
     <option value="{{ '/pics/corr_matrix_all_BA.png' | relative_url }}">BeerAdvocate</option>
     <option value="{{ '/pics/corr_matrix_all_RB.png' | relative_url }}">RateBeer</option>
