@@ -115,8 +115,14 @@ Although the trends on improvements closely match each other, we can see that us
 
 One of the hypothesis we have is that we expect the average expertness score of English speaking countries to be higher than non-English speaking countries. To test this out, we compute the average score grouped by the location of the users. This includes all the reviews made by users from a particular country. We also filter out countries which have less than 2000 reviews, to have some confidence in our computed average. Since the location for the United States is state-wise for BeerAdvocate, we combine all users into a single "United States" location. We observe that our hypothesis holds to some extent, with the general trend being that the English Speaking countries outscore the non-English speaking countries. This largely corresponds with the EF English Proficiency Index of 2013\[[4](#ref-english)\], where we see that the non-English countries on top of the list indeed have a high average expertness score. We note however the presence of one significant outlier, and that is Belgium, which obtains a low expertness score despite having good English proficiency as a country. For other countries like Sweden, Netherlands, France, Germany, Italy and Spain, we see that there is a relation between their english proficiency and their expertness score. 
 
+
 <div class="l-page">
-  <iframe src="{{ '/plots/mean_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%"></iframe>
+  <select class="iframeSelector" onchange="switchIframe(event)">
+    <option value="{{ '/plots/mean_countries_BA.html' | relative_url }}">BeerAdvocate dataset</option>
+    <option value="{{ '/plots/mean_countries_RB.html' | relative_url }}">RateBeer dataset</option>
+  </select>
+  <iframe class="plotIframe" src="{{ '/plots/mean_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%" style="display: flex;"></iframe>
+  <iframe class="plotIframe" src="{{ '/plots/mean_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%" style="display: none;"></iframe>
 </div>
 
 We further investigate the country-wise distribution of expertness scores by looking at the time evolution of the yearly average for some countries. To make sure we have enough samples for each year, we set a filter of 5000 reviews per country and plot the evolution over time. We notice that the United States maintains a higher score from the beginning, while we observe evolution in all the other countries. There is quite a sharp evolution initially between 2000-2005, and then the scores plateau. This evolution graph is similar to the Expert/Non-Expert analysis we did, but here we have plotted the evolution with time, as compared to the evolution with the number of reviews earlier. 
@@ -128,8 +134,8 @@ We further investigate the country-wise distribution of expertness scores by loo
   </select>
 
   <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
-  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
-  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: none;"></iframe>
+  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: flex;"></iframe>
+  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: none;"></iframe>
 </div>
 
 ## Beer Styles
