@@ -94,8 +94,6 @@ It would be reasonable to hypothesize that the reviewers in both websites would 
 
 These results are not as clear as expected would've hoped. While working further on the topic, we realized that many of the users might have been very proficient before joining the website already. Such users would be experiencing diminishing returns over the reviews they post. So, what if we try grouping users based on their starting expertise? We could do this by quartiles on the average overall expertise score achieved in, say, the first 5 reviews they post on the website. Here is what we get when running this analysis on users with at least a thousand reviews in the BeerAdvocate and RateBeer datasets respectively:
 
-![BeerAdvocate Improvement Over Time](pics/improve_aggr_ba.png)
-![RateBeer Improvement Over Time](pics/improve_aggr_rb.png)
 ![Users Improvement Over Time](pics/exp_nonexp_evol.png)
 
 
