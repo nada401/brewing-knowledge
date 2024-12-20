@@ -134,8 +134,8 @@ We further investigate the country-wise distribution of expertness scores by loo
   </select>
 
   <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
-  <iframe class="plotIframe2" src="{{ '/plots/evolution_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: flex;"></iframe>
-  <iframe class="plotIframe2" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: none;"></iframe>
+  <iframe class="plotIframe2" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: flex;"></iframe>
+  <iframe class="plotIframe2" src="{{ '/plots/evolution_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="display: none;"></iframe>
 </div>
 
 ## Beer Styles
