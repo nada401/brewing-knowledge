@@ -187,6 +187,28 @@ So, which expert should you follow to get the best reviews? To answer this, we h
 | [hustlesworth](https://www.beeradvocate.com/user/beers/?ba=hustlesworth)      | United States, Ohio      | 689               | 11.85        |
 | [mdagnew](https://www.beeradvocate.com/user/beers/?ba=mdagnew)           | Northern Ireland         | 1143              | 11.52        |
 
+
+Here are the experts from RateBeer:
+
+
+| Username                           | Location                  | Number of Ratings | Expert Score |
+|------------------------------------|---------------------------|-------------------|--------------|
+| [GoufCustom](https://www.beeradvocate.com/user/beers/?ba=GoufCustom)         | Hong Kong                | 1832              | 13.34        |
+| [superspak](https://www.beeradvocate.com/user/beers/?ba=superspak)          | United States, Michigan  | 4847              | 13.14        |
+| [msnelling09](https://www.beeradvocate.com/user/beers/?ba=msnelling09)       | United States, Massachusetts | 148        | 12.72        |
+| [pinkie](https://www.beeradvocate.com/user/beers/?ba=pinkie)               | United States, New York  | 386               | 11.23        |
+| [FlacoAlto](https://www.beeradvocate.com/user/beers/?ba=FlacoAlto)          | United States, Arizona   | 3538              | 11.21        |
+| [ksurkin](https://www.beeradvocate.com/user/beers/?ba=ksurkin)             | United States, Virginia  | 722               | 10.51        |
+| [Bierdimpfe](https://www.beeradvocate.com/user/beers/?ba=Bierdimpfe)         | Canada                   | 639               | 9.94         |
+| [Night_Cap](https://www.beeradvocate.com/user/beers/?ba=Night_Cap)          | Australia                | 109               | 9.83         |
+| [Alengrin](https://www.beeradvocate.com/user/beers/?ba=Alengrin)           | Belgium                  | 5507              | 9.44         |
+| [beermatrix](https://www.beeradvocate.com/user/beers/?ba=beermatrix)         | United States, Minnesota | 1233              | 9.07         |
+| [otakuden](https://www.beeradvocate.com/user/beers/?ba=otakuden)            | United States, Florida   | 1446              | 8.98         |
+| [Jabic](https://www.beeradvocate.com/user/beers/?ba=Jabic)                | United States, Vermont   | 452               | 8.97         |
+| [brewandbbq](https://www.beeradvocate.com/user/beers/?ba=brewandbbq)         | United States, New Hampshire | 233          | 8.89         |
+| [jpm30](https://www.beeradvocate.com/user/beers/?ba=jpm30)                | United States, Georgia   | 1451              | 8.81         |
+
+
 ##  The Team
 This Data Story is brought to you by the Nada-401 team as part of a project for the 2024 Applied Data Analysis course at EPFL. The team members are, in alphabetical order:
 - ![vikhyatavatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/82029380?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d) Vikhyat Agrawal
