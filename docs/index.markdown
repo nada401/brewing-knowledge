@@ -140,7 +140,7 @@ We further investigate the country-wise distribution of expertness scores by loo
 
 ## Beer Styles
 
-<div class="l-page" width="100%">
+<!-- <div class="l-page" width="100%">
   <select class="iframeSelector" onchange="switchIframe(event, '.plotIframe3')">
     <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
     <option value="{{ '/pics/flavour_score_stylewise.png' | relative_url }}">Flavor</option>
@@ -158,6 +158,22 @@ We further investigate the country-wise distribution of expertness scores by loo
   <iframe class="plotIframe3" src="{{ '/pics/technical_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/appearance_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+</div> -->
+
+<div class="image-switcher" style="text-align: center;">
+  <select id="imageSelector" onchange="switchImage()">
+    <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
+    <option value="{{ '/pics/flavour_score_stylewise.png' | relative_url }}">Flavor</option>
+    <option value="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}">Mouthfeel</option>
+    <option value="{{ '/pics/brewing_score_stylewise.png' | relative_url }}">Brewing</option>
+    <option value="{{ '/pics/technical_score_stylewise.png' | relative_url }}">Technical</option>
+    <option value="{{ '/pics/appearance_score_stylewise.png' | relative_url }}">Appearance</option>
+    <option value="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}">Off flavor</option>
+  </select>
+
+  <div style="margin-top: 20px;">
+    <img id="displayedImage" src="{{ '/pics/expertness_score_stylewise.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
+  </div>
 </div>
 
 ## More about our metric - Scores Correlation Matrix
@@ -260,4 +276,11 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
       }
     });
   }
+
+  function switchImage() {
+    const selector = document.getElementById('imageSelector');
+    const selectedValue = selector.value;
+    const image = document.getElementById('displayedImage');
+    image.src = selectedValue;
+  } 
 </script>
