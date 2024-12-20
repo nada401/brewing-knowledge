@@ -21,26 +21,26 @@ def get_word_occ(rev_with_scores_ba, rev_with_scores_rb):
     return compute_word_occ(rev_with_scores_ba.stems, word_occ)
 
 def plot_word_cloud(data_path, word_occ):
-
     exp_dict = get_exp_dict_stems(data_path)
 
     for key in exp_dict:
         if exp_dict[key] in word_occ.keys():
-            exp_dict[key]= word_occ[exp_dict[key]]
+            exp_dict[key] = word_occ[exp_dict[key]]
         else:
-            exp_dict[key]= 0
-    
+            exp_dict[key] = 0
+
     wordcloud = WordCloud(
-    width=800, 
-    height=400, 
-    background_color='white', 
-    colormap='viridis'
+        width=1600,  
+        height=800,  
+        background_color='white',
+        colormap='viridis'
     ).generate_from_frequencies(exp_dict)
 
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(16, 8), dpi=300)  
     plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')  
+    plt.axis('off')
     plt.show()
+
 
 def plot_word_category_distribution(data_path, word_occ):
     exp_stems_per_cat = get_exp_stems(data_path)
@@ -57,7 +57,7 @@ def plot_word_category_distribution(data_path, word_occ):
     for key in cat_distribution:
         cat_dist_perc[key] =  cat_distribution[key]/tot_occ
     
-    plt.figure(figsize=(8, 8))
+    plt.figure(figsize=(8, 8), dpi=200)
     plt.pie(
         cat_dist_perc.values(),
         labels=cat_dist_perc.keys(),
