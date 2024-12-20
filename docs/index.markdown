@@ -28,7 +28,7 @@ But what about the wider community of more casual reviewers on BeerAdvocate and 
 In this data story, we invite you to join us as we explore these questions, using data to uncover insights about beer critique and the diverse community of reviewers behind it.
 
 # Datasets
-We have used two datasets, one for BeerAdvocate and one for RateBeer. Both datasets were generously provided by EPFL's Data Science Lab, who makes them available upon request\[[2](#ref-sheep)\].
+We have used two datasets, one for BeerAdvocate and one for RateBeer. Both datasets were generously provided by EPFL's Data Science Lab, who makes them available upon request\[[2](#ref-sheep)\]. The RateBeer dataset is the larger of the two datasets with {N} million reviews, as it is more international. The BeerAdvocate dataset has {N} million on the other hand. The number of users for both datasets are approximately the same, with 27 thousand users. RateBeer has 42k beers in its directory, whereas BeerAdvocate has 28k. 
 
 Each dataset contains a comprehensive crawling of all beer types, user information, and reviews posted to the respective platforms until 2017. For our study, we have made key additions:
 - **Language Tagging:** Each review was tagged with the language in which it was written. English-language reviews account for 99% of BeerAdvocate reviews and 93% of RateBeer reviews. This allows us to focus exclusively on English reviews without sacrificing data scale, retaining over 9 million reviews for analysis.
