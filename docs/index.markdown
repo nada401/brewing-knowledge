@@ -161,13 +161,12 @@ We further investigate the country-wise distribution of expertness scores by loo
 </div>
 
 ## More about our metric - Scores Correlation Matrix
-This correlation matrix highlights some interesting insights:
+How do our expertise scores correlate with the reviewer's rating of the review? Could it be that reviewers show more expertise for beers that they have enjoyed? Let's use a correlation matrix to find out.
 
-1) Strong correlations among numerical ratings: Features like taste, palate, and rating exhibit very high correlations (e.g., taste and rating = 0.96).
-2) Expert and flavor scores: expert_score shows its strongest correlation with flavor_score (0.74), indicating that flavor may heavily influence expert evaluations.
-3) Low correlations for brewing metrics: Scores like brewing_score and technical_score show weak correlations with most other metrics, suggesting they measure distinct aspects.
-4) Appearance and aroma: While appearance correlates moderately with aroma (0.57), it has lower connections with expert scores.
-
+- The upper left quadrant (shaded red) shows us the correlations between the different numeric ratings given by the reviewer (this is independent from our metric). It is interesting to see how the taste rating is so heavily correlated to the overall rating of the beer, in comparison to the other numerical ratings.
+- Our expertise scores are not strongly correlated to the numerical ratings left by the user, which gives a blue shade to our lower left quadrant. This is good, although we do note in general a slightly positive correlation. A possible explanation for this is that reviewers tend to write more in-depth for beers that they have enjoyed.
+- The expertise score for off-flavor is unique in having a negative correlation with all of the numeric ratings, which matches with the generally negative connotation carried by terms in that category.
+- The overall expertise score is most heavily influenced by the expertise score for flavor, which means that reviewers tend to write more in-depth about that aspect of the beer. This adds evidence to flavor being the aspect to which reviewers tend to give the most weight.
 
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_RB.png)
