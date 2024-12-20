@@ -133,9 +133,13 @@ We further investigate the country-wise distribution of expertness scores by loo
 </div>
 
 ## Beer Styles (not doing it - maybe)
-Most Frequent Words and Expertness Score, both by country, for:
-- BA American IPA, Imperial Stout, 
-- RB IPA, Imperial Stout, Pale Lager
+![Flavour](pics/flavour_score_stylewise.png)
+![Mouthfeel](pics/mouthfeel_score_stylewise.png)
+![Brewing](pics/brewing_score_stylewise.png)
+![Technical](pics/technical_score_stylewise.png)
+![Appearance](pics/appearance_score_stylewise.png)
+![Off Flavours](pics/off_flavours_score_stylewise.png)
+![Expert Score](pics/expertness_score_stylewise.png)
 
 ## More about our metric - Scores Correlation Matrix
 This correlation matrix highlights some interesting insights:
