@@ -252,6 +252,10 @@ Here are the experts from RateBeer:
 
 One of the most interesting things to notice in the top experts for the 2 datasets is that on average, the raw scores for BeerAdvocate are higher than RateBeer. Thus, you are more likely to find better worded reviews on BeerAdvocate than on RateBeer. It is also interesting to see the user "superspak" turn up on the top experts for both the datasets. They also have roughly the same expert score for both the datasets. So, if you want good quality beer reviews, we would recommend checking out some of these experts' reviews on the 2 websites.
 
+##  Note
+
+We have carefully chosen color palettes for all our plots to ensure they are accessible and considerate of viewers who are colorblind.
+
 ##  The Team
 This Data Story is brought to you by the Nada-401 team as part of a project for the 2024 Applied Data Analysis course at EPFL. The team members are, in alphabetical order:
 - ![vikhyatavatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/82029380?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d) Vikhyat Agrawal
