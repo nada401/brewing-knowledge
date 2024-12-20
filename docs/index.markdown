@@ -232,7 +232,7 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
       iframe.style.display = 'none'; // Hide all iframes
       console.log("iframe.src ", iframe.src);
       console.log("selctor.value ", selector.value, "\n");
-      if (iframe.src === selector.value) {
+      if (iframe.src.includes(selector.value)) {
         iframe.style.display = 'flex'; // Show the selected iframe
       }
     });
