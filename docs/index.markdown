@@ -235,12 +235,13 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
   function switchIframe(event, iframe_name) {
     var selector = event.target;
     var plotIframes = document.querySelectorAll(iframe_name);
-    console.log("We are changing ", iframe_name);
+    console.log("We are changing this = ", iframe_name);
     plotIframes.forEach(function(iframe) {
       iframe.style.display = 'none'; // Hide all iframes
       if (iframe.src.includes(selector.value)) {
         console.log("We are displaying now = ", iframe.src, "\nSelector.value = ", selector.value);
         iframe.style.display = 'flex'; // Show the selected iframe
+        iframe.style.width = '100%'; // Somehow it was broken
       }
     });
   }
