@@ -72,20 +72,6 @@ Now that we’ve outlined how we evaluate the expertise level demonstrated in a 
 </div>
 
 Reviews of beers in the *Black & Tan* style show the highest reliance on Appearance terms, which reflects the visually striking looks of these beers. The most striking anomaly however emerges with the *Gueuze* beer style, whose reviews are dominated by terms in the off-flavor category (which corresponds to the undesirable flavors in Meilgaard's wheel). Gueuze is indeed a peculiar beer style. Its fermentation process involves wild yeasts and bacteria, which produce complex flavors that [can include what are traditionally considered "off-flavors"](https://www.thetakeout.com/1711564/why-belgian-geueze-beer-taste-funky/) in other beer styles, such as funk and sourness. These flavors are not defects in the context of Gueuze but are instead key elements of its profile.
-
-<table>
-  <tr>
-    <td style="width: 50%; text-align: center;">
-      <img src="pics/blacktan.jpg" alt="Black & Tan" style="max-width: 100%; height: auto;"><br>
-      <em>Black & Tan</em>: A black and tan is prepared by filling a glass halfway with pale ale, then adding stout to fill the glass completely. An upside-down tablespoon may be placed over the glass to avoid splashing and mixing the layers. A specially designed black-and-tan spoon is bent in the middle so that it can balance on the edge of the pint-glass for easier pouring. The "layering" of Guinness on top of the pale ale or lager is possible because of the lower relative density of the Guinness.
-    </td>
-    <td style="width: 50%; text-align: center;">
-      <em>Gueuze</em><br>
-      <img src="pics/gueuze.png" alt="Gueuze" style="max-width: 100%; height: auto;">
-    </td>
-  </tr>
-</table>
-
 <table>
   <tr>
     <td style="width: 50%; text-align: center; font-size: 12px;">
@@ -93,8 +79,8 @@ Reviews of beers in the *Black & Tan* style show the highest reliance on Appeara
       <strong>Black & Tan</strong>: A black and tan is prepared by filling a glass halfway with pale ale, then adding stout to fill the glass completely. An upside-down tablespoon may be placed over the glass to avoid splashing and mixing the layers. A specially designed black-and-tan spoon is bent in the middle so that it can balance on the edge of the pint-glass for easier pouring. The "layering" of Guinness on top of the pale ale or lager is possible because of the lower relative density of the Guinness.
     </td>
     <td style="width: 50%; text-align: center; font-size: 12px;">
-      <em>Gueuze</em><br>
       <img src="pics/gueuze.png" alt="Gueuze" style="max-width: 100%; height: auto;">
+      <strong>Gueuze</strong>: Due to its lambic blend, gueuze has a different flavor than traditional ales and lagers. Because of their use of aged hops, lambics lack the characteristic hop aroma or flavor found in most other beers. Furthermore, the wild yeasts that are specific to lambic-style beers give gueuze a dry, cider-like, musty, sour, acetic acid, lactic acid taste. Many describe the taste as sour and "barnyard-like". 
     </td>
   </tr>
 </table>
