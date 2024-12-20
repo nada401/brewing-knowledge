@@ -132,7 +132,7 @@ We further investigate the country-wise distribution of expertness scores by loo
   <iframe class="plotIframe" src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: none;"></iframe>
 </div>
 
-## Beer Styles (not doing it - maybe)
+## Beer Styles
 ![Flavour](pics/flavour_score_stylewise.png)
 ![Mouthfeel](pics/mouthfeel_score_stylewise.png)
 ![Brewing](pics/brewing_score_stylewise.png)
