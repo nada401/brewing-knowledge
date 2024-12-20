@@ -244,5 +244,14 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
         iframe.style.width = '100%'; // Somehow it was broken
       }
     });
+
+    setTimeout(() => {
+      plotIframes.forEach(function (iframe) {
+        if (iframe.style.display === 'block') {
+          const chart = echarts.getInstanceByDom(iframe.contentDocument.getElementById('line-chart'));
+          if (chart) chart.resize();
+        }
+      });
+    }, 300); // Delay to ensure iframe is fully rendered
   }
 </script>
