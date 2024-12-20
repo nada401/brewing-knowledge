@@ -42,17 +42,17 @@
             trigger: 'axis',
         },
         legend: {
-            data: ['USA', 'Sweeden', 'United Kingdom', 'Netherlands', 'Canada', 'Australia', 'Mexico', 'Germany', 'Japan', 'Belgium'],
+            data: ['USA', 'Canada', 'United Kingdom', 'Japan', 'Australia', 'Sweeden', 'Netherlands', 'Mexico', 'Germany', 'Belgium'],
             selected: {
                 'USA': true, 
                 'Sweeden': false,
                 'United Kingdom': true, 
                 'Netherlands': false, 
                 'Canada': true, 
-                'Australia': true, 
+                'Australia': false, 
                 'Mexico': false,
                 'Germany': false, 
-                'Japan': false, 
+                'Japan': true, 
                 'Belgium': false,
             },
         },
@@ -95,6 +95,12 @@
             data: dataUk,
             },
             {
+            name: 'Japan',
+            type: 'line',
+            // stack: 'Total',
+            data: dataJapan,
+            },
+            {
             name: 'Netherlands',
             type: 'line',
             // stack: 'Total',
@@ -123,12 +129,6 @@
             type: 'line',
             // stack: 'Total',
             data: dataGermany,
-            },
-            {
-            name: 'Japan',
-            type: 'line',
-            // stack: 'Total',
-            data: dataJapan,
             },
             {
             name: 'Belgium',
