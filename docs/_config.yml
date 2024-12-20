@@ -41,6 +41,7 @@ avatar: "/pics/avatar.webp"
 round-avatar: true
 navbar-img: "/pics/navbar.jpg"
 navbar-border-col: "#000000"
+include: [assets/css/custom.css] # test
 
 # Exclude from processing.
 # The following items will not be processed, by default.

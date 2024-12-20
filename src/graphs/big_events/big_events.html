@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECharts Baseline Example</title>
+  <!-- Import ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    /* Styling for the container */
+    #container {
+      width: 100%;
+      height: 600px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  
+  <script>
+    // Initialize the ECharts instance
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    // Chart configuration (option)
+    var option = {
+      title: {
+        text: 'Difference in the expertness score during big beer events over the average of the year',
+        subtext: "taking only relevant subsets of data",
+        left: 'center',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      grid: {
+        top: 50,
+        bottom: 50,
+        left: 80,
+      },
+      yAxis: {
+        type: 'value',
+        position: 'top',
+        name: 'Variation in expertness score over the mean of the year (%)', 
+        nameLocation: 'middle',
+        nameTextStyle: {
+          padding: [0, 0, 30, 0]
+        },
+        min: -5,
+        max: 28,
+        splitLine: {
+          lineStyle: {
+            type: 'dashed'
+          }
+        }
+      },
+      xAxis: {
+        type: 'category',
+        name: 'Event', 
+        nameLocation: 'middle',
+        nameTextStyle: {
+            padding: [20, 0, 0, 0]
+        },
+        data: [
+          'Oktoberfest',
+          '4th of July',
+          "St.Patrick's day",
+        ]
+      },
+      series: [
+        {
+          name: 'Variation during the event over the whole year',
+          type: 'bar',
+          stack: 'Total',
+          label: {
+            show: true,
+            formatter: '{b}'
+          },
+          data: [
+            {value: 1.887, itemStyle: {color: '#fff4c4'}},
+            {value: -3.784, itemStyle: {color: '#f6c0c0'}},
+            {value: 25.488, itemStyle: {color: '#d6f5d6'}}, 
+          ]
+        }
+      ]
+    };
+
+    // Apply the option to the chart
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    // Make the chart responsive
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
