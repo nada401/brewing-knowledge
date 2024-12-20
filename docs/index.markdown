@@ -132,7 +132,14 @@ One of the hypothesis we have is that we expect the average expertness score of 
 We further investigate the country-wise distribution of expertness scores by looking at the time evolution of the yearly average for some countries. To make sure we have enough samples for each year, we set a filter of 5000 reviews per country and plot the evolution over time. We notice that the United States maintains a higher score from the beginning, while we observe evolution in all the other countries. There is quite a sharp evolution initially between 2000-2005, and then the scores plateau. This evolution graph is similar to the Expert/Non-Expert analysis we did, but here we have plotted the evolution with time, as compared to the evolution with the number of reviews earlier. 
 
 <div class="l-page">
-  <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe>
+  <select class="iframeSelector" onchange="switchIframe(event)">
+    <option value="{{ '/plots/evolution_countries.html' | relative_url }}">test1</option>
+    <option value="{{ '/plots/radar_importance.html' | relative_url }}">test2</option>
+  </select>
+
+  <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
+  <iframe class="plotIframe" src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
+  <iframe class="plotIframe" src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: none;"></iframe>
 </div>
 
 ## Beer Styles (not doing it - maybe)
@@ -216,3 +223,16 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
 - ![alessandroeavatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/181464875?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d) Alessandro Di Maria
 - ![nicolaavatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/76104087?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d) Nicola Stocco
 - ![danieleavatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/43929743?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d) Daniele Pusceddu
+
+<script>
+  function switchIframe(event) {
+    var selector = event.target;
+    var plotIframes = document.querySelectorAll('.plotIframe');
+    plotIframes.forEach(function(iframe) {
+      iframe.style.display = 'none'; // Hide all iframes
+      if (iframe.src === selector.value) {
+        iframe.style.display = 'flex'; // Show the selected iframe
+      }
+    });
+  }
+</script>
