@@ -157,7 +157,7 @@ We further investigate the country-wise distribution of expertness scores by loo
   <iframe class="plotIframe3" src="{{ '/pics/brewing_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="200px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/technical_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
   <iframe class="plotIframe3" src="{{ '/pics/appearance_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
-  <iframe class="plotIframe3" src="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
+  <iframe class="plotIframe3" src="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' width="100%" style="visibility: hidden; position: absolute;"></iframe>
 </div>
 
 ## More about our metric - Scores Correlation Matrix
