@@ -213,6 +213,8 @@ It would be interesting to analyze how these events and the resulting influx of 
 - For St. Patrick's Day we focused on reviews of Guinness beers, comparing the average expertise score of reviews posted on March 17th (across all years) with the overall average expertise score of Guinness beer reviews.
 - For the 4th of July we examined all reviews from U.S.-based reviewers, comparing the average expertise score of reviews posted on Independence Day with the annual average expertise score of U.S. reviewers.
 
+As expected, we see significant spikes in the number of reviews during all these events. The most interesting observation is that we see a whopping 25% increase in the expertness score during the time of St. Patrick's day. This is very surprising, as we would expect the quality of reviews to go down when people are writing a lot of reviews. In contrast, we only see a 1.8% increase in quality for Oktoberfest. This can be explained by the fact that St. Patrick's Day is heavily associated with celebrations involving Irish stouts and high-quality beers like Guinness, which might attract more enthusiastic and discerning reviewers. St. Patrick's Day emphasizes drinking experiences, whereas Oktoberfest often centers around socializing and traditional lagers, which might not evoke as much critical evaluation. Lastly, we notice a 3% drop in review quality for the fourth of July. This is most likely due to the fact that fourth of July is not really a beer festival and the users might not be too concerned with leaving critical reviews.
+
 <div class="l-page">
   <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%"></iframe>
 </div>
