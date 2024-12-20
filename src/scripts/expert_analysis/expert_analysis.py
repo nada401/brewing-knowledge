@@ -3,25 +3,6 @@ import pandas as pd
 import numpy as np
 import os
 
-def get_expert_metric_dfs(data_path):
-    advocate_dir = os.path.join(data_path, 'BeerAdvocate')
-
-    rev_with_scores = pd.read_pickle(os.path.join(advocate_dir, 'rev_w_scores.pkl'))
-    rev_with_scores.columns = ['appearance_rt' if i == 9 else col for i, col in enumerate(rev_with_scores_rb.columns)]
-    beers = pd.read_csv(os.path.join(advocate_dir, 'beers_BA_clean.csv'))
-    users = pd.read_csv(os.path.join(advocate_dir, 'users_BA_clean.csv'))
-
-    rev_with_scores['date'] =  pd.to_datetime(rev_with_scores['date'])
-    users['date_first_review'] = pd.to_datetime(users['date_first_review'])
-
-    # create a new column with the number of reviews each user gave
-    rev_with_scores_grouped=rev_with_scores.groupby('user_id')['beer_id'].agg(['size'])
-    rev_with_scores_grouped=rev_with_scores_grouped.reset_index()
-    rev_with_scores_grouped=rev_with_scores_grouped.rename(columns={'size': 'nbr_reviews'})
-    users= pd.merge(users, rev_with_scores_grouped, on="user_id")
-
-    return rev_with_scores, beers, users
-
 def parse_users(rev_with_scores):
     col_to_keep = ['flavor', 'mouthfeel', 'brewing', 'technical', 'appearance','off_flavors', 'expertness_score']
     user_ba = rev_with_scores.groupby('user_id').agg(

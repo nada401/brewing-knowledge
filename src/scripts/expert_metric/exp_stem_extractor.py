@@ -5,8 +5,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import SnowballStemmer
 from string import punctuation
-import sys
-sys.path.append('../')
 from helpers import *
 
 STOP_WORDS = set(stopwords.words('english'))
