@@ -140,26 +140,6 @@ We further investigate the country-wise distribution of expertness scores by loo
 
 ## Beer Styles
 
-<!-- <div class="l-page" width="100%">
-  <select class="iframeSelector" onchange="switchIframe(event, '.plotIframe3')">
-    <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
-    <option value="{{ '/pics/flavour_score_stylewise.png' | relative_url }}">Flavor</option>
-    <option value="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}">Mouthfeel</option>
-    <option value="{{ '/pics/brewing_score_stylewise.png' | relative_url }}">Brewing</option>
-    <option value="{{ '/pics/technical_score_stylewise.png' | relative_url }}">Technical</option>
-    <option value="{{ '/pics/appearance_score_stylewise.png' | relative_url }}">Appearance</option>
-    <option value="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}">Off flavor</option>
-  </select>
-
-  <iframe class="plotIframe3" src="{{ '/pics/expertness_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: visible; position: relative;"></iframe>
-  <iframe class="plotIframe3" src="{{ '/pics/flavour_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
-  <iframe class="plotIframe3" src="{{ '/pics/mouthfeel_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
-  <iframe class="plotIframe3" src="{{ '/pics/brewing_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
-  <iframe class="plotIframe3" src="{{ '/pics/technical_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
-  <iframe class="plotIframe3" src="{{ '/pics/appearance_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
-  <iframe class="plotIframe3" src="{{ '/pics/off_flavours_score_stylewise.png' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
-</div> -->
-
 <div class="image-switcher" style="text-align: center;">
   <select id="imageSelector" onchange="switchImage()">
     <option value="{{ '/pics/expertness_score_stylewise.png' | relative_url }}">Expertise score</option>
@@ -183,6 +163,17 @@ How do our expertise scores correlate with the reviewer's rating of the review? 
 - Our expertise scores are not strongly correlated to the numerical ratings left by the user, which gives a blue shade to our lower left quadrant. This is good, although we do note in general a slightly positive correlation. A possible explanation for this is that reviewers tend to write more in-depth for beers that they have enjoyed.
 - The expertise score for off-flavor is unique in having a negative correlation with all of the numeric ratings, which matches with the generally negative connotation carried by terms in that category.
 - The overall expertise score is most heavily influenced by the expertise score for flavor, which means that reviewers tend to write more in-depth about that aspect of the beer. This adds evidence to flavor being the aspect to which reviewers tend to give the most weight.
+
+<div class="image-switcher" style="text-align: center;">
+  <select id="imageSelector" onchange="switchImage()">
+    <option value="{{ '/pics/corr_matrix_all_BA.png' | relative_url }}">BeerAdvocate</option>
+    <option value="{{ '/pics/corr_matrix_all_RB.png' | relative_url }}">RateBeer</option>
+  </select>
+
+  <div style="margin-top: 20px;">
+    <img id="displayedImage" src="{{ '/pics/corr_matrix_all_BA.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
+  </div>
+</div>
 
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_RB.png)
