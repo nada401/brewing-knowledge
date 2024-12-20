@@ -24,6 +24,8 @@ But what about the wider community of more casual reviewers on BeerAdvocate and 
 
 In this data story, we invite you to join us as we explore these questions, using data to uncover insights about beer critique and the diverse community of reviewers behind it.
 
+If you happen to be colorblind, no worries: we have carefully chosen the color palettes for all our plots to ensure they are accessible to everyone!.
+
 # Datasets
 We have used two datasets, one for BeerAdvocate and one for RateBeer. Both datasets were generously provided by EPFL's Data Science Lab, who makes them available upon request\[[2](#ref-sheep)\]. 
 
@@ -69,28 +71,6 @@ Let's pair this with a plot to see which term categories are the most used. As w
 
 # Results
 Now that we’ve outlined how we evaluate the expertise level demonstrated in a review, let's see if we can get some interesting insights with our metric.
-
-## Categorical Coverage by Beer Style
-[Beer styles](https://www.bjcp.org/style/2021/beer/) categorize beers based on shared attributes such as ingredients, brewing techniques, and flavor profiles. The interactive radar chart below visualizes the average contribution of each term category to the final expertise score across several popular beer styles. The values are normalized as fractions of the maximum average weight achieved by each category.
-<div class="l-page">
-  <iframe src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
-</div>
-
-Reviews of beers in the *Black & Tan* style show the highest reliance on Appearance terms, which reflects the visually striking looks of these beers. The most striking anomaly however emerges with the *Gueuze* beer style, whose reviews are dominated by terms in the off-flavor category (which corresponds to the undesirable flavors in Meilgaard's wheel). Gueuze is indeed a peculiar beer style. Its fermentation process involves wild yeasts and bacteria, which produce complex flavors that [can include what are traditionally considered "off-flavors"](https://www.thetakeout.com/1711564/why-belgian-geueze-beer-taste-funky/) in other beer styles, such as funk and sourness. These flavors are not defects in the context of Gueuze but are instead key elements of its profile.
-<table>
-  <tr>
-    <td style="width: 50%; text-align: center; font-size: 12px;">
-      <img src="pics/blacktan.jpg" alt="Black & Tan" style="max-width: 100%; height: auto;"><br>
-      <strong>Black & Tan</strong>: A black and tan is prepared by filling a glass halfway with pale ale, then adding stout to fill the glass completely. An upside-down tablespoon may be placed over the glass to avoid splashing and mixing the layers. A specially designed black-and-tan spoon is bent in the middle so that it can balance on the edge of the pint-glass for easier pouring. The "layering" of Guinness on top of the pale ale or lager is possible because of the lower relative density of the Guinness.
-    </td>
-    <td style="width: 50%; text-align: center; font-size: 12px;">
-      <img src="pics/gueuze.png" alt="Gueuze" style="max-width: 100%; height: auto;">
-      <strong>Gueuze</strong>: Due to its lambic blend, gueuze has a different flavor than traditional ales and lagers. Because of their use of aged hops, lambics lack the characteristic hop aroma or flavor found in most other beers. Furthermore, the wild yeasts that are specific to lambic-style beers give gueuze a dry, cider-like, musty, sour, acetic acid, lactic acid taste. Many describe the taste as sour and "barnyard-like". 
-    </td>
-  </tr>
-</table>
-
-
 
 ## Expertise Over Time
 It would be reasonable to hypothesize that the reviewers in both websites would improve at critiquing beers as they gain more experience. Under this assumption, if our metric is any good, we should be able to see for the average user a positive upwards trend in the overall expertise score achieved by the reviews they publish over time. Let's put this to the test by doing just that.
@@ -150,8 +130,58 @@ We further investigate the country-wise distribution of expertness scores by loo
   <iframe class="plotIframe2" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%" style="visibility: hidden; position: absolute;"></iframe>
 </div>
 
-## Beer Styles
-Let's further analyze the relation between expertise scores and beer styles. We will show the top beers for each of our expertise scores, which gives us the following insights:
+
+## Impact of popular beer events on reviews quality
+Throughout the year there are many events around the world dedicated at least in part to celebrating beer. These events may lead to a noticeable increase in the number of beer reviews posted around the time period. Notable examples are **St. Patrick’s Day** (Ireland), **Oktoberfest** (Germany) and **4th of July** (USA).
+
+<div class="image-switcher" style="text-align: left;">
+  <select id="imageSelector4" onchange="switchImage('imageSelector4', 'displayedImage4')">
+    <option value="{{ '/pics/nRev_Oktoberfest.png' | relative_url }}">Oktoberfest</option>
+    <option value="{{ '/pics/nRev_StPatrick.png' | relative_url }}">St.Patrick's day</option>
+    <option value="{{ '/pics/nRev_4July.png' | relative_url }}">4th of July</option>
+  </select>
+
+  <div style="margin-top: 20px;">
+    <img id="displayedImage4" src="{{ '/pics/nRev_Oktoberfest.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
+  </div>
+</div>
+
+It would be interesting to analyze how these events and the resulting influx of reviews affect the expertise scores of the involved beers and locations. Given the unique nature of each event, we conducted an ad-hoc analysis for each:
+- For Oktoberfest we analyzed reviews for beers brewed by the six breweries that participate annually in the event. Specifically, we compared the average expertise score of reviews posted during the Oktoberfest period (across all years) with the overall average expertise score of Guinness beer reviews.
+- For St. Patrick's Day we focused on reviews of Guinness beers, comparing the average expertise score of reviews posted on March 17th (across all years) with the overall average expertise score of Guinness beer reviews.
+- For the 4th of July we examined all reviews from U.S.-based reviewers, comparing the average expertise score of reviews posted on Independence Day with the annual average expertise score of U.S. reviewers.
+
+As expected, we see significant spikes in the number of reviews during all these events. The most interesting observation is that we see a whopping 25% increase in the expertness score during the time of St. Patrick's day. This is very surprising, as we would expect the quality of reviews to go down when people are writing a lot of reviews. In contrast, we only see a 1.8% increase in quality for Oktoberfest. This can be explained by the fact that St. Patrick's Day is heavily associated with celebrations involving Irish stouts and high-quality beers like Guinness, which might attract more enthusiastic and discerning reviewers. St. Patrick's Day emphasizes drinking experiences, whereas Oktoberfest often centers around socializing and traditional lagers, which might not evoke as much critical evaluation. Lastly, we notice a 3% drop in review quality for the fourth of July. This is most likely due to the fact that fourth of July is not really a beer festival and the users might not be too concerned with leaving critical reviews.
+
+<div class="l-page">
+  <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%"></iframe>
+</div>
+
+## Analysis by Beer Styles
+[Beer styles](https://www.bjcp.org/style/2021/beer/) categorize beers based on shared attributes such as ingredients, brewing techniques, and flavor profiles. Do some beer styles tend to give different results with our expertise metric?
+
+### Categorical Coverage
+The interactive radar chart below visualizes the average contribution of each term category to the final expertise score across several popular beer styles. The values are normalized as fractions of the maximum average weight achieved by each category.
+<div class="l-page">
+  <iframe src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
+</div>
+
+Reviews of beers in the *Black & Tan* style show the highest reliance on Appearance terms, which reflects the visually striking looks of these beers. The most striking anomaly however emerges with the *Gueuze* beer style, whose reviews are dominated by terms in the off-flavor category (which corresponds to the undesirable flavors in Meilgaard's wheel). Gueuze is indeed a peculiar beer style. Its fermentation process involves wild yeasts and bacteria, which produce complex flavors that [can include what are traditionally considered "off-flavors"](https://www.thetakeout.com/1711564/why-belgian-geueze-beer-taste-funky/) in other beer styles, such as funk and sourness. These flavors are not defects in the context of Gueuze but are instead key elements of its profile.
+<table>
+  <tr>
+    <td style="width: 50%; text-align: center; font-size: 12px;">
+      <img src="pics/blacktan.jpg" alt="Black & Tan" style="max-width: 100%; height: auto;"><br>
+      <strong>Black & Tan</strong>: A black and tan is prepared by filling a glass halfway with pale ale, then adding stout to fill the glass completely. An upside-down tablespoon may be placed over the glass to avoid splashing and mixing the layers. A specially designed black-and-tan spoon is bent in the middle so that it can balance on the edge of the pint-glass for easier pouring. The "layering" of Guinness on top of the pale ale or lager is possible because of the lower relative density of the Guinness.
+    </td>
+    <td style="width: 50%; text-align: center; font-size: 12px;">
+      <img src="pics/gueuze.png" alt="Gueuze" style="max-width: 100%; height: auto;">
+      <strong>Gueuze</strong>: Due to its lambic blend, gueuze has a different flavor than traditional ales and lagers. Because of their use of aged hops, lambics lack the characteristic hop aroma or flavor found in most other beers. Furthermore, the wild yeasts that are specific to lambic-style beers give gueuze a dry, cider-like, musty, sour, acetic acid, lactic acid taste. Many describe the taste as sour and "barnyard-like". 
+    </td>
+  </tr>
+</table>
+
+### Beers with the most in-depth reviews for each category
+Let's analyze the relation between expertise scores and beer styles further. We will show the top beers for each of our expertise scores, which gives us the following insights:
 
 - **Appearance**: both BeerAdvocate and RateBeer have **darker beers** at the top. Black & Tan, Black Ales, Dark Ales, Stouts, Schwarzbier... It seems darker shades of beers tend to receive a deeper treatment on their appearance.
 - **Off-flavors** are more deeply discussed in Gueze style beers (as we have seen before) but more generally in **Lambic** and **Sour** beers.
@@ -195,36 +225,11 @@ How do our expertise scores correlate with the reviewer's rating of the review? 
   </div>
 </div>
 
-## Impact of popular beer events on reviews quality
-Throughout the year there are many events around the world dedicated at least in part to celebrating beer. These events may lead to a noticeable increase in the number of beer reviews posted around the time period. Notable examples are **St. Patrick’s Day** (Ireland), **Oktoberfest** (Germany) and **4th of July** (USA).
-
-<div class="image-switcher" style="text-align: left;">
-  <select id="imageSelector4" onchange="switchImage('imageSelector4', 'displayedImage4')">
-    <option value="{{ '/pics/nRev_Oktoberfest.png' | relative_url }}">Oktoberfest</option>
-    <option value="{{ '/pics/nRev_StPatrick.png' | relative_url }}">St.Patrick's day</option>
-    <option value="{{ '/pics/nRev_4July.png' | relative_url }}">4th of July</option>
-  </select>
-
-  <div style="margin-top: 20px;">
-    <img id="displayedImage4" src="{{ '/pics/nRev_Oktoberfest.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
-  </div>
-</div>
-
-It would be interesting to analyze how these events and the resulting influx of reviews affect the expertise scores of the involved beers and locations. Given the unique nature of each event, we conducted an ad-hoc analysis for each:
-- For Oktoberfest we analyzed reviews for beers brewed by the six breweries that participate annually in the event. Specifically, we compared the average expertise score of reviews posted during the Oktoberfest period (across all years) with the overall average expertise score of Guinness beer reviews.
-- For St. Patrick's Day we focused on reviews of Guinness beers, comparing the average expertise score of reviews posted on March 17th (across all years) with the overall average expertise score of Guinness beer reviews.
-- For the 4th of July we examined all reviews from U.S.-based reviewers, comparing the average expertise score of reviews posted on Independence Day with the annual average expertise score of U.S. reviewers.
-
-As expected, we see significant spikes in the number of reviews during all these events. The most interesting observation is that we see a whopping 25% increase in the expertness score during the time of St. Patrick's day. This is very surprising, as we would expect the quality of reviews to go down when people are writing a lot of reviews. In contrast, we only see a 1.8% increase in quality for Oktoberfest. This can be explained by the fact that St. Patrick's Day is heavily associated with celebrations involving Irish stouts and high-quality beers like Guinness, which might attract more enthusiastic and discerning reviewers. St. Patrick's Day emphasizes drinking experiences, whereas Oktoberfest often centers around socializing and traditional lagers, which might not evoke as much critical evaluation. Lastly, we notice a 3% drop in review quality for the fourth of July. This is most likely due to the fact that fourth of July is not really a beer festival and the users might not be too concerned with leaving critical reviews.
-
-<div class="l-page">
-  <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%"></iframe>
-</div>
+# Hall of Fame: the best reviewers
+Which reviewers should you follow to get the best reviews? Here is a list of the reviewers who achieved the highest average expertise scores.
 
 
-# Our Recommendations
-
-So, which expert should you follow to get the best reviews? To answer this, we have curated a list with the top experts on BeerAdvocate you can check out to get to know about the beers you want to try out. 
+For BeerAdvocate:
 
 | Username          | Location                  | Number of reviews | Expert Score |
 |-------------------|---------------------------|-------------------|--------------|
@@ -242,7 +247,7 @@ So, which expert should you follow to get the best reviews? To answer this, we h
 | [mdagnew](https://www.beeradvocate.com/user/beers/?ba=mdagnew)           | Northern Ireland         | 1143              | 11.52        |
 
 
-Here are the experts from RateBeer:
+For RateBeer:
 
 | Username                         | Location                  | Number of Ratings | Expert Score |
 |----------------------------------|---------------------------|-------------------|--------------|
@@ -261,15 +266,11 @@ Here are the experts from RateBeer:
 | [brewandbbq](https://www.ratebeer.com/user/34515/)      | United States, New Hampshire | 233          | 8.89         |
 | [jpm30](https://www.ratebeer.com/user/28003/)           | United States, Georgia   | 1451              | 8.81         |
 
-One of the most interesting things to notice in the top experts for the 2 datasets is that on average, the raw scores for BeerAdvocate are higher than RateBeer. Thus, you are more likely to find better worded reviews on BeerAdvocate than on RateBeer. It is also interesting to see the user "superspak" turn up on the top experts for both the datasets. They also have roughly the same expert score for both the datasets. So, if you want good quality beer reviews, we would recommend checking out some of these experts' reviews on the 2 websites.
+Interestingly, the highest average expertise scores for BeerAdvocate are higher than those for RateBeer. Props to user "superspak", who appears among the top experts in both the datasets!
 
 <div class="l-page">
   <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="100px" width="100%" style="border: 0px dashed grey;"></iframe>
 </div>
-
-##  Note
-
-We have carefully chosen color palettes for all our plots to ensure they are accessible and considerate of viewers who are colorblind.
 
 ##  The Team
 This Data Story is brought to you by the Nada-401 team as part of a project for the 2024 Applied Data Analysis course at EPFL. The team members are, in alphabetical order:
