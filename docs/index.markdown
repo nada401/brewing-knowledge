@@ -150,6 +150,7 @@ This correlation matrix highlights some interesting insights:
 
 
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
+![Correlation matrix for all scores for BA](pics/corr_matrix_all_RB.png)
 
 ## Impact of popular beer events on reviews quality
 
