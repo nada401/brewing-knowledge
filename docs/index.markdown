@@ -123,13 +123,13 @@ We further investigate the country-wise distribution of expertness scores by loo
 
 <div class="l-page">
   <select class="iframeSelector" onchange="switchIframe(event)">
-    <option value="{{ '/plots/evolution_countries.html' | relative_url }}">test1</option>
-    <option value="{{ '/plots/radar_importance.html' | relative_url }}">test2</option>
+    <option value="{{ '/plots/evolution_countries_BA.html' | relative_url }}">BeerAdvocate dataset</option>
+    <option value="{{ '/plots/evolution_countries_RB.html' | relative_url }}">RateBeer dataset</option>
   </select>
 
   <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
-  <iframe class="plotIframe" src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
-  <iframe class="plotIframe" src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: none;"></iframe>
+  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_BA.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
+  <iframe class="plotIframe" src="{{ '/plots/evolution_countries_RB.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: none;"></iframe>
 </div>
 
 ## Beer Styles
