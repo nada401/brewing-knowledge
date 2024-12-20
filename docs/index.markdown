@@ -196,7 +196,17 @@ How do our expertise scores correlate with the reviewer's rating of the review? 
 ## Impact of popular beer events on reviews quality
 Throughout the year there are many events around the world dedicated at least in part to celebrating beer. These events may lead to a noticeable increase in the number of beer reviews posted around the time period. Notable examples are **St. Patrick’s Day** (Ireland), **Oktoberfest** (Germany) and **4th of July** (USA).
 
-**PUT A PLOT HERE SHOWCASING THE CHANGE IN QUANTITY OF REVIEWS**
+<div class="image-switcher" style="text-align: left;">
+  <select id="imageSelector4" onchange="switchImage('imageSelector4', 'displayedImage4')">
+    <option value="{{ '/pics/nRev_Oktoberfest.png' | relative_url }}">Oktoberfest</option>
+    <option value="{{ '/pics/nRev_StPatrick.png' | relative_url }}">St.Patrick's day</option>
+    <option value="{{ '/pics/nRev_4July.png' | relative_url }}">4th of July</option>
+  </select>
+
+  <div style="margin-top: 20px;">
+    <img id="displayedImage4" src="{{ '/pics/nRev_Oktoberfest.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
+  </div>
+</div>
 
 It would be interesting to analyze how these events and the resulting influx of reviews affect the expertise scores of the involved beers and locations. Given the unique nature of each event, we conducted an ad-hoc analysis for each:
 - For Oktoberfest we analyzed reviews for beers brewed by the six breweries that participate annually in the event. Specifically, we compared the average expertise score of reviews posted during the Oktoberfest period (across all years) with the overall average expertise score of Guinness beer reviews.
