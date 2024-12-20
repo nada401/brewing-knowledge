@@ -107,8 +107,16 @@ Indeed, in both websites we see that the bottom 20% achieves a very sharp improv
 We also see impressive improvements for the middle 20-80% group of beginners, while the top 20% of beginners has the least amount of improvement and the earliest plateau. 
 Although the trends on improvements closely match each other, we can see that users on RateBeer perform worse than those on BeerAdvocate. A possible explanation that we would like to explore is that RateBeer has a more international community (**put actual numbers**), which might translate into a poorer vocabulary on average. This brings us to performing an analysis of the metric per country.
 
-![BA English/Non English Users Improvement Over Time](pics/BA_exp_nonexp_eng_nongl_evol.png)
-![RB English/Non English Users Improvement Over Time](pics/RB_exp_nonexp_eng_nongl_evol.png)
+<div class="image-switcher" style="text-align: center;">
+  <select id="imageSelector3" onchange="switchImage('imageSelector3', 'displayedImage3')">
+    <option value="{{ '/pics/BA_exp_nonexp_eng_nongl_evol.png' | relative_url }}">BeerAdvocate</option>
+    <option value="{{ '/pics/RB_exp_nonexp_eng_nongl_evol.png' | relative_url }}">RateBeer</option>
+  </select>
+
+  <div style="margin-top: 20px;">
+    <img id="displayedImage3" src="{{ '/pics/BA_exp_nonexp_eng_nongl_evol.png' | relative_url }}" alt="Selected Image" style="max-width: 100%; height: auto;">
+  </div>
+</div>
 
 
 ## Expertise Per Country
