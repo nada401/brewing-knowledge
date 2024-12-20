@@ -167,7 +167,7 @@ For Oktoberfest, we analyzed all the reviews for the 6 breweries present at the 
   <iframe src="{{ '/plots/test_plot.html' | relative_url }}" frameborder='0' scrolling='no' height="400px" width="100%" style="border: 1px dashed grey;"></iframe>
 </div> -->
 
-# Conclusions
+# Our Recommendations
 
 So, which expert should you follow to get the best reviews? To answer this, we have curated a list with the top experts on BeerAdvocate you can check out to get to know about the beers you want to try out. 
 
