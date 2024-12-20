@@ -51,8 +51,14 @@ Here is a small demo of our metric: we illustrate our metric through pairs of ex
 </div>
 
 ## Word Cloud
-Here is a pretty word cloud of the metric terms most commonly used in both websites
-word_occurrencies
+This word cloud reveals key descriptive terms from a beer reviews dataset, highlighting common attributes and sensory details that beer reviewers focus on:
+
+1) Flavor Attributes: Words like "bitterness," "malt," "citrus," "caramel," and "chocolate" indicate flavor profiles commonly discussed in reviews.
+2) Sensory Experience: Terms like "light," "body," "carbonated," and "drying" reflect the beer's mouthfeel.
+3) Aroma and Notes: Words such as "fruity," "hoppy," "dark," and "spicy" capture aromatic characteristics.
+4) Finish and Aftertaste: "Finish," "lacing," and "drying" point to the importance of a beer's aftertaste.
+
+It shows a rich vocabulary used to articulate beer experiences, offering insight into consumer preferences and sensory dimensions.
 
 ![Word Cloud](pics/word_cloud_BA_RB.png)
 
