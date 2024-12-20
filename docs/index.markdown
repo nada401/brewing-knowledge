@@ -94,11 +94,7 @@ It would be reasonable to hypothesize that the reviewers in both websites would 
 
 These results are not as clear as expected would've hoped. While working further on the topic, we realized that many of the users might have been very proficient before joining the website already. Such users would be experiencing diminishing returns over the reviews they post. So, what if we try grouping users based on their starting expertise? We could do this by quartiles on the average overall expertise score achieved in, say, the first 5 reviews they post on the website. Here is what we get when running this analysis on users with at least a thousand reviews in the BeerAdvocate and RateBeer datasets respectively:
 
-![BeerAdvocate Improvement Over Time](pics/improve_aggr_ba.png)
-![RateBeer Improvement Over Time](pics/improve_aggr_rb.png)
-
-
-
+![Users Improvement Over Time](pics/exp_nonexp_evol.png)
 
 Indeed, in both websites we see that the bottom 20% achieves a very sharp improvement in their expertise scores, slowly reaching a plateau between the 300 and 400 review mark. For these users in the bottom 20% of beginners, the Pearson correlation between posting time and overall expertise is in median 0.32 and 0.25, with median p-values of 0.02 and 0.06, for BeerAdvocate and RateBeer respectively.
 
@@ -111,17 +107,11 @@ Indeed, in both websites we see that the bottom 20% achieves a very sharp improv
 We also see impressive improvements for the middle 20-80% group of beginners, while the top 20% of beginners has the least amount of improvement and the earliest plateau. 
 Although the trends on improvements closely match each other, we can see that users on RateBeer perform worse than those on BeerAdvocate. A possible explanation that we would like to explore is that RateBeer has a more international community (**put actual numbers**), which might translate into a poorer vocabulary on average. This brings us to performing an analysis of the metric per country.
 
+![BA English/Non English Users Improvement Over Time](pics/BA_exp_nonexp_eng_nongl_evol.png)
+![RB English/Non English Users Improvement Over Time](pics/RB_exp_nonexp_eng_nongl_evol.png)
+
+
 ## Expertise Per Country
-
-
-show improvement over time for all users (even already expert), once for BA and once for RB
-not that good... what if we consider people who started out bad? it improves!
-in ba_analysis_exp_metric users that don't begin as experts correlation time - expertise score, with median because it's good (0.04 pvalue for the correlation when taking the first 50, then there is a plateu)
-the distributions are different, can we explain that? need to check if these people are a lot more international
-
-then division of expert nonexpert english nonenglish
-average scores (normalized) by location over time posted by vikhyat on whatsapp
-
 
 One of the hypothesis we have is that we expect the average expertness score of English speaking countries to be higher than non-English speaking countries. To test this out, we compute the average score grouped by the location of the users. This includes all the reviews made by users from a particular country. We also filter out countries which have less than 2000 reviews, to have some confidence in our computed average. Since the location for the United States is state-wise for BeerAdvocate, we combine all users into a single "United States" location. We observe that our hypothesis holds to some extent, with the general trend being that the English Speaking countries outscore the non-English speaking countries. This largely corresponds with the EF English Proficiency Index of 2013\[[4](#ref-english)\], where we see that the non-English countries on top of the list indeed have a high average expertness score. We note however the presence of one significant outlier, and that is Belgium, which obtains a low expertness score despite having good English proficiency as a country. For other countries like Sweden, Netherlands, France, Germany, Italy and Spain, we see that there is a relation between their english proficiency and their expertness score. 
 
@@ -132,13 +122,24 @@ One of the hypothesis we have is that we expect the average expertness score of 
 We further investigate the country-wise distribution of expertness scores by looking at the time evolution of the yearly average for some countries. To make sure we have enough samples for each year, we set a filter of 5000 reviews per country and plot the evolution over time. We notice that the United States maintains a higher score from the beginning, while we observe evolution in all the other countries. There is quite a sharp evolution initially between 2000-2005, and then the scores plateau. This evolution graph is similar to the Expert/Non-Expert analysis we did, but here we have plotted the evolution with time, as compared to the evolution with the number of reviews earlier. 
 
 <div class="l-page">
-  <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe>
+  <select class="iframeSelector" onchange="switchIframe(event)">
+    <option value="{{ '/plots/evolution_countries.html' | relative_url }}">test1</option>
+    <option value="{{ '/plots/radar_importance.html' | relative_url }}">test2</option>
+  </select>
+
+  <!-- <iframe src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe> -->
+  <iframe class="plotIframe" src="{{ '/plots/evolution_countries.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
+  <iframe class="plotIframe" src="{{ '/plots/radar_importance.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: none;"></iframe>
 </div>
 
-## Beer Styles (not doing it - maybe)
-Most Frequent Words and Expertness Score, both by country, for:
-- BA American IPA, Imperial Stout, 
-- RB IPA, Imperial Stout, Pale Lager
+## Beer Styles
+![Flavour](pics/flavour_score_stylewise.png)
+![Mouthfeel](pics/mouthfeel_score_stylewise.png)
+![Brewing](pics/brewing_score_stylewise.png)
+![Technical](pics/technical_score_stylewise.png)
+![Appearance](pics/appearance_score_stylewise.png)
+![Off Flavours](pics/off_flavours_score_stylewise.png)
+![Expert Score](pics/expertness_score_stylewise.png)
 
 ## More about our metric - Scores Correlation Matrix
 This correlation matrix highlights some interesting insights:
@@ -150,6 +151,7 @@ This correlation matrix highlights some interesting insights:
 
 
 ![Correlation matrix for all scores for BA](pics/corr_matrix_all_BA.png)
+![Correlation matrix for all scores for BA](pics/corr_matrix_all_RB.png)
 
 ## Impact of popular beer events on reviews quality
 Throughout the year there are many events around the world dedicated at least in part to celebrating beer. These events may lead to a noticeable increase in the number of beer reviews posted around the time period. Notable examples are **St. Patrick’s Day** (Ireland), **Oktoberfest** (Germany) and **4th of July** (USA).
@@ -185,6 +187,28 @@ So, which expert should you follow to get the best reviews? To answer this, we h
 | [hustlesworth](https://www.beeradvocate.com/user/beers/?ba=hustlesworth)      | United States, Ohio      | 689               | 11.85        |
 | [mdagnew](https://www.beeradvocate.com/user/beers/?ba=mdagnew)           | Northern Ireland         | 1143              | 11.52        |
 
+
+Here are the experts from RateBeer:
+
+| Username                         | Location                  | Number of Ratings | Expert Score |
+|----------------------------------|---------------------------|-------------------|--------------|
+| [GoufCustom](https://www.ratebeer.com/user/233863/)       | Hong Kong                | 1832              | 13.34        |
+| [superspak](https://www.ratebeer.com/user/105791/)        | United States, Michigan  | 4847              | 13.14        |
+| [msnelling09](https://www.ratebeer.com/user/241026/)     | United States, Massachusetts | 148        | 12.72        |
+| [pinkie](https://www.ratebeer.com/user/237851/)         | United States, New York  | 386               | 11.23        |
+| [FlacoAlto](https://www.ratebeer.com/user/8187/)        | United States, Arizona   | 3538              | 11.21        |
+| [ksurkin](https://www.ratebeer.com/user/66818/)         | United States, Virginia  | 722               | 10.51        |
+| [Bierdimpfe](https://www.ratebeer.com/user/371540/)     | Canada                   | 639               | 9.94         |
+| [Night_Cap](https://www.ratebeer.com/user/397374/)      | Australia                | 109               | 9.83         |
+| [Alengrin](https://www.ratebeer.com/user/325955/)       | Belgium                  | 5507              | 9.44         |
+| [beermatrix](https://www.ratebeer.com/user/7911/)       | United States, Minnesota | 1233              | 9.07         |
+| [otakuden](https://www.ratebeer.com/user/78541/)        | United States, Florida   | 1446              | 8.98         |
+| [Jabic](https://www.ratebeer.com/user/64352/)           | United States, Vermont   | 452               | 8.97         |
+| [brewandbbq](https://www.ratebeer.com/user/34515/)      | United States, New Hampshire | 233          | 8.89         |
+| [jpm30](https://www.ratebeer.com/user/28003/)           | United States, Georgia   | 1451              | 8.81         |
+
+One of the most interesting things to notice in the top experts for the 2 datasets is that on average, the raw scores for BeerAdvocate are higher than RateBeer. Thus, you are more likely to find better worded reviews on BeerAdvocate than on RateBeer. It is also interesting to see the user "superspak" turn up on the top experts for both the datasets. They also have roughly the same expert score for both the datasets. So, if you want good quality beer reviews, we would recommend checking out some of these experts' reviews on the 2 websites.
+
 ##  The Team
 This Data Story is brought to you by the Nada-401 team as part of a project for the 2024 Applied Data Analysis course at EPFL. The team members are, in alphabetical order:
 - ![vikhyatavatar](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/82029380?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d) Vikhyat Agrawal
@@ -200,3 +224,18 @@ This Data Story is brought to you by the Nada-401 team as part of a project for 
 4. EF English Proficiency Index, 2013. [https://www.ef.com/assetscdn/WIBIwq6RdJvcD9bc8RMd/cefcom-epi-site/reports/2013/ef-epi-2013-english.pdf](https://www.ef.com/assetscdn/WIBIwq6RdJvcD9bc8RMd/cefcom-epi-site/reports/2013/ef-epi-2013-english.pdf) <a name="ref-english"></a>
 4. Beer Judge Certification Programme. [BJCP](https://www.bjcp.org/). <a name="ref-bjcp"></a>
 5. Beer Analytics. [Beer Analytics](https://www.beer-analytics.com/). <a name="ref-beeranalytics"></a>
+
+<script>
+  function switchIframe(event) {
+    var selector = event.target;
+    var plotIframes = document.querySelectorAll('.plotIframe');
+    plotIframes.forEach(function(iframe) {
+      iframe.style.display = 'none'; // Hide all iframes
+      console.log("iframe.src ", iframe.src);
+      console.log("selctor.value ", selector.value, "\n");
+      if (iframe.src.includes(selector.value)) {
+        iframe.style.display = 'flex'; // Show the selected iframe
+      }
+    });
+  }
+</script>
