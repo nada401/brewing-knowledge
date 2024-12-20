@@ -14,9 +14,6 @@ kramdown:
 
 * TOC
 {:toc}
-<div class="l-page">
-  <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="100px" width="100%" style="border: 0px dashed grey;"></iframe>
-</div>
 
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
@@ -251,6 +248,10 @@ Here are the experts from RateBeer:
 | [jpm30](https://www.ratebeer.com/user/28003/)           | United States, Georgia   | 1451              | 8.81         |
 
 One of the most interesting things to notice in the top experts for the 2 datasets is that on average, the raw scores for BeerAdvocate are higher than RateBeer. Thus, you are more likely to find better worded reviews on BeerAdvocate than on RateBeer. It is also interesting to see the user "superspak" turn up on the top experts for both the datasets. They also have roughly the same expert score for both the datasets. So, if you want good quality beer reviews, we would recommend checking out some of these experts' reviews on the 2 websites.
+
+<div class="l-page">
+  <iframe src="{{ '/plots/graphic-stroke-animation.html' | relative_url }}" frameborder='0' scrolling='no' height="100px" width="100%" style="border: 0px dashed grey;"></iframe>
+</div>
 
 ##  Note
 
