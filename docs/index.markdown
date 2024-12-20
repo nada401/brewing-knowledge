@@ -190,23 +190,22 @@ So, which expert should you follow to get the best reviews? To answer this, we h
 
 Here are the experts from RateBeer:
 
-
-| Username                           | Location                  | Number of Ratings | Expert Score |
-|------------------------------------|---------------------------|-------------------|--------------|
-| [GoufCustom](https://www.beeradvocate.com/user/beers/?ba=GoufCustom)         | Hong Kong                | 1832              | 13.34        |
-| [superspak](https://www.beeradvocate.com/user/beers/?ba=superspak)          | United States, Michigan  | 4847              | 13.14        |
-| [msnelling09](https://www.beeradvocate.com/user/beers/?ba=msnelling09)       | United States, Massachusetts | 148        | 12.72        |
-| [pinkie](https://www.beeradvocate.com/user/beers/?ba=pinkie)               | United States, New York  | 386               | 11.23        |
-| [FlacoAlto](https://www.beeradvocate.com/user/beers/?ba=FlacoAlto)          | United States, Arizona   | 3538              | 11.21        |
-| [ksurkin](https://www.beeradvocate.com/user/beers/?ba=ksurkin)             | United States, Virginia  | 722               | 10.51        |
-| [Bierdimpfe](https://www.beeradvocate.com/user/beers/?ba=Bierdimpfe)         | Canada                   | 639               | 9.94         |
-| [Night_Cap](https://www.beeradvocate.com/user/beers/?ba=Night_Cap)          | Australia                | 109               | 9.83         |
-| [Alengrin](https://www.beeradvocate.com/user/beers/?ba=Alengrin)           | Belgium                  | 5507              | 9.44         |
-| [beermatrix](https://www.beeradvocate.com/user/beers/?ba=beermatrix)         | United States, Minnesota | 1233              | 9.07         |
-| [otakuden](https://www.beeradvocate.com/user/beers/?ba=otakuden)            | United States, Florida   | 1446              | 8.98         |
-| [Jabic](https://www.beeradvocate.com/user/beers/?ba=Jabic)                | United States, Vermont   | 452               | 8.97         |
-| [brewandbbq](https://www.beeradvocate.com/user/beers/?ba=brewandbbq)         | United States, New Hampshire | 233          | 8.89         |
-| [jpm30](https://www.beeradvocate.com/user/beers/?ba=jpm30)                | United States, Georgia   | 1451              | 8.81         |
+| Username                         | Location                  | Number of Ratings | Expert Score |
+|----------------------------------|---------------------------|-------------------|--------------|
+| [GoufCustom](https://www.ratebeer.com/user/233863/)       | Hong Kong                | 1832              | 13.34        |
+| [superspak](https://www.ratebeer.com/user/105791/)        | United States, Michigan  | 4847              | 13.14        |
+| [msnelling09](https://www.ratebeer.com/user/241026/)     | United States, Massachusetts | 148        | 12.72        |
+| [pinkie](https://www.ratebeer.com/user/237851/)         | United States, New York  | 386               | 11.23        |
+| [FlacoAlto](https://www.ratebeer.com/user/8187/)        | United States, Arizona   | 3538              | 11.21        |
+| [ksurkin](https://www.ratebeer.com/user/66818/)         | United States, Virginia  | 722               | 10.51        |
+| [Bierdimpfe](https://www.ratebeer.com/user/371540/)     | Canada                   | 639               | 9.94         |
+| [Night_Cap](https://www.ratebeer.com/user/397374/)      | Australia                | 109               | 9.83         |
+| [Alengrin](https://www.ratebeer.com/user/325955/)       | Belgium                  | 5507              | 9.44         |
+| [beermatrix](https://www.ratebeer.com/user/7911/)       | United States, Minnesota | 1233              | 9.07         |
+| [otakuden](https://www.ratebeer.com/user/78541/)        | United States, Florida   | 1446              | 8.98         |
+| [Jabic](https://www.ratebeer.com/user/64352/)           | United States, Vermont   | 452               | 8.97         |
+| [brewandbbq](https://www.ratebeer.com/user/34515/)      | United States, New Hampshire | 233          | 8.89         |
+| [jpm30](https://www.ratebeer.com/user/28003/)           | United States, Georgia   | 1451              | 8.81         |
 
 
 ##  The Team
