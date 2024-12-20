@@ -59,8 +59,7 @@ Let's quickly make the Flavor Wheel more accessible by using a word cloud to see
 ![Word Cloud](pics/word_cloud_BA_RB.png)
 
 Here are some of the words that appear in the word cloud, ordered by the category they belong to:
-- **Flavor:** Attributes: Words like malt, chocolate, bitter, toffee, toasted, sweet, caramel indicate flavor profiles commonly discussed in reviews.
-- **Aroma:** fruity, hoppy, spicy, herbal, zest
+- **Flavor:** Attributes: Words like malt, chocolate, bitter, toffee, toasted, sweet, caramel, fruity, hoppy, spicy, herbal, zest indicate flavor profiles commonly discussed in reviews.
 - **Mouthfeel:** "creamy", hoppy, foam, thick, thin, crisp
 - **Appearance:** amber, yellow, black, light, clear, hazy
 
