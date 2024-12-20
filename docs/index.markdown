@@ -113,16 +113,6 @@ Although the trends on improvements closely match each other, we can see that us
 
 ## Expertise Per Country
 
-
-show improvement over time for all users (even already expert), once for BA and once for RB
-not that good... what if we consider people who started out bad? it improves!
-in ba_analysis_exp_metric users that don't begin as experts correlation time - expertise score, with median because it's good (0.04 pvalue for the correlation when taking the first 50, then there is a plateu)
-the distributions are different, can we explain that? need to check if these people are a lot more international
-
-then division of expert nonexpert english nonenglish
-average scores (normalized) by location over time posted by vikhyat on whatsapp
-
-
 One of the hypothesis we have is that we expect the average expertness score of English speaking countries to be higher than non-English speaking countries. To test this out, we compute the average score grouped by the location of the users. This includes all the reviews made by users from a particular country. We also filter out countries which have less than 2000 reviews, to have some confidence in our computed average. Since the location for the United States is state-wise for BeerAdvocate, we combine all users into a single "United States" location. We observe that our hypothesis holds to some extent, with the general trend being that the English Speaking countries outscore the non-English speaking countries. This can also be matched with the [EF English Proficiency Index](https://www.ef.com/assetscdn/WIBIwq6RdJvcD9bc8RMd/cefcom-epi-site/reports/2013/ef-epi-2013-english.pdf) of 2013, where we see that the non-English countries on top of the list indeed have a higher average expertness score. There are 2 outliers whic stick out when we compare out metric with the Index, and those are Belgium and Romania, which have a low and high score respectively. For other countries like Sweden, Netherlands, France, Germany, Italy and Spain, we see that there is a relation between their english proficiency and their expertness score. 
 
 <div class="l-page">
