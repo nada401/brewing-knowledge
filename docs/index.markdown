@@ -189,7 +189,7 @@ It would be interesting to analyze how these events and the resulting influx of 
 - For the 4th of July we examined all reviews from U.S.-based reviewers, comparing the average expertise score of reviews posted on Independence Day with the annual average expertise score of U.S. reviewers.
 
 <div class="l-page">
-  <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="800px" width="100%"></iframe>
+  <iframe src="{{ '/plots/big_events.html' | relative_url }}" frameborder='0' scrolling='no' height="620px" width="100%"></iframe>
 </div>
 
 
