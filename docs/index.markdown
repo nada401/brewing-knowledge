@@ -51,16 +51,20 @@ Here is a small demo of our metric: we illustrate our metric through pairs of ex
 </div>
 
 ## Word Cloud
-This word cloud reveals key descriptive terms from a beer reviews dataset, highlighting common attributes and sensory details that beer reviewers focus on:
-
-1) Flavor Attributes: Words like "bitterness," "malt," "citrus," "caramel," and "chocolate" indicate flavor profiles commonly discussed in reviews.
-2) Sensory Experience: Terms like "light," "body," "carbonated," and "drying" reflect the beer's mouthfeel.
-3) Aroma and Notes: Words such as "fruity," "hoppy," "dark," and "spicy" capture aromatic characteristics.
-4) Finish and Aftertaste: "Finish," "lacing," and "drying" point to the importance of a beer's aftertaste.
-
-It shows a rich vocabulary used to articulate beer experiences, offering insight into consumer preferences and sensory dimensions.
+Let's quickly make the Flavor Wheel more accessible by using a word cloud to see which of these expertise terms are most commonly used.
 
 ![Word Cloud](pics/word_cloud_BA_RB.png)
+
+Here are some of the words that appear in the word cloud, ordered by the category they belong to:
+- **Flavor:** Attributes: Words like malt, chocolate, bitter, toffee, toasted, sweet, caramel indicate flavor profiles commonly discussed in reviews.
+- **Aroma:** fruity, hoppy, spicy, herbal, zest
+- **Mouthfeel:** "creamy", hoppy, foam, thick, thin, crisp
+- **Appearance:** amber, yellow, black, light, clear, hazy
+
+Let's pair this with a plot to see which term categories are the most used. As we can see, flavor terms are the most prominent, followed by appearance terms. It will turn out that flavor and appearance being more valued and discussed will be a recurring theme in our analysis.
+<div class="l-page">
+  <iframe src="{{ '/plots/pie_categories.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%" style="border: 0px dashed grey;display: flex;"></iframe>
+</div>
 
 # Results
 Now that we’ve outlined how we evaluate the expertise level demonstrated in a review, let's see if we can get some interesting insights with our metric.
