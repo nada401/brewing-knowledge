@@ -147,6 +147,14 @@ We further investigate the country-wise distribution of expertness scores by loo
 </div>
 
 ## Beer Styles
+Let's further analyze the relation between expertise scores and beer styles. We will show the top beers for each of our expertise scores, which gives us the following insights:
+
+- **Appearance**: both BeerAdvocate and RateBeer have **darker beers** at the top. Black & Tan, Black Ales, Dark Ales, Stouts, Schwarzbier... It seems darker shades of beers tend to receive a deeper treatment on their appearance.
+- **Off-flavors** are more deeply discussed in Gueze style beers (as we have seen before) but more generally in **Lambic** and **Sour** beers.
+- **Brewing** techniques are discussed more in-depth for the **classic ales** such as Wheat Ale and others.
+- **Mouthfeel** is discussed particularly in-depth for **Stouts** in both websites and, in the more international RateBeer, also for **Saké**.
+- **Flavor** is heavily discussed in the widely popular **Stouts** and **Indian Pale Ale** beers.
+- **Overall expertise** is highest in the most popular beers such as American Black Ale and Black IPA.
 
 <div class="image-switcher" style="text-align: right;">
   <select id="imageSelector1" onchange="switchImage('imageSelector1', 'displayedImage1')">
